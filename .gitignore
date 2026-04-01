@@ -1,0 +1,10 @@
+# gitignore file for web development team project
+# Ignore node_modules and build directories
+node_modules/
+
+# Ignore IDE specific files
+.vscode/
+.idea/
+
+# Ignore .map files
+*.map
