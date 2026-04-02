@@ -15,16 +15,14 @@
 		<meta name="author" content="Alessandra Spino, Denise Trimm" />
 		<title>Chapter One | Bookstore</title>
 		<!-- add a favicon -->
-		<link rel="icon" type="image/x-icon" href="images/favicon.png" />
+		<link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
 		<link rel="stylesheet" href="../css/main.css" />
 		<script defer src="../js/script.js"></script>
 	</head>
 
 	<body>
 		<!-- TODO - Style skip link to hide it -->
-		<a href="#main-content" class="skip-link visually-hidden"
-			>Skip to main content</a
-		>
+		<a href="#main-content" class="skip-link visually-hidden">Skip to main content</a>
 
 		<header role="banner">
 			<a href="#">
@@ -60,13 +58,50 @@
 					<span id="theme-icon" title="Dark Mode">🌙</span>
 				</button>
 			</div>
+			<!-- possible code (?) -->
+			<!-- <nav id="main-nav" role="navigation" aria-label="Main Navigation">
+			<a class="navButtons active" href="index.html">Home</a>
+			<a class="navButtons" href="books.html">Books</a>
+			<a class="navButtons" href="favourites.html">Favourites</a>
+			<a class="navButtons" href="about.html">About</a>
+			<a class="navButtons" href="contact.html">Contact</a>
+			<a class="navButtons" href="../fr/index.html" lang="fr">FR</a>
+
+			<button id="theme-toggle" aria-label="Toggle Dark Mode">
+				<span id="theme-icon" title="Dark Mode">🌙</span>
+			</button>
+		</nav> -->
 		</nav>
 
 		<main id="main-content" role="main">
 			<!-- Add main content here -->
+			 <section class="hero">
+				<h2>Discover your next favourite book</h2>
+				<p>
+					Curated selections from local authors and beloved classics.
+					Support independent bookstores.
+				</p>
+				<a href="books.html" class="button-primary">Browse Books</a>
+			</section>
+
+			<section class="featured-books">
+				<h2>Featured Books</h2>
+				<p>Our hand-picked selection this month</p>
+				<!-- book cards to be inserted here (?) -->
+			</section>
+
+			<section class="about-preview">
+				<h2>About Chapter One</h2>
+				<!-- tweak text if needed-->
+				<p>We're a locally-owned independent bookstore dedicated to bringing the joy of reading to our community.</p>
+				<p>Since YYYY(?) we've been a destination for book lovers seeking carefully curated selections and personalized recommendations.</p>
+				<p>From bestselling fiction to hidden gems, rare finds to children's classics, our shelves are filled with stories waiting to be discovered.</p>
+				<a href="about.html" class="button-secondary">Learn More</a>
+			</section>
 		</main>
 
 		<footer role="contentinfo">
+			<!-- elaborate on footer content to match wireframe (?) -->
 			<p>&copy; 2026 Chapter One. All rights reserved.</p>
 		</footer>
 	</body>
