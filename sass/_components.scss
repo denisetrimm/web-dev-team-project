@@ -1,0 +1,386 @@
+/* ======================================================
+   COMPONENT STYLES
+   Contains layout pieces, typography, buttons, forms, and reusable UI elements
+   ====================================================== */
+
+/* ===================================
+   BASE TYPOGRAPHY
+=================================== */
+body {
+    font-family: $font-body;
+    font-size: $font-size-body; // relative size for accessibility
+    line-height: $line-height-base; // improves readability by adding space between lines
+    background-color: $color-background;
+    color: $color-text;
+    margin: $space-xs;
+    padding: $space-xs;
+}
+
+section {
+    margin-bottom: $space-xl; // space between sections for visual separation
+}
+
+h1,
+h2,
+h3,
+h4 {
+   font-family: $font-heading;
+   color: $color-text;
+   line-height: $line-height-heading;
+   font-weight: 600;
+}
+
+h1 {
+   font-size: $font-size-h1;
+}
+
+h2 {
+   font-size: $font-size-h2;
+}
+
+h3 {
+   font-size: $font-size-h3;
+}
+
+h4 {
+   font-size: $font-size-h4;
+}
+
+/* ===================================
+   HEADER SECTION
+=================================== */
+header {
+   background-color: $light-highlight;
+   color: $color-text;
+   margin: 0;
+   padding: $space-sm;
+   text-align: center;
+
+   // flexbox layout for vertical stacking and centering of header content
+   display: flex;
+   flex-direction: column; // stack header elements vertically
+   align-items: center; // center header content horizontally
+   border-bottom: 1px solid $color-border;
+}
+
+header img {
+   max-width: 70px;
+   height: auto;
+   margin-bottom: $space-sm;
+}
+
+.tagline {
+   font-family: $font-body;
+   font-size: $font-size-small;
+   color: $color-text;
+}
+
+/* ===================================
+   MAIN CONTENT
+=================================== */
+p {
+   margin-bottom: $space-md;
+}
+
+main {
+   padding: $space-xs;
+}
+
+/* Main nav container */
+#main-nav {
+   background-color: $light-highlight;
+   text-align: center;
+   padding: $space-sm;
+
+   // Flexbox layout for horizontal navigation
+   display: flex;
+   justify-content: center; // center nav items horizontally
+   gap: $space-md; // space between nav items
+   flex-wrap: wrap; // allow nav items to wrap on smaller screens for responsiveness
+   border-bottom: 1px solid $color-border;
+}
+
+/* Base button styles
+   Reusable button foundation based on class pattern */
+%btn-base {
+   padding: $space-xs $space-md; // standard button padding
+   cursor: pointer; // indicates interactivity
+   font-family: $font-body;
+   font-weight: 500;
+   text-align: center;
+   display: inline-block;
+   text-decoration: none;
+   transition: $transition-base;
+}
+
+/* Navigation buttons */
+.navButtons {
+   @extend %btn-base; // inherit base button styles
+   background-color: transparent;
+   color: $color-text;
+   border: 1px solid $color-border;
+   font-size: $font-size-nav;
+   text-align: center;
+   padding: $space-xs $space-md;
+   margin: $space-xs;
+   display: inline-block;
+
+   &:hover,
+   &:focus {
+      background-color: $accent-sage-soft;
+   }
+}
+
+/* Primary action buttons */
+.button-primary {
+   @extend %btn-base; // inherit base button styles
+   background-color: $accent-sage;
+   color: $light-highlight;
+   border: 1px solid $accent-sage;
+   font-size: $font-size-button;
+
+   &:hover,
+   &:focus {
+      background-color: $accent-sage-hover;
+   }
+}
+
+/* Secondary action buttons */
+.button-secondary {
+   @extend %btn-base; // inherit base button styles
+   background-color: transparent;
+   color: $color-text;
+   border: 1px solid $color-border;
+   font-size: $font-size-button;
+
+   &:hover,
+   &:focus {
+      background-color: $accent-sage-soft;
+      border-color: $accent-sage;
+   }
+}
+
+/* Book grids and cards */
+.book-grid {
+   display: grid;
+   grid-template-columns: 1fr; // 1 column by default for mobile
+   gap: $space-lg; // space between book cards
+}
+
+@media (min-width: 768px) {
+   .book-grid {
+      grid-template-columns: repeat(2, 1fr); // 2 columns for tablets and up
+   }
+}
+
+@media (min-width: 1024px) {
+   .book-grid {
+      grid-template-columns: repeat(4, 1fr); // 4 columns for desktops and up
+   }
+}
+
+.book-card {
+   background-color: $light-cards;
+   border: 1px solid $color-border;
+   border-radius: $radius-lg;
+   padding: 0;
+   margin: 0;
+   box-shadow: 0 6px 18px $color-shadow;
+}
+
+.book-author {
+   font-size: $font-size-small;
+   margin-bottom: $space-sm;
+}
+
+.book-description {
+   font-size: $font-size-small;
+}
+
+.book-meta {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   gap: $space-sm;
+   margin-top: $space-md;
+}
+
+.book-price {
+   font-weight: 600;
+}
+
+/* Genre tags */
+.genre-tag {
+   display: inline-block;
+   padding: 0.35rem 0.8rem;
+   background-color: $accent-sage-soft;
+   color: $color-text;
+   font-size: 0.8rem;
+}
+
+/* Filter buttons */
+.filter-button {
+   @extend %btn-base; // inherit base button styles
+   width: 100%;
+   background-color: transparent;
+   color: $color-text;
+   border: 1px solid $color-border;
+   text-align: left;
+   margin-bottom: $space-sm;
+   border-radius: $radius-md;
+}
+
+.filter-button.active,
+.filter-button:hover,
+.filter-button:focus {
+   background-color: $accent-sage;
+   color: $light-highlight;
+   border-color: $accent-sage;
+}
+
+/* Forms */
+input,
+textarea,
+select {
+   width: 100%;
+   padding: $space-sm;
+   margin-top: 6px;
+   margin-bottom: $space-md;
+   border: 1px solid $color-border;
+   border-radius: $radius-md;
+   background-color: $light-highlight;
+   font-family: $font-body;
+   font-size: $font-size-body;
+   color: $color-text;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+   outline: none;
+   border-color: $accent-sage;
+   box-shadow: 0 0 0 3px rgba(168, 181, 162, 0.2);
+}
+
+textarea {
+   min-height: 160px;
+   resize: vertical;
+}
+
+label {
+   display: block;
+   margin-bottom: $space-xs;
+   font-weight: 500;
+}
+
+button {
+   @extend %btn-base; // inherit base button styles
+   background-color: $accent-sage;
+   color: $light-highlight;
+   border: 1px solid $accent-sage;
+   font-family: $font-body;
+
+   &:hover,
+   &:focus {
+      background-color: $accent-sage-hover;
+   }
+}
+
+/* ===================================
+   BOOK DETAILS PAGE (specific styling)
+=================================== */
+
+.book-details-page .book-card {
+   max-width: 900px; // limits width only on details page
+   width: 100%;
+   margin: $space-xl auto; // center the card
+}
+
+.book-details-page .book-card img {
+   display: block;
+   margin: 0 auto;
+   max-width: 100%;
+   height: auto;
+}
+
+.book-details-page .book-card h3 {
+   margin-bottom: $space-sm;
+}
+
+/* ===================================
+   FAVORITES PAGE (specific styling)
+=================================== */
+
+.favorites-page .book-grid {
+   margin-top: $space-lg;
+}
+
+.empty-favorites {
+   text-align: center;
+   background-color: $light-cards;
+   padding: $space-xl;
+   border-radius: $radius-lg;
+}
+
+/* ===================================
+   CONTACT PAGE (specific styling)
+=================================== */
+
+.contact-page .contact-card {
+   max-width: 800px;
+   width: 100%;
+   margin: $space-xl auto;
+   background-color: $light-cards;
+   padding: $space-xl;
+   border-radius: $radius-lg;
+}
+
+.contact-page form {
+   display: flex;
+   flex-direction: column;
+   gap: $space-sm;
+}
+
+.contact-page input,
+.contact-page textarea,
+.contact-page select {
+   width: 100%;
+   max-width: 100%;
+}
+
+.contact-page button {
+   width: fit-content;
+   min-width: 140px;
+}
+
+/* ===================================
+   SKIP LINK
+=================================== */
+.skip-link {
+   position: absolute;
+   left: -9999px;
+   top: auto;
+}
+
+.skip-link:focus {
+   left: 1rem;
+   top: 1rem;
+   z-index: 9999;
+   background-color: $accent-sage;
+   color: $light-highlight;
+   padding: $space-sm $space-md;
+   border-radius: $radius-sm;
+}
+
+/* ===================================
+   FOOTER
+=================================== */
+footer {
+   background-color: $light-highlight;
+   color: $color-text;
+   margin: 0;
+   padding: $space-xl;
+   text-align: center;
+   font-size: $font-size-small;
+   border-top: 1px solid $color-border;
+}
