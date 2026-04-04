@@ -1,0 +1,73 @@
+@use 'variables' as *;
+
+/* ======================================================
+   LAYOUT STYLES
+   Contains page structure, spacing, wrappers, and responsive layout rules
+   ====================================================== */
+
+/* ===================================
+   MAIN PAGE LAYOUT
+=================================== */
+main {
+   max-width: 1200px; // keeps content centered and prevents overly wide layouts
+   margin: 0 auto;
+   padding: $space-md;
+}
+
+section {
+   margin-bottom: $space-xl; // spacing between major content sections
+}
+
+/* ===================================
+   HEADER LAYOUT
+=================================== */
+header figure {
+   margin: 0;
+   text-align: center;
+}
+
+header figcaption {
+   margin-top: $space-xs;
+   font-size: $font-size-small;
+}
+
+/* ===================================
+   FILTER LAYOUT
+=================================== */
+.filters {
+   display: flex;
+   flex-wrap: wrap; // allows buttons to wrap on smaller screens
+   gap: $space-sm;
+   margin-top: $space-sm;
+}
+
+/* ===================================
+   BOOK CARD LAYOUT
+=================================== */
+.book-card img {
+   width: 100%; // AI suggestion; scales image to fit card width while maintaining aspect ratio
+   aspect-ratio: 4 /5; // AI suggestion; maintains consistent aspect ratio for all book images
+   object-fit: contain; // AI suggestion; ensures images fill the card area without distortion
+   display: block;
+   margin: 0 auto; // centers the image within the card
+}
+
+.book-card-content {
+   padding: $space-lg;
+}
+
+/* ===================================
+   FOOTER LAYOUT
+=================================== */
+footer {
+   margin-top: $space-xl;
+}
+
+/* ===================================
+   RESPONSIVE LAYOUT
+=================================== */
+@media (min-width: 768px) {
+   main {
+      padding: $space-lg;
+   }
+}

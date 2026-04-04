@@ -1,6 +1,7 @@
 @charset "utf-8";
 
-@import './variables';
-@import './layout';
-@import './components';
+@use 'variables';
+@use 'layout';
+@use 'components';
+
 // TODO Should we create a separate file for mixins?
