@@ -66,7 +66,7 @@ header {
 }
 
 header img {
-   max-width: 70px;
+   max-width: 165px;
    height: auto;
    margin-bottom: $space-sm;
 }
@@ -185,6 +185,12 @@ main {
    background-color: $light-cards;
    border: 1px solid $color-border;
    border-radius: $radius-lg;
+   padding: $space-sm;
+   box-shadow: 0 4px 12px $color-shadow;
+   // AI suggestion -- flexbox to keep card content aligned evenly (lines 192-195)
+   display: flex;
+   flex-direction: column;
+   transition: transform $transition-base, box-shadow $transition-base; // hover effect
    padding: $space-lg;
    margin: 0;
    box-shadow: 0 6px 18px $color-shadow;
@@ -229,25 +235,79 @@ main {
    margin-bottom: $space-sm;
 }
 
-.book-author {
-   font-size: $font-size-small;
-   margin-bottom: $space-sm;
+.book-card:hover,
+.book-card:focus-within {
+   transform: translateY(-6px); // AI suggestion - makes the card lift slightly on hover for interactivity
+   box-shadow: 0 10px 20px $color-shadow;
 }
 
-.book-description {
-   font-size: $font-size-small;
+// AI suggestion - new class for consistent image display across all book cards (lines 203-2019)
+.book-image-wrapper {
+   width: 235px;
+   height: 355px;
+   margin: 0 auto $space-sm auto; // centers the image
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.book-image-wrapper a {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 100%;
+   height: 100%;
+}
+
+.book-card img {
+   max-width: 100%;
+   max-height: 100%;
+   display: block;
+   object-fit: contain; // keeps full cover visible without cropping
+}
+
+.book-card-content {
+   display: flex;
+   flex-direction: column;
+   flex-grow: 1; // allows content area to expand and push the button to the bottom of the card
+   text-align: left;
+}
+
+.book-card-content h3 {
+   margin-top: $space-xs;
+   margin-bottom: $space-sm;
+   line-height: 1.15;
+   min-height: 3rem;
 }
 
 .book-meta {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   gap: $space-sm;
-   margin-top: $space-md;
+   font-size: $font-size-medium;
+   margin-bottom: $space-xs;
 }
 
-.book-price {
+/* View Details button */
+.details-button-wrap {
+   text-align: center; // centers the button within the card content area
+   margin-top: auto; // AI suggestion - pushes the button to the bottom of the card content area
+   padding-top: $space-sm; // AI suggestion - adds space between the book meta and the button
+}
+
+.details-link {
+   display: inline-block;
+   padding: 0.35rem 0.8rem;
+   color: $color-text;
+   border: 1px solid $accent-sage;
+   font-family: $font-body;
+   font-size: $font-size-small;
    font-weight: 600;
+   align-self: center; // AI suggestion; centers the link within the card content area
+}
+
+.details-link:hover,
+.details-link:focus {
+   background-color: $accent-sage;
+   color: $light-highlight;
+   border-color: $accent-sage;
 }
 
 /* Genre tags */
