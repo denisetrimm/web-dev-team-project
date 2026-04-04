@@ -22,11 +22,11 @@ let renderBooks = (books) => {
                 <img src="${book.image}" alt="Cover of ${book.title}">
             </div>
             <div class="book-card-content">
-                <h3 class="book-title">${book.title}</h3>
-                <p class="book-author">${book.author}</p>
-                <p class="book-description">${book.description}</p>
-                <p><strong>Genre:</strong> ${book.category}</p>
-                <p class="book-price"><strong>Price:</strong> $${book.price.toFixed(2)}</p>
+                <h3>${book.title}</h3>
+                <p class="book-meta">${book.author}</p>
+                <p class="book-meta">${book.description}</p>
+                <p class="book-meta"><strong>Genre:</strong> ${book.category}</p>
+                <p class="book-meta"><strong>Price:</strong> $${book.price.toFixed(2)}</p>
                 <button aria-label="View details for ${book.title}">View Details</button>
             </div>
         `;
