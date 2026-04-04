@@ -73,8 +73,13 @@ $line-height-heading: 1.2;
 $radius-sm: 0.5rem;
 $radius-md: 0.85rem;
 $radius-lg: 1.25rem;
+$radius-pill: 999px;
 
 /* LAYOUT WIDTHS
    Used to control max width and content alignment. */
 $container-width: 1200px;
 $sidebar-width: 220px;
+
+/* TRANSITIONS
+   Reusable motion for hover/focus/theme interactions. */
+$transition-base: 0.25s ease;

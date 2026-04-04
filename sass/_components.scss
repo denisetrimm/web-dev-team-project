@@ -1,3 +1,5 @@
+@use 'variables' as *;
+
 /* ======================================================
    COMPONENT STYLES
    Contains layout pieces, typography, buttons, forms, and reusable UI elements
@@ -183,9 +185,48 @@ main {
    background-color: $light-cards;
    border: 1px solid $color-border;
    border-radius: $radius-lg;
-   padding: 0;
+   padding: $space-lg;
    margin: 0;
    box-shadow: 0 6px 18px $color-shadow;
+   // AI suggestion -- flexbox to keep card content aligned evenly (lines 190-192)
+   display: flex;
+   flex-direction: column; 
+   justify-content: flex-start; // keeps content starting at the top
+}
+
+// AI suggestion - new class for consistent image display across all book cards (lines 195-211)
+.book-image-wrapper {
+   width: 170px;
+   height: 250px;
+   margin: 0 auto $space-lg auto; // centers the image and adds space below it
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.book-image-wrapper a {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 100%;
+   height: 100%;
+}
+
+.book-card img {
+   max-width: 100%;
+   max-height: 100%;
+   display: block;
+   object-fit: contain; // keeps full cover visible without cropping
+}
+
+.book-card-content {
+   display: flex;
+   flex-direction: column;
+   gap: $space-sm;
+}
+
+.book-card-content h3 {
+   margin-bottom: $space-sm;
 }
 
 .book-author {
@@ -289,7 +330,6 @@ button {
 /* ===================================
    BOOK DETAILS PAGE (specific styling)
 =================================== */
-
 .book-details-page .book-card {
    max-width: 900px; // limits width only on details page
    width: 100%;
@@ -310,7 +350,6 @@ button {
 /* ===================================
    FAVORITES PAGE (specific styling)
 =================================== */
-
 .favorites-page .book-grid {
    margin-top: $space-lg;
 }
@@ -325,7 +364,6 @@ button {
 /* ===================================
    CONTACT PAGE (specific styling)
 =================================== */
-
 .contact-page .contact-card {
    max-width: 800px;
    width: 100%;
