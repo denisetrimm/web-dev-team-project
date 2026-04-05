@@ -476,13 +476,26 @@ button:hover, button:focus {
 /* ===================================
    CONTACT PAGE (specific styling)
 =================================== */
-.contact-page .contact-card {
-  max-width: 800px;
-  width: 100%;
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5rem;
+  align-items: stretch;
   margin: 2rem auto;
+}
+
+@media (min-width: 768px) {
+  .contact-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.contact-page .contact-card {
+  width: 100%;
   background-color: #ECE8D9;
-  padding: 2rem;
+  padding: 1rem;
   border-radius: 1.25rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .contact-page form {
@@ -495,13 +508,42 @@ button:hover, button:focus {
 .contact-page textarea,
 .contact-page select {
   width: 100%;
-  max-width: 100%;
+  max-width: 500px;
+  margin-bottom: 0.25rem;
+}
+
+.contact-page label {
+  display: block;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .contact-page button {
   width: -moz-fit-content;
   width: fit-content;
   min-width: 140px;
+}
+
+.contact-right {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.contact-info-box {
+  background-color: #ECE8D9;
+  padding: 1rem;
+  border-radius: 1.25rem;
+}
+
+.contact-right img {
+  width: 100%;
+  height: 270px;
+  border-radius: 1.25rem;
+  display: block;
+  -o-object-fit: contain;
+     object-fit: contain;
+  flex-grow: 1;
 }
 
 /* ===================================

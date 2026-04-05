@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- TODO - Update meta descriptions for each page -->
+		<meta
+			name="description"
+			content="Chapter One is an indie bookstore in Montreal, offering a curated selection of fiction books and supporting local authors."
+		/>
+		<meta
+			name="keywords"
+			content="indie bookstore Montreal, fiction books, non-fiction books, sci-fi books, fantasy books, local authors, books Canada"
+		/>
+		<meta name="author" content="Alessandra Spino, Denise Trimm" />
+		<title>Chapter One | Bookstore</title>
+		<!-- add a favicon -->
+		<link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" href="../css/main.css" />
+		<script type="module" defer src="../js/script.js"></script>
+	</head>
+
+	<body>
+        
+		<header role="banner">
+			<a href="#">
+				<!-- TODO - Update logo image (This is just a test) & figure out light vs dark mode -->
+				<img src="../images/chapter-one-logo.png" alt="Chapter One Logo" />
+			</a>
+			<h1>Chapter One</h1>
+			<p class="tagline">⊹˚.‧⁺ A Journey Through Pages ⁺‧.˚⊹</p>
+		</header>
+
+		<nav role="navigation" aria-label="Main Navigation">
+			<ul>
+				<!-- TODO Add active class to current page link for each page -->
+				<!-- TODO finish styling nav-item, nav-link, and active classes-->
+				<li class="nav-item">
+					<a class="nav-link active" href="index.html">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="books.html">Books</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="favourites.html">Favourites</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="about.html">About</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="contact.html">Contact</a>
+				</li>
+			</ul>
+
+			<div>
+				<button id="theme-toggle" aria-label="Toggle Dark Mode">
+					<span id="theme-icon" title="Dark Mode">🌙</span>
+				</button>
+			</div>
+        </nav>
+
+        <main class="contact-page">
+            <section class="contact-container">
+                <!-- left = contact form -->
+                <div class="contact-left contact-card">
+                    <section aria-labelledby="contact-heading">
+                        <h2 id="contact-heading">Contact Us</h2>
+                        <p>We'd love to hear from you! Send us a message or request a book.</p>
+
+                        <form action="#" method="post" aria-labelledby="contact-heading" novalidate>
+                            <fieldset aria-labelledby="contactFormLegend">
+                                <label for="fullName">Full Name</label>
+                                <input type="text" id="fullName" name="fullName" aria-required="true" autocomplete="name" placeholder="Jane Austen"
+                                    data-tooltip="Enter your full name">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" aria-required="true" autocomplete="email" placeholder="jane.austen@mail.com"
+                                    aria-describedby="emailHelp" data-tooltip="Enter a valid email address we can contact you at">
+                                <small id="emailHelp">We will send confirmation to this address.</small>
+
+                                <label for="inquiryType">Subject</label>
+                                <select id="inquiryType" name="inquiryType" data-tooltip="Select the reason for your inquiry">
+                                    <option value="">Select an option</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="special">Special Order Request</option>
+                                    <option value="status">Order Status</option>
+                                    <option value="feedback">Feedback</option>
+                                </select>
+
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" aria-required="true"></textarea>
+                            </fieldset>
+
+                            <div role="group" aria-label="Form actions">
+                                <button type="submit" data-tooltip="Click to contact us">Submit Inquiry</button>
+                                <button type="reset" data-tooltip="Click to clear all fields in the form">Reset Form</button>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+
+                <!-- right = visit us -->
+                <div class="contact-right">
+                    <section class="contact-info-box" aria-labelledby="visit-heading">
+                        <h2 id="visit-heading">Visit Us</h2>
+                        <p>⟟ Address: 123 Book Street, Montreal, QC</p>
+                        <p>✆ Phone: 514-555-1234</p>
+                        <p>✉︎ Email: info@chapterone.com</p>
+                        <p>◴ Hours: Mon-Sat 9AM-8PM, Sun 10AM-6PM</p>
+                    </section>
+                    <img src="../images/contact-us.jpg" alt="Photo of the interior of Chapter One bookstore" height="350">
+                </div>
+            </section>
+        </main>
+
+        <footer role="contentinfo">
+			<!-- elaborate on footer content to match wireframe (?) -->
+			<p>&copy; 2026 Chapter One. All rights reserved.</p>
+		</footer>
+    </body>
+</html>

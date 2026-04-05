@@ -404,13 +404,27 @@ button {
 /* ===================================
    CONTACT PAGE (specific styling)
 =================================== */
-.contact-page .contact-card {
-   max-width: 800px;
-   width: 100%;
+.contact-container {
+   display: grid;
+   grid-template-columns: 1fr;
+   gap: 5rem;
+   align-items: stretch;
    margin: $space-xl auto;
+}
+
+@media (min-width: 768px) {
+   .contact-container {
+      grid-template-columns: 1fr 1fr;
+   }
+}
+
+.contact-page .contact-card {
+   width: 100%;
    background-color: $light-cards;
-   padding: $space-xl;
+   padding: $space-md;
    border-radius: $radius-lg;
+   display: flex;
+   flex-direction: column;
 }
 
 .contact-page form {
@@ -423,12 +437,40 @@ button {
 .contact-page textarea,
 .contact-page select {
    width: 100%;
-   max-width: 100%;
+   max-width: 500px;
+   margin-bottom: $space-xs;
+}
+
+.contact-page label {
+   display: block;
+   margin-top: $space-lg;
+   margin-bottom: $space-sm;
 }
 
 .contact-page button {
    width: fit-content;
    min-width: 140px;
+}
+
+.contact-right {
+   display: flex;
+   flex-direction: column;;
+   height: 100%; // AI suggestion - makes the right column stretch to match the height of the left column
+}
+
+.contact-info-box {
+   background-color: $light-cards;
+   padding: $space-md;
+   border-radius: $radius-lg;
+}
+
+.contact-right img {
+   width: 100%;
+   height: 270px;
+   border-radius: $radius-lg;
+   display: block;
+   object-fit: contain;
+   flex-grow: 1; // AI suggestion - allows the image to grow and fill the remaining space in the right column
 }
 
 /* ===================================
