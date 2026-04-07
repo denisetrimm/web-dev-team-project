@@ -35,36 +35,78 @@ let renderBooks = (books) => {
 	});
 };
 
-// Initial render of books in the catalogue
-renderBooks(BOOKS);
+// Check if book grid exists
+if (document.getElementById("book-grid")) {
+	// Initial render of books in the catalogue
+	renderBooks(BOOKS);
 
-/* Add Genre Filtering Functionality */
-// Select all filter buttons
-const filterButtons = document.querySelectorAll(".filter-button");
-// Add click event listeners to each filter button
-filterButtons.forEach((button) => {
-	button.addEventListener("click", () => {
-		// Remove "active" class from all buttons and add it to the clicked button for visual feedback
-		filterButtons.forEach((btn) => btn.classList.remove("active"));
-		button.classList.add("active");
-		// Get the genre to filter by from the button's data attribute
-		const genre = button.getAttribute("data-filter");
-		// Render all books if "All" is selected
-		if (genre === "all") {
-			renderBooks(BOOKS);
-			// Otherwise, filter the books by the selected genre
-		} else {
-			const filteredBooks = BOOKS.filter(
-				(book) => book.category.toLowerCase() === genre,
-			);
-			// Render the filtered list
-			renderBooks(filteredBooks);
-		}
+	/* Add Genre Filtering Functionality */
+	// Select all filter buttons
+	const filterButtons = document.querySelectorAll(".filter-button");
+	// Add click event listeners to each filter button
+	filterButtons.forEach((button) => {
+		button.addEventListener("click", () => {
+			// Remove "active" class from all buttons and add it to the clicked button for visual feedback
+			filterButtons.forEach((btn) => btn.classList.remove("active"));
+			button.classList.add("active");
+			// Get the genre to filter by from the button's data attribute
+			const genre = button.getAttribute("data-filter");
+			// Render all books if "All" is selected
+			if (genre === "all") {
+				renderBooks(BOOKS);
+				// Otherwise, filter the books by the selected genre
+			} else {
+				const filteredBooks = BOOKS.filter(
+					(book) => book.category.toLowerCase() === genre,
+				);
+				// Render the filtered list
+				renderBooks(filteredBooks);
+			}
+		});
 	});
-});
+}
 
-/* TODO - Implement theme toggle functionality
-
+/* 
+	Implement theme toggle functionality
 */
-const themeToggleButton = document.getElementById("theme-toggle");
+
+const themeToggleBtn = document.getElementById("theme-toggle");
 const themeIcon = document.getElementById("theme-icon");
+
+// Check if theme toggle and icon exist on page
+if (themeToggleBtn && themeIcon) {
+	// Add the "dark" class and save to localStorage
+	const changeToDarkMode = () => {
+		document.body.classList.add("dark");
+		localStorage.setItem("theme", "dark");
+	};
+	// Remove the "dark" class and save to localStorage
+	const changeToLightMode = () => {
+		document.body.classList.remove("dark");
+		localStorage.setItem("theme", "light");
+	};
+	// Update the theme icon based on the current theme
+	const updateThemeIcon = () => {
+		if (!themeIcon) return; // Ensure the theme icon element exists
+		themeIcon.textContent = document.body.classList.contains("dark")
+			? "☀️"
+			: "🌙";
+	};
+
+	// Event listener for theme toggle button
+	themeToggleBtn.addEventListener("click", () => {
+		document.body.classList.contains("dark")
+			? changeToLightMode()
+			: changeToDarkMode();
+		updateThemeIcon(); // Update the theme icon after toggling
+	});
+
+	// On page load, check for saved theme preference and apply it
+	const currentTheme = localStorage.getItem("theme");
+	if (currentTheme === "dark") {
+		changeToDarkMode();
+	} else {
+		changeToLightMode();
+	}
+	updateThemeIcon();
+}
