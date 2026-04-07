@@ -299,9 +299,6 @@ main {
 .book-card:focus-within {
    transform: translateY(-6px); // AI suggestion - makes the card lift slightly on hover for interactivity
    box-shadow: 0 10px 20px $color-shadow;
-   @include dark-theme {
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
-  }
 }
 
 .book-author {
@@ -344,6 +341,10 @@ main {
    font-size: $font-size-small;
    font-weight: 600;
    align-self: center; // AI suggestion; centers the link within the card content area
+   @include dark-theme {
+      color: $dark-text;
+      border-color: $dark-color-border;
+   }
 }
 
 .details-link:hover,
@@ -351,6 +352,10 @@ main {
    background-color: $accent-sage;
    color: $light-highlight;
    border-color: $accent-sage;
+   @include dark-theme {
+      background-color: $accent-sage-dark;
+      border-color: $accent-sage-dark;
+   }
 }
 
 /* Genre tags */
@@ -360,6 +365,10 @@ main {
    background-color: $accent-sage-soft;
    color: $color-text;
    font-size: 0.8rem;
+   @include dark-theme {
+      background-color: $accent-sage-soft-dark;
+      color: $dark-text;
+   }
 }
 
 /* Filter buttons */
@@ -372,6 +381,10 @@ main {
    text-align: left;
    margin-bottom: $space-sm;
    border-radius: $radius-md;
+   @include dark-theme {
+      color: $dark-text;
+      border-color: $dark-color-border;
+   }
 }
 
 .filter-button.active,
@@ -380,6 +393,10 @@ main {
    background-color: $accent-sage;
    color: $light-highlight;
    border-color: $accent-sage;
+   @include dark-theme {
+      background-color: $accent-sage-dark;
+      border-color: $accent-sage-dark;
+   }
 }
 
 /* Forms */
@@ -396,6 +413,11 @@ select {
    font-family: $font-body;
    font-size: $font-size-body;
    color: $color-text;
+   @include dark-theme {
+      background-color: $dark-highlight;
+      border-color: $dark-color-border;
+      color: $dark-text;
+   }
 }
 
 input:focus,
@@ -404,6 +426,9 @@ select:focus {
    outline: none;
    border-color: $accent-sage;
    box-shadow: 0 0 0 3px rgba(168, 181, 162, 0.2);
+   @include dark-theme {
+      border-color: $accent-sage-dark;
+   }
 }
 
 textarea {
@@ -428,6 +453,8 @@ button {
    &:focus {
       background-color: $accent-sage-hover;
    }
+
+   // TODO: May need to move button styles higher up in the file so other styles can extend.
 }
 
 /* ===================================
@@ -462,6 +489,9 @@ button {
    background-color: $light-cards;
    padding: $space-xl;
    border-radius: $radius-lg;
+   @include dark-theme {
+      background-color: $dark-cards;
+   }
 }
 
 /* ===================================
@@ -488,6 +518,9 @@ button {
    border-radius: $radius-lg;
    display: flex;
    flex-direction: column;
+   @include dark-theme {
+      background-color: $dark-cards;
+   }
 }
 
 .contact-page form {
@@ -525,6 +558,9 @@ button {
    background-color: $light-cards;
    padding: $space-md;
    border-radius: $radius-lg;
+   @include dark-theme {
+      background-color: $dark-cards;
+   }
 }
 
 .contact-right img {
@@ -553,6 +589,10 @@ button {
    color: $light-highlight;
    padding: $space-sm $space-md;
    border-radius: $radius-sm;
+   @include dark-theme {
+      background-color: $accent-sage-dark;
+      color: $dark-text;
+   }
 }
 
 /* ===================================
@@ -566,4 +606,9 @@ footer {
    text-align: center;
    font-size: $font-size-small;
    border-top: 1px solid $color-border;
+   @include dark-theme {
+      background-color: $dark-highlight;
+      color: $dark-text;
+      border-top: 1px solid $dark-color-border;
+   }
 }
