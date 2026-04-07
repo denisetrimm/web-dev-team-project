@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<!-- métadonnées de base -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<!-- métadonnées SEO -->
+		<meta
+			name="description"
+			content="Parcourez des romans, essais, science-fiction et fantasy, ainsi que des auteurs locaux chez Chapter One, une librairie indépendante à Montréal."
+		/>
+		<meta name="author" content="Alessandra Spino, Denise Trimm" />
+		<meta
+			name="keywords"
+			content="librairie Montréal, romans, essais, science-fiction, fantasy, auteurs locaux, Chapter One"
+		/>
+
+		<!-- titre de la page -->
+		<title>Chapter One | Livres</title>
+
+		<!-- favicon -->
+		<link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
+
+		<!-- CSS -->
+		<link rel="stylesheet" href="../css/main.css" />
+
+		<!-- JavaScript -->
+		<script type="module" defer src="../js/script.js"></script>
+	</head>
+
+	<body>
+		<!-- lien d’évitement pour accessibilité -->
+		<a href="#main-content" class="skip-link">Passer au contenu principal</a>
+
+		<!-- en-tête du site -->
+		<header id="top" role="banner">
+			<figure>
+				<a href="index.html">
+					<img
+						src="../images/chapter-one-logo.png"
+						alt="Logo de la librairie Chapter One"
+						title="Logo Chapter One"
+						width="275"
+						height="250"
+					/>
+				</a>
+				<figcaption>Bienvenue chez Chapter One</figcaption>
+			</figure>
+			<h1>Chapter One</h1>
+			<p class="tagline">⊹˚.‧⁺ Un voyage à travers les pages ⁺‧.˚⊹</p>
+		</header>
+
+		<!-- navigation principale -->
+		<nav role="navigation" aria-label="Navigation principale">
+			<ul>
+				<li class="nav-item">
+					<a class="nav-link active" href="index.html">Accueil</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="books.html">Livres</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="favourites.html">Favoris</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="about.html">À propos</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="contact.html">Contact</a>
+				</li>
+			</ul>
+
+			<div>
+				<button id="theme-toggle" aria-label="Activer le mode sombre">
+					<span id="theme-icon" title="Mode sombre">🌙</span>
+				</button>
+				<button id="lang-toggle">EN</button>
+			</div>
+		</nav>
+
+		<!-- contenu principal -->
+		<main id="main-content" role="main" aria-labelledby="books-page-heading">
+			<!-- fil d’Ariane -->
+			<nav aria-label="Fil d’Ariane">
+				<a href="index.html">Accueil</a> &gt;
+				<a href="books.html">Livres</a>
+			</nav>
+
+			<!-- titre de la page -->
+			<section aria-labelledby="books-page-heading">
+				<h2 id="books-page-heading">Parcourir les livres</h2>
+				<p>
+					Découvrez notre collection soigneusement sélectionnée de romans,
+					d’essais, de science-fiction et fantasy, ainsi que d’auteurs locaux.
+				</p>
+			</section>
+
+			<!-- filtres -->
+			<section aria-labelledby="filter-heading">
+				<h2 id="filter-heading">Filtrer par genre</h2>
+
+				<div class="filters">
+					<button class="filter-button active" data-filter="all">Tous</button>
+					<button class="filter-button" data-filter="fiction">Fiction</button>
+					<button class="filter-button" data-filter="documentaire">
+						Documentaire
+					</button>
+					<button class="filter-button" data-filter="science-fiction">
+						Science-fiction & fantasy
+					</button>
+					<button class="filter-button" data-filter="auteurs locaux">
+						Auteurs locaux
+					</button>
+				</div>
+			</section>
+
+			<!-- catalogue -->
+			<section aria-labelledby="catalogue-heading">
+				<h2 id="catalogue-heading">Catalogue de livres</h2>
+
+				<div id="book-grid" class="book-grid"></div>
+			</section>
+		</main>
+
+		<footer role="contentinfo">
+			<p>&copy; 2026 Chapter One. Tous droits réservés.</p>
+		</footer>
+	</body>
+</html>
