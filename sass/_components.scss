@@ -1,4 +1,5 @@
 @use 'variables' as *;
+@use 'mixins' as *;
 
 /* ======================================================
    COMPONENT STYLES
@@ -18,6 +19,12 @@ body {
     padding: $space-xs;
 }
 
+body.dark,
+html.dark body {
+  background-color: $dark-page-bg;
+  color: $dark-text;
+}
+
 section {
     margin-bottom: $space-xl; // space between sections for visual separation
 }
@@ -30,6 +37,9 @@ h4 {
    color: $color-text;
    line-height: $line-height-heading;
    font-weight: 600;
+   @include dark-theme {
+      color: $dark-text;
+   }
 }
 
 h1 {
@@ -63,6 +73,12 @@ header {
    flex-direction: column; // stack header elements vertically
    align-items: center; // center header content horizontally
    border-bottom: 1px solid $color-border;
+
+   @include dark-theme {
+      background-color: $dark-cards;
+      color: $dark-text;
+      border-bottom: 1px solid $dark-color-border;
+   }
 }
 
 header img {
@@ -75,6 +91,9 @@ header img {
    font-family: $font-body;
    font-size: $font-size-small;
    color: $color-text;
+   @include dark-theme {
+      color: $dark-secondary-text;
+   }
 }
 
 /* ===================================
@@ -100,6 +119,11 @@ main {
    gap: $space-md; // space between nav items
    flex-wrap: wrap; // allow nav items to wrap on smaller screens for responsiveness
    border-bottom: 1px solid $color-border;
+
+   @include dark-theme {
+      background-color: $dark-highlight;
+      border-bottom: 1px solid $dark-color-border;
+   }
 }
 
 /* Base button styles
@@ -131,6 +155,17 @@ main {
    &:focus {
       background-color: $accent-sage-soft;
    }
+
+   @include dark-theme {
+      color: $dark-text;
+      border-color: $dark-color-border;
+
+      &:hover,
+      &:focus {
+         background-color: $accent-sage-soft-dark;
+         border-color: $accent-sage-dark;
+      }
+   }
 }
 
 /* Primary action buttons */
@@ -144,6 +179,17 @@ main {
    &:hover,
    &:focus {
       background-color: $accent-sage-hover;
+   }
+   @include dark-theme {
+      background-color: $accent-sage-dark;
+      border-color: $accent-sage-dark;
+      color: $accent-sage-soft-dark;
+
+      &:hover,
+      &:focus {
+         background-color: $accent-sage-hover-dark;
+         border-color: $accent-sage-hover-dark;
+      }
    }
 }
 
@@ -159,6 +205,16 @@ main {
    &:focus {
       background-color: $accent-sage-soft;
       border-color: $accent-sage;
+   }
+   @include dark-theme {
+      color: $dark-text;
+      border-color: $dark-color-border;
+
+      &:hover,
+      &:focus {
+         background-color: $accent-sage-soft-dark;
+         border-color: $accent-sage-dark;
+      }
    }
 }
 
@@ -194,6 +250,10 @@ main {
    margin: 0;
    box-shadow: 0 6px 18px $color-shadow;
    transition: transform $transition-base, box-shadow $transition-base; // AI suggestion -- creates hover effect
+   @include dark-theme {
+      background-color: $dark-cards;
+      border-color: $dark-color-border;
+   }
 }
 
 // AI suggestion - new class for consistent image display across all book cards (lines 195-211)
@@ -281,6 +341,10 @@ main {
    font-size: $font-size-small;
    font-weight: 600;
    align-self: center; // AI suggestion; centers the link within the card content area
+   @include dark-theme {
+      color: $dark-text;
+      border-color: $dark-color-border;
+   }
 }
 
 .details-link:hover,
@@ -288,6 +352,10 @@ main {
    background-color: $accent-sage;
    color: $light-highlight;
    border-color: $accent-sage;
+   @include dark-theme {
+      background-color: $accent-sage-dark;
+      border-color: $accent-sage-dark;
+   }
 }
 
 /* Genre tags */
@@ -297,6 +365,10 @@ main {
    background-color: $accent-sage-soft;
    color: $color-text;
    font-size: 0.8rem;
+   @include dark-theme {
+      background-color: $accent-sage-soft-dark;
+      color: $dark-text;
+   }
 }
 
 /* Filter buttons */
@@ -309,6 +381,10 @@ main {
    text-align: left;
    margin-bottom: $space-sm;
    border-radius: $radius-md;
+   @include dark-theme {
+      color: $dark-text;
+      border-color: $dark-color-border;
+   }
 }
 
 .filter-button.active,
@@ -317,6 +393,10 @@ main {
    background-color: $accent-sage;
    color: $light-highlight;
    border-color: $accent-sage;
+   @include dark-theme {
+      background-color: $accent-sage-dark;
+      border-color: $accent-sage-dark;
+   }
 }
 
 /* Forms */
@@ -333,6 +413,11 @@ select {
    font-family: $font-body;
    font-size: $font-size-body;
    color: $color-text;
+   @include dark-theme {
+      background-color: $dark-highlight;
+      border-color: $dark-color-border;
+      color: $dark-text;
+   }
 }
 
 input:focus,
@@ -341,6 +426,9 @@ select:focus {
    outline: none;
    border-color: $accent-sage;
    box-shadow: 0 0 0 3px rgba(168, 181, 162, 0.2);
+   @include dark-theme {
+      border-color: $accent-sage-dark;
+   }
 }
 
 textarea {
@@ -365,6 +453,8 @@ button {
    &:focus {
       background-color: $accent-sage-hover;
    }
+
+   // TODO: May need to move button styles higher up in the file so other styles can extend.
 }
 
 /* ===================================
@@ -399,6 +489,9 @@ button {
    background-color: $light-cards;
    padding: $space-xl;
    border-radius: $radius-lg;
+   @include dark-theme {
+      background-color: $dark-cards;
+   }
 }
 
 /* ===================================
@@ -425,6 +518,9 @@ button {
    border-radius: $radius-lg;
    display: flex;
    flex-direction: column;
+   @include dark-theme {
+      background-color: $dark-cards;
+   }
 }
 
 .contact-page form {
@@ -462,6 +558,9 @@ button {
    background-color: $light-cards;
    padding: $space-md;
    border-radius: $radius-lg;
+   @include dark-theme {
+      background-color: $dark-cards;
+   }
 }
 
 .contact-right img {
@@ -490,6 +589,10 @@ button {
    color: $light-highlight;
    padding: $space-sm $space-md;
    border-radius: $radius-sm;
+   @include dark-theme {
+      background-color: $accent-sage-dark;
+      color: $dark-text;
+   }
 }
 
 /* ===================================
@@ -503,4 +606,9 @@ footer {
    text-align: center;
    font-size: $font-size-small;
    border-top: 1px solid $color-border;
+   @include dark-theme {
+      background-color: $dark-highlight;
+      color: $dark-text;
+      border-top: 1px solid $dark-color-border;
+   }
 }

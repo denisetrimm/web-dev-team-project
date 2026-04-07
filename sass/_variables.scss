@@ -23,10 +23,12 @@ $accent-sage-soft: #E4EBE1; // very light version for backgrounds
 
 /* DARK MODE COLORS
    Matched dark mode palette for theme toggle. */
-$dark-page-bg: #1E1E1C;
-$dark-cards: #2A2A28;
+$dark-page-bg: #1E1E1C; //background
+$dark-cards: #2A2A28; // surface
+$dark-highlight: #3A3A36; // highlights and hover states
 $dark-text: #F5F3EA;
 $dark-secondary-text: #CFC8B8;
+$dark-color-border: #2F3A2D;
 
 /* DARK MODE ACCENT COLORS 
    Colors for buttons, links, and highlights. */
