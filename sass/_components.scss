@@ -1,4 +1,5 @@
 @use 'variables' as *;
+@use 'mixins' as *;
 
 /* ======================================================
    COMPONENT STYLES
@@ -18,6 +19,12 @@ body {
     padding: $space-xs;
 }
 
+body.dark,
+html.dark body {
+  background-color: $dark-page-bg;
+  color: $dark-text;
+}
+
 section {
     margin-bottom: $space-xl; // space between sections for visual separation
 }
@@ -30,6 +37,9 @@ h4 {
    color: $color-text;
    line-height: $line-height-heading;
    font-weight: 600;
+   @include dark-theme {
+      color: $dark-text;
+   }
 }
 
 h1 {
@@ -63,6 +73,12 @@ header {
    flex-direction: column; // stack header elements vertically
    align-items: center; // center header content horizontally
    border-bottom: 1px solid $color-border;
+
+   @include dark-theme {
+      background-color: $dark-cards;
+      color: $dark-text;
+      border-bottom: 1px solid $dark-color-border;
+   }
 }
 
 header img {
@@ -75,6 +91,9 @@ header img {
    font-family: $font-body;
    font-size: $font-size-small;
    color: $color-text;
+   @include dark-theme {
+      color: $dark-secondary-text;
+   }
 }
 
 /* ===================================
@@ -100,6 +119,11 @@ main {
    gap: $space-md; // space between nav items
    flex-wrap: wrap; // allow nav items to wrap on smaller screens for responsiveness
    border-bottom: 1px solid $color-border;
+
+   @include dark-theme {
+      background-color: $dark-highlight;
+      border-bottom: 1px solid $dark-color-border;
+   }
 }
 
 /* Base button styles
@@ -131,6 +155,17 @@ main {
    &:focus {
       background-color: $accent-sage-soft;
    }
+
+   @include dark-theme {
+      color: $dark-text;
+      border-color: $dark-color-border;
+
+      &:hover,
+      &:focus {
+         background-color: $accent-sage-soft-dark;
+         border-color: $accent-sage-dark;
+      }
+   }
 }
 
 /* Primary action buttons */
@@ -144,6 +179,17 @@ main {
    &:hover,
    &:focus {
       background-color: $accent-sage-hover;
+   }
+   @include dark-theme {
+      background-color: $accent-sage-dark;
+      border-color: $accent-sage-dark;
+      color: $accent-sage-soft-dark;
+
+      &:hover,
+      &:focus {
+         background-color: $accent-sage-hover-dark;
+         border-color: $accent-sage-hover-dark;
+      }
    }
 }
 
@@ -159,6 +205,16 @@ main {
    &:focus {
       background-color: $accent-sage-soft;
       border-color: $accent-sage;
+   }
+   @include dark-theme {
+      color: $dark-text;
+      border-color: $dark-color-border;
+
+      &:hover,
+      &:focus {
+         background-color: $accent-sage-soft-dark;
+         border-color: $accent-sage-dark;
+      }
    }
 }
 
@@ -194,6 +250,10 @@ main {
    margin: 0;
    box-shadow: 0 6px 18px $color-shadow;
    transition: transform $transition-base, box-shadow $transition-base; // AI suggestion -- creates hover effect
+   @include dark-theme {
+      background-color: $dark-cards;
+      border-color: $dark-color-border;
+   }
 }
 
 // AI suggestion - new class for consistent image display across all book cards (lines 195-211)
@@ -239,6 +299,9 @@ main {
 .book-card:focus-within {
    transform: translateY(-6px); // AI suggestion - makes the card lift slightly on hover for interactivity
    box-shadow: 0 10px 20px $color-shadow;
+   @include dark-theme {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+  }
 }
 
 .book-author {
