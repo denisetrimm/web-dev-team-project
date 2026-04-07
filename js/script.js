@@ -1,4 +1,23 @@
-import { BOOKS } from "./data.js"; // Import the book data from the data module
+import { BOOKS_EN, BOOKS_FR } from "./data.js"; // Import the book data from the data module
+/*
+GENERAL CONSTANTS AND VARIABLES
+*/
+// NOTE: AI suggestion to use window.pathname to determine which book data to load
+const isFR = window.location.pathname.includes("/fr/");
+const BOOKS = isFR ? BOOKS_FR : BOOKS_EN;
+const BOOKLABELS = isFR
+	? {
+			genre: "Genre",
+			price: "Prix",
+			viewDetails: "Voir les détails",
+			coverOf: "Couverture de",
+		}
+	: {
+			genre: "Genre",
+			price: "Price",
+			viewDetails: "View Details",
+			coverOf: "Cover of",
+		};
 /* FILTERING FUNCTIONALITY
 This section will implement the functionality to filter books by genre when the user clicks on a genre button.
 */
@@ -19,15 +38,15 @@ let renderBooks = (books) => {
 		// AI suggestion - image wrapper to ensure all cover images are displayed consistently
 		bookCard.innerHTML = `
             <div class="book-image-wrapper">
-                <img src="${book.image}" alt="Cover of ${book.title}">
+                <img src="${book.image}" alt="${BOOKLABELS.coverOf} ${book.title}">
             </div>
             <div class="book-card-content">
                 <h3>${book.title}</h3>
                 <p class="book-meta">${book.author}</p>
                 <p class="book-meta">${book.description}</p>
-                <p class="book-meta"><strong>Genre:</strong> ${book.category}</p>
-                <p class="book-meta"><strong>Price:</strong> $${book.price.toFixed(2)}</p>
-                <button aria-label="View details for ${book.title}">View Details</button>
+                <p class="book-meta"><strong>${BOOKLABELS.genre}:</strong> ${book.category}</p>
+                <p class="book-meta"><strong>${BOOKLABELS.price}:</strong> $${book.price.toFixed(2)}</p>
+                <button aria-label="${BOOKLABELS.viewDetails} ${book.title}">${BOOKLABELS.viewDetails}</button>
             </div>
         `;
 		// Append the book card to the book grid container
@@ -67,7 +86,8 @@ if (document.getElementById("book-grid")) {
 }
 
 /* 
-	Implement theme toggle functionality
+	THEME TOGGLE FUNCTIONALITY
+This section will implement the functionality to toggle between light and dark themes when the user clicks the theme toggle button. The user's theme preference will be saved in localStorage to persist across sessions.
 */
 
 const themeToggleBtn = document.getElementById("theme-toggle");
@@ -110,3 +130,27 @@ if (themeToggleBtn && themeIcon) {
 	}
 	updateThemeIcon();
 }
+
+/*
+	LANGUAGE TOGGLE FUNCTIONALITY
+This section will implement the functionality to toggle between English and French languages when the user clicks the language toggle button. The user's language preference will be saved in localStorage to persist across sessions.
+*/
+const langToggleBtn = document.getElementById("lang-toggle");
+
+// Check if language toggle button exists
+if (langToggleBtn) {
+	langToggleBtn.addEventListener("click", () => {
+		let nextPath;
+		// Choose the new language based on current language. If isFR, switch to English, and vice versa.
+		const nextLang = isFR ? "en" : "fr";
+		// replace the language in the URL path
+		if (nextLang == "en") {
+			nextPath = window.location.pathname.replace("/fr/", "/en/");
+		} else {
+			nextPath = window.location.pathname.replace("/en/", "/fr/");
+		}
+		// Go to the new path
+		window.location.href = nextPath;
+	});
+}
+// TODO - Potentially save language in LocalStorage.
