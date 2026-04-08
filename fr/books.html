@@ -48,7 +48,7 @@
 				<figcaption>Bienvenue chez Chapter One</figcaption>
 			</figure>
 			<h1>Chapter One</h1>
-			<p class="tagline">⊹˚.‧⁺ Un voyage à travers les pages ⁺‧.˚⊹</p>
+			<p class="tagline">⊹˚.‧⁺ Un voyage au fil des pages ⁺‧.˚⊹</p>
 		</header>
 
 		<!-- navigation principale -->
@@ -92,7 +92,7 @@
 				<h2 id="books-page-heading">Parcourir les livres</h2>
 				<p>
 					Découvrez notre collection soigneusement sélectionnée de romans,
-					d’essais, de science-fiction et fantasy, ainsi que d’auteurs locaux.
+					d'essais, de science-fiction et fantasy, ainsi que d'auteurs locaux.
 				</p>
 			</section>
 
@@ -123,8 +123,44 @@
 			</section>
 		</main>
 
-		<footer role="contentinfo">
-			<p>&copy; 2026 Chapter One. Tous droits réservés.</p>
+		<footer class="site-footer"role="contentinfo">
+			<!-- AI suggestion - to create distinct columns in the footer, each section is assigned a class of "footer-column" and wrapped inside a 
+			    container to allow for a responsive grid layout -->
+			<div class="footer-grid">
+				<section class="footer-column">
+					<h3>Chapter One</h3>
+					<p>⊹˚.‧⁺ Un voyage au fil des pages ⁺‧.˚⊹</p>
+				</section>
+
+				<section class="footer-column">
+					<h3>Liens rapides</h3>
+					<ul class="footer-links">
+						<li><a href="index.html">Acceuil</a></li>
+						<li><a href="books.html">Livres</a></li>
+						<li><a href="about.html">À propos</a></li>
+						<li><a href="cart.html">Panier</a></li>
+						<li><a href="contact.html">Nous joindre</a></li>
+					</ul>
+				</section>
+
+				<section class="footer-column">
+					<h3>Nous joindre</h3>
+					<p>123 Book Lane, Montréal, QC</p>
+					<p>514-555-1234</p>
+					<!-- AI suggestion - add a "mailto:" link so clicking the email address opens the default email client -->
+					<p><a href="mailto:info@chapterone.com">info@chapterone.com</a></p>
+				</section>
+
+				<section class="footer-column">
+					<h3>Heures d'ouverture</h3>
+					<p>Lun-Sam: 9h - 20h</p>
+					<p>Dim: 10h - 18h</p>
+				</section>
+			</div>
+
+			<div class="footer-bottom">
+				<p>&copy; 2026 Chapter One. Tous droits réservés.</p>
+			</div>
 		</footer>
 	</body>
 </html>
