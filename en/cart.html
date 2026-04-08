@@ -60,7 +60,7 @@
 					<a class="nav-link" href="index.html">Home</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link active" href="books.html">Books</a>
+					<a class="nav-link" href="books.html">Books</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="favourites.html">Favourites</a>
@@ -73,7 +73,7 @@
 				</li>
 				<!-- TODO - Copy to other pages -->
 				<li class="nav-item">
-					<a class="nav-link" href="cart.html">Cart</a>
+					<a class="nav-link active" href="cart.html">Cart</a>
 				</li>
 			</ul>
 
@@ -100,45 +100,11 @@
 
 		<!-- main content area -->
 		<main id="main-content" role="main" aria-labelledby="books-page-heading">
-			<!-- breadcrumb navigation -->
-			<nav aria-label="breadcrumb">
-				<a href="index.html">Home</a> &gt;
-				<a href="books.html">Books</a>
-			</nav>
-
-			<!-- page heading -->
-			<section aria-labelledby="books-page-heading">
-				<h2 id="books-page-heading">Browse Books</h2>
-				<p>
-					Explore our curated collection of fiction, non-fiction, sci-fi and
-					fantasy, and local authors.
-				</p>
-			</section>
-
-			<!-- filter by genre -->
-			<section aria-labelledby="filter-heading">
-				<h2 id="filter-heading">Filter by Genre</h2>
-				<!-- filter buttons used with JavaScript -->
-				<div class="filters">
-					<button class="filter-button active" data-filter="all">All</button>
-					<button class="filter-button" data-filter="fiction">Fiction</button>
-					<button class="filter-button" data-filter="non-fiction">
-						Non-Fiction
-					</button>
-					<button class="filter-button" data-filter="sci-fi/fantasy">
-						Sci-Fi & Fantasy
-					</button>
-					<button class="filter-button" data-filter="local authors">
-						Local Authors
-					</button>
-				</div>
-			</section>
-
-			<!-- book catalog section -->
-			<section aria-labelledby="catalogue-heading">
-				<h2 id="catalogue-heading">Book Catalogue</h2>
-
-				<div id="book-grid" class="book-grid"></div>
+			<section id="cart-section">
+				<h2>Shopping Cart</h2>
+				<!-- TODO - update later -->
+				<p id="cart-item-count">0 item(s)</p>
+				<button id="clear-cart-btn">Clear Cart</button>
 			</section>
 		</main>
 		<footer role="contentinfo">
