@@ -44,7 +44,7 @@ section {
 =================================== */
 header figure {
   margin: 0;
-  text-align: center;
+  text-align: left;
 }
 
 header figcaption {
@@ -79,13 +79,6 @@ header figcaption {
 }
 
 /* ===================================
-   FOOTER LAYOUT
-=================================== */
-footer {
-  margin-top: 2rem;
-}
-
-/* ===================================
    RESPONSIVE LAYOUT
 =================================== */
 @media (min-width: 768px) {
@@ -110,6 +103,12 @@ body {
   padding: 0.25rem;
 }
 
+body.dark,
+html.dark body {
+  background-color: #1E1E1C;
+  color: #F5F3EA;
+}
+
 section {
   margin-bottom: 2rem;
 }
@@ -122,6 +121,12 @@ h4 {
   color: #494949;
   line-height: 1.2;
   font-weight: 600;
+}
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark h4 {
+  color: #F5F3EA;
 }
 
 h1 {
@@ -143,28 +148,55 @@ h4 {
 /* ===================================
    HEADER SECTION
 =================================== */
-header {
-  background-color: #FFFDF6;
-  color: #494949;
-  margin: 0;
-  padding: 0.5rem;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
+header.site-header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
+  padding: 1rem 1.5rem;
+  background-color: #FFFDF6;
   border-bottom: 1px solid rgba(73, 73, 73, 0.16);
 }
+body.dark header.site-header {
+  background-color: #2A2A28;
+  border-bottom: 1px solid #2F3A2D;
+}
 
-header img {
-  max-width: 165px;
+.header-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.header-left img {
+  max-width: 140px;
   height: auto;
-  margin-bottom: 0.5rem;
 }
 
 .tagline {
   font-family: "Montserrat", sans-serif;
   font-size: 0.875rem;
   color: #494949;
+}
+body.dark .tagline {
+  color: #CFC8B8;
+}
+
+.header-center {
+  text-align: center;
+}
+
+.header-center h1 {
+  margin: 0;
+  font-size: 3rem;
+}
+
+#main-nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  padding: 0;
 }
 
 /* ===================================
@@ -188,6 +220,10 @@ main {
   gap: 1rem;
   flex-wrap: wrap;
   border-bottom: 1px solid rgba(73, 73, 73, 0.16);
+}
+body.dark #main-nav {
+  background-color: #3A3A36;
+  border-bottom: 1px solid #2F3A2D;
 }
 
 /* Base button styles
@@ -217,6 +253,14 @@ button, .filter-button, .button-secondary, .button-primary, .navButtons {
 .navButtons:hover, .navButtons:focus {
   background-color: #E4EBE1;
 }
+body.dark .navButtons {
+  color: #F5F3EA;
+  border-color: #2F3A2D;
+}
+body.dark .navButtons:hover, body.dark .navButtons:focus {
+  background-color: #2F3A2D;
+  border-color: #8FA18A;
+}
 
 /* Primary action buttons */
 .button-primary {
@@ -227,6 +271,15 @@ button, .filter-button, .button-secondary, .button-primary, .navButtons {
 }
 .button-primary:hover, .button-primary:focus {
   background-color: #8FA18A;
+}
+body.dark .button-primary {
+  background-color: #8FA18A;
+  border-color: #8FA18A;
+  color: #2F3A2D;
+}
+body.dark .button-primary:hover, body.dark .button-primary:focus {
+  background-color: #A8B5A2;
+  border-color: #A8B5A2;
 }
 
 /* Secondary action buttons */
@@ -239,6 +292,14 @@ button, .filter-button, .button-secondary, .button-primary, .navButtons {
 .button-secondary:hover, .button-secondary:focus {
   background-color: #E4EBE1;
   border-color: #A8B5A2;
+}
+body.dark .button-secondary {
+  color: #F5F3EA;
+  border-color: #2F3A2D;
+}
+body.dark .button-secondary:hover, body.dark .button-secondary:focus {
+  background-color: #2F3A2D;
+  border-color: #8FA18A;
 }
 
 /* Book grids and cards */
@@ -270,6 +331,10 @@ button, .filter-button, .button-secondary, .button-primary, .navButtons {
   margin: 0;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+body.dark .book-card {
+  background-color: #2A2A28;
+  border-color: #2F3A2D;
 }
 
 .book-image-wrapper {
@@ -358,12 +423,21 @@ button, .filter-button, .button-secondary, .button-primary, .navButtons {
   font-weight: 600;
   align-self: center;
 }
+body.dark .details-link {
+  color: #F5F3EA;
+  border-color: #2F3A2D;
+}
 
 .details-link:hover,
 .details-link:focus {
   background-color: #A8B5A2;
   color: #FFFDF6;
   border-color: #A8B5A2;
+}
+body.dark .details-link:hover,
+body.dark .details-link:focus {
+  background-color: #8FA18A;
+  border-color: #8FA18A;
 }
 
 /* Genre tags */
@@ -373,6 +447,10 @@ button, .filter-button, .button-secondary, .button-primary, .navButtons {
   background-color: #E4EBE1;
   color: #494949;
   font-size: 0.8rem;
+}
+body.dark .genre-tag {
+  background-color: #2F3A2D;
+  color: #F5F3EA;
 }
 
 /* Filter buttons */
@@ -385,6 +463,10 @@ button, .filter-button, .button-secondary, .button-primary, .navButtons {
   margin-bottom: 0.5rem;
   border-radius: 0.85rem;
 }
+body.dark .filter-button {
+  color: #F5F3EA;
+  border-color: #2F3A2D;
+}
 
 .filter-button.active,
 .filter-button:hover,
@@ -392,6 +474,12 @@ button, .filter-button, .button-secondary, .button-primary, .navButtons {
   background-color: #A8B5A2;
   color: #FFFDF6;
   border-color: #A8B5A2;
+}
+body.dark .filter-button.active,
+body.dark .filter-button:hover,
+body.dark .filter-button:focus {
+  background-color: #8FA18A;
+  border-color: #8FA18A;
 }
 
 /* Forms */
@@ -409,6 +497,13 @@ select {
   font-size: 1rem;
   color: #494949;
 }
+body.dark input,
+body.dark textarea,
+body.dark select {
+  background-color: #3A3A36;
+  border-color: #2F3A2D;
+  color: #F5F3EA;
+}
 
 input:focus,
 textarea:focus,
@@ -416,6 +511,11 @@ select:focus {
   outline: none;
   border-color: #A8B5A2;
   box-shadow: 0 0 0 3px rgba(168, 181, 162, 0.2);
+}
+body.dark input:focus,
+body.dark textarea:focus,
+body.dark select:focus {
+  border-color: #8FA18A;
 }
 
 textarea {
@@ -472,6 +572,9 @@ button:hover, button:focus {
   padding: 2rem;
   border-radius: 1.25rem;
 }
+body.dark .empty-favorites {
+  background-color: #2A2A28;
+}
 
 /* ===================================
    CONTACT PAGE (specific styling)
@@ -496,6 +599,9 @@ button:hover, button:focus {
   border-radius: 1.25rem;
   display: flex;
   flex-direction: column;
+}
+body.dark .contact-page .contact-card {
+  background-color: #2A2A28;
 }
 
 .contact-page form {
@@ -535,6 +641,9 @@ button:hover, button:focus {
   padding: 1rem;
   border-radius: 1.25rem;
 }
+body.dark .contact-info-box {
+  background-color: #2A2A28;
+}
 
 .contact-right img {
   width: 100%;
@@ -564,16 +673,90 @@ button:hover, button:focus {
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
 }
+body.dark .skip-link:focus {
+  background-color: #8FA18A;
+  color: #F5F3EA;
+}
 
 /* ===================================
    FOOTER
 =================================== */
-footer {
+footer.site-footer {
   background-color: #FFFDF6;
   color: #494949;
-  margin: 0;
-  padding: 2rem;
-  text-align: center;
+  margin-top: 2rem;
+  padding: 2rem 1.5rem 1rem;
   font-size: 0.875rem;
   border-top: 1px solid rgba(73, 73, 73, 0.16);
+}
+body.dark footer.site-footer {
+  background-color: #2A2A28;
+  color: #F5F3EA;
+  border-top: 1px solid rgba(245, 243, 234, 0.12);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.footer-column h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  font-family: "Cormorant Infant", serif;
+  color: #494949;
+}
+body.dark .footer-column h3 {
+  color: #F5F3EA;
+}
+
+.footer-column p {
+  margin: 0 0 0.25rem 0;
+}
+
+.footer-column a {
+  color: #494949;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+.footer-column a:hover, .footer-column a:focus {
+  text-decoration: underline;
+}
+body.dark .footer-column a {
+  color: #CFC8B8;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.25rem;
+}
+
+.footer-bottom {
+  width: 100%;
+  margin-top: 0;
+  text-align: center;
+}
+body.dark .footer-bottom {
+  border-top: 1px solid rgba(245, 243, 234, 0.12);
+}
+
+.footer-bottom p {
+  margin: 0;
 }/*# sourceMappingURL=main.css.map */

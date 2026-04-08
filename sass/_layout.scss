@@ -23,7 +23,7 @@ section {
 =================================== */
 header figure {
    margin: 0;
-   text-align: center;
+   text-align: left;
 }
 
 header figcaption {
@@ -54,13 +54,6 @@ header figcaption {
 
 .book-card-content {
    padding: $space-lg;
-}
-
-/* ===================================
-   FOOTER LAYOUT
-=================================== */
-footer {
-   margin-top: $space-xl;
 }
 
 /* ===================================
