@@ -44,12 +44,12 @@ let renderBooks = (books) => {
         `;
 		// Append the book card to the book grid container
 		bookGrid.appendChild(bookCard);
-		// Add event listener to the "Add to Cart" button for each book card
-		document.querySelectorAll(".add-cart-btn").forEach((button) => {
-			button.addEventListener("click", () => {
-				const bookId = Number(button.getAttribute("data-book-id"));
-				addToCart(bookId);
-			});
+	});
+	// Add event listener to the "Add to Cart" button for each book card
+	document.querySelectorAll(".add-cart-btn").forEach((button) => {
+		button.addEventListener("click", () => {
+			const bookId = Number(button.getAttribute("data-book-id"));
+			addToCart(bookId);
 		});
 	});
 };
@@ -173,11 +173,11 @@ const addToCart = (bookId) => {
 	const itemExists = cart.find((book) => book.id === bookId);
 	if (itemExists) {
 		// If it exists, increase the quantity
-		itemExists.quantity++;
+		itemExists.quantity += 1;
 	} else {
 		// If it doesn't exist, check if the book exists in the BOOKS array and add the book to the cart
 		const newBook = BOOKS.find((b) => b.id === bookId);
-		newBook && cart.push({ ...newBook, quantity: 1 });
+		newBook && cart.push({ id: newBook.id, quantity: 1 });
 	}
 	setCart(cart);
 };
@@ -212,3 +212,17 @@ const clearCart = () => {
 const findBookById = (id) => {
 	return BOOKS.find((book) => book.id === id);
 };
+
+// ============================================================
+// CART PAGE RENDERING FUNCTIONALITY
+// ============================================================
+
+const refreshCartPage = () => {
+	const cartItemsSection = document.getElementById("cart-items");
+	const numberOfItems = document.getElementById("cart-item-no");
+	const clearCartBtn = document.getElementById("clear-btn");
+	const cart = getCart();
+
+	clearCartBtn && clearCartBtn.addEventListener("click", () => clearCart());
+};
+refreshCartPage();
