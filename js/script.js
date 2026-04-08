@@ -1,26 +1,16 @@
 import { BOOKS_EN, BOOKS_FR } from "./data.js"; // Import the book data from the data module
-/*
-GENERAL CONSTANTS AND VARIABLES
-*/
+import { LABELS } from "./labels.js"; // Import the language labels from the labels module
+// ============================================================
+// GLOBAL VARIABLES
+// ============================================================
 // NOTE: AI suggestion to use window.pathname to determine which book data to load
 const isFR = window.location.pathname.includes("/fr/");
 const BOOKS = isFR ? BOOKS_FR : BOOKS_EN;
-const BOOKLABELS = isFR
-	? {
-			genre: "Genre",
-			price: "Prix",
-			viewDetails: "Voir les détails",
-			coverOf: "Couverture de",
-		}
-	: {
-			genre: "Genre",
-			price: "Price",
-			viewDetails: "View Details",
-			coverOf: "Cover of",
-		};
-/* FILTERING FUNCTIONALITY
-This section will implement the functionality to filter books by genre when the user clicks on a genre button.
-*/
+const TEXT = isFR ? LABELS.fr : LABELS.en; // Use the appropriate language labels based on the current language
+
+// ============================================================
+// BOOK FILTERING FUNCTIONALITY
+// ============================================================
 
 // Function to render books in the catalogue
 let renderBooks = (books) => {
@@ -38,19 +28,29 @@ let renderBooks = (books) => {
 		// AI suggestion - image wrapper to ensure all cover images are displayed consistently
 		bookCard.innerHTML = `
             <div class="book-image-wrapper">
-                <img src="${book.image}" alt="${BOOKLABELS.coverOf} ${book.title}">
+                <img src="${book.image}" alt="${TEXT.coverOf} ${book.title}">
             </div>
             <div class="book-card-content">
                 <h3>${book.title}</h3>
                 <p class="book-meta">${book.author}</p>
                 <p class="book-meta">${book.description}</p>
-                <p class="book-meta"><strong>${BOOKLABELS.genre}:</strong> ${book.category}</p>
-                <p class="book-meta"><strong>${BOOKLABELS.price}:</strong> $${book.price.toFixed(2)}</p>
-                <button aria-label="${BOOKLABELS.viewDetails} ${book.title}">${BOOKLABELS.viewDetails}</button>
+                <p class="book-meta"><strong>${TEXT.genre}:</strong> ${book.category}</p>
+                <p class="book-meta"><strong>${TEXT.price}:</strong> $${book.price.toFixed(2)}</p>
+                <button aria-label="${TEXT.viewDetails} ${book.title}">${TEXT.viewDetails}</button>
+				<button class="add-cart-btn" data-book-id="${book.id}" aria-label="${TEXT.addToCart} ${book.title}">
+                        ${TEXT.addToCart}
+                    </button>
             </div>
         `;
 		// Append the book card to the book grid container
 		bookGrid.appendChild(bookCard);
+	});
+	// Add event listener to the "Add to Cart" button for each book card
+	document.querySelectorAll(".add-cart-btn").forEach((button) => {
+		button.addEventListener("click", () => {
+			const bookId = Number(button.getAttribute("data-book-id"));
+			addToCart(bookId);
+		});
 	});
 };
 
@@ -85,10 +85,9 @@ if (document.getElementById("book-grid")) {
 	});
 }
 
-/* 
-	THEME TOGGLE FUNCTIONALITY
-This section will implement the functionality to toggle between light and dark themes when the user clicks the theme toggle button. The user's theme preference will be saved in localStorage to persist across sessions.
-*/
+// ============================================================
+// THEME TOGGLE FUNCTIONALITY
+// ============================================================
 
 const themeToggleBtn = document.getElementById("theme-toggle");
 const themeIcon = document.getElementById("theme-icon");
@@ -131,10 +130,9 @@ if (themeToggleBtn && themeIcon) {
 	updateThemeIcon();
 }
 
-/*
-	LANGUAGE TOGGLE FUNCTIONALITY
-This section will implement the functionality to toggle between English and French languages when the user clicks the language toggle button. The user's language preference will be saved in localStorage to persist across sessions.
-*/
+// ============================================================
+// LANGUAGE TOGGLE FUNCTIONALITY
+// ============================================================
 const langToggleBtn = document.getElementById("lang-toggle");
 
 // Check if language toggle button exists
@@ -154,3 +152,77 @@ if (langToggleBtn) {
 	});
 }
 // TODO - Potentially save language in LocalStorage.
+
+// ============================================================
+// CART MANAGEMENT FUNCTIONALITY
+// ============================================================
+
+// Check if cart already exists in localStorage, if not create an empty cart
+const getCart = () => {
+	const cart = localStorage.getItem("cart");
+	// If the cart exists parse and return it, otherwise return an empty array
+	return cart ? JSON.parse(cart) : [];
+};
+
+// Save the cart to localStorage
+const setCart = (cart) => localStorage.setItem("cart", JSON.stringify(cart));
+
+const addToCart = (bookId) => {
+	const cart = getCart();
+	// Check if the book is already in the cart
+	const itemExists = cart.find((book) => book.id === bookId);
+	if (itemExists) {
+		// If it exists, increase the quantity
+		itemExists.quantity += 1;
+	} else {
+		// If it doesn't exist, check if the book exists in the BOOKS array and add the book to the cart
+		const newBook = BOOKS.find((b) => b.id === bookId);
+		newBook && cart.push({ id: newBook.id, quantity: 1 });
+	}
+	setCart(cart);
+};
+
+const removeFromCart = (bookId) => {
+	let cart = getCart();
+	// Filter out the book with the given ID from the cart and save the updated cart
+	cart = cart.filter((book) => book.id !== bookId);
+	setCart(cart);
+};
+
+const updateCartBookQuantity = (bookId, qtyToChange) => {
+	let cart = getCart();
+	// Find the book in the cart and update its quantity
+	const existingBook = cart.find((book) => book.id === bookId);
+	// If the book is not found in the cart, return
+	if (!existingBook) return;
+
+	existingBook.quantity += qtyToChange;
+	// If the quantity drops to 0 or below, remove the book from the cart
+	if (existingBook.quantity <= 0) {
+		removeFromCart(bookId);
+		return;
+	}
+	setCart(cart);
+};
+
+const clearCart = () => {
+	localStorage.removeItem("cart");
+};
+
+const findBookById = (id) => {
+	return BOOKS.find((book) => book.id === id);
+};
+
+// ============================================================
+// CART PAGE RENDERING FUNCTIONALITY
+// ============================================================
+
+const refreshCartPage = () => {
+	const cartItemsSection = document.getElementById("cart-items");
+	const numberOfItems = document.getElementById("cart-item-no");
+	const clearCartBtn = document.getElementById("clear-btn");
+	const cart = getCart();
+
+	clearCartBtn && clearCartBtn.addEventListener("click", () => clearCart());
+};
+refreshCartPage();
