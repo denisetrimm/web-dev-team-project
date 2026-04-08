@@ -2,25 +2,14 @@ import { BOOKS_EN, BOOKS_FR } from "./data.js"; // Import the book data from the
 /*
 GENERAL CONSTANTS AND VARIABLES
 */
+import { LABELS } from "./labels.js"; // Import the language labels from the labels module
 // NOTE: AI suggestion to use window.pathname to determine which book data to load
 const isFR = window.location.pathname.includes("/fr/");
 const BOOKS = isFR ? BOOKS_FR : BOOKS_EN;
-const BOOKLABELS = isFR
-	? {
-			genre: "Genre",
-			price: "Prix",
-			viewDetails: "Voir les détails",
-			coverOf: "Couverture de",
-		}
-	: {
-			genre: "Genre",
-			price: "Price",
-			viewDetails: "View Details",
-			coverOf: "Cover of",
-		};
 /* FILTERING FUNCTIONALITY
 This section will implement the functionality to filter books by genre when the user clicks on a genre button.
 */
+const TEXT = isFR ? LABELS.fr : LABELS.en; // Use the appropriate language labels based on the current language
 
 // Function to render books in the catalogue
 let renderBooks = (books) => {
@@ -38,15 +27,15 @@ let renderBooks = (books) => {
 		// AI suggestion - image wrapper to ensure all cover images are displayed consistently
 		bookCard.innerHTML = `
             <div class="book-image-wrapper">
-                <img src="${book.image}" alt="${BOOKLABELS.coverOf} ${book.title}">
+                <img src="${book.image}" alt="${TEXT.coverOf} ${book.title}">
             </div>
             <div class="book-card-content">
                 <h3>${book.title}</h3>
                 <p class="book-meta">${book.author}</p>
                 <p class="book-meta">${book.description}</p>
-                <p class="book-meta"><strong>${BOOKLABELS.genre}:</strong> ${book.category}</p>
-                <p class="book-meta"><strong>${BOOKLABELS.price}:</strong> $${book.price.toFixed(2)}</p>
-                <button aria-label="${BOOKLABELS.viewDetails} ${book.title}">${BOOKLABELS.viewDetails}</button>
+                <p class="book-meta"><strong>${TEXT.genre}:</strong> ${book.category}</p>
+                <p class="book-meta"><strong>${TEXT.price}:</strong> $${book.price.toFixed(2)}</p>
+                <button aria-label="${TEXT.viewDetails} ${book.title}">${TEXT.viewDetails}</button>
             </div>
         `;
 		// Append the book card to the book grid container
