@@ -1,15 +1,16 @@
 import { BOOKS_EN, BOOKS_FR } from "./data.js"; // Import the book data from the data module
-/*
-GENERAL CONSTANTS AND VARIABLES
-*/
 import { LABELS } from "./labels.js"; // Import the language labels from the labels module
+// ============================================================
+// GLOBAL VARIABLES
+// ============================================================
 // NOTE: AI suggestion to use window.pathname to determine which book data to load
 const isFR = window.location.pathname.includes("/fr/");
 const BOOKS = isFR ? BOOKS_FR : BOOKS_EN;
-/* FILTERING FUNCTIONALITY
-This section will implement the functionality to filter books by genre when the user clicks on a genre button.
-*/
 const TEXT = isFR ? LABELS.fr : LABELS.en; // Use the appropriate language labels based on the current language
+
+// ============================================================
+// BOOK FILTERING FUNCTIONALITY
+// ============================================================
 
 // Function to render books in the catalogue
 let renderBooks = (books) => {
@@ -74,10 +75,9 @@ if (document.getElementById("book-grid")) {
 	});
 }
 
-/* 
-	THEME TOGGLE FUNCTIONALITY
-This section will implement the functionality to toggle between light and dark themes when the user clicks the theme toggle button. The user's theme preference will be saved in localStorage to persist across sessions.
-*/
+// ============================================================
+// THEME TOGGLE FUNCTIONALITY
+// ============================================================
 
 const themeToggleBtn = document.getElementById("theme-toggle");
 const themeIcon = document.getElementById("theme-icon");
@@ -120,10 +120,9 @@ if (themeToggleBtn && themeIcon) {
 	updateThemeIcon();
 }
 
-/*
-	LANGUAGE TOGGLE FUNCTIONALITY
-This section will implement the functionality to toggle between English and French languages when the user clicks the language toggle button. The user's language preference will be saved in localStorage to persist across sessions.
-*/
+// ============================================================
+// LANGUAGE TOGGLE FUNCTIONALITY
+// ============================================================
 const langToggleBtn = document.getElementById("lang-toggle");
 
 // Check if language toggle button exists
