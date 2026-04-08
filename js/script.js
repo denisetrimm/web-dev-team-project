@@ -37,10 +37,20 @@ let renderBooks = (books) => {
                 <p class="book-meta"><strong>${TEXT.genre}:</strong> ${book.category}</p>
                 <p class="book-meta"><strong>${TEXT.price}:</strong> $${book.price.toFixed(2)}</p>
                 <button aria-label="${TEXT.viewDetails} ${book.title}">${TEXT.viewDetails}</button>
+				<button class="add-cart-btn" data-book-id="${book.id}" aria-label="${TEXT.addToCart} ${book.title}">
+                        ${TEXT.addToCart}
+                    </button>
             </div>
         `;
 		// Append the book card to the book grid container
 		bookGrid.appendChild(bookCard);
+		// Add event listener to the "Add to Cart" button for each book card
+		document.querySelectorAll(".add-cart-btn").forEach((button) => {
+			button.addEventListener("click", () => {
+				const bookId = Number(button.getAttribute("data-book-id"));
+				addToCart(bookId);
+			});
+		});
 	});
 };
 
@@ -142,3 +152,63 @@ if (langToggleBtn) {
 	});
 }
 // TODO - Potentially save language in LocalStorage.
+
+// ============================================================
+// CART MANAGEMENT FUNCTIONALITY
+// ============================================================
+
+// Check if cart already exists in localStorage, if not create an empty cart
+const getCart = () => {
+	const cart = localStorage.getItem("cart");
+	// If the cart exists parse and return it, otherwise return an empty array
+	return cart ? JSON.parse(cart) : [];
+};
+
+// Save the cart to localStorage
+const setCart = (cart) => localStorage.setItem("cart", JSON.stringify(cart));
+
+const addToCart = (bookId) => {
+	const cart = getCart();
+	// Check if the book is already in the cart
+	const itemExists = cart.find((book) => book.id === bookId);
+	if (itemExists) {
+		// If it exists, increase the quantity
+		itemExists.quantity++;
+	} else {
+		// If it doesn't exist, check if the book exists in the BOOKS array and add the book to the cart
+		const newBook = BOOKS.find((b) => b.id === bookId);
+		newBook && cart.push({ ...newBook, quantity: 1 });
+	}
+	setCart(cart);
+};
+
+const removeFromCart = (bookId) => {
+	let cart = getCart();
+	// Filter out the book with the given ID from the cart and save the updated cart
+	cart = cart.filter((book) => book.id !== bookId);
+	setCart(cart);
+};
+
+const updateCartBookQuantity = (bookId, qtyToChange) => {
+	let cart = getCart();
+	// Find the book in the cart and update its quantity
+	const existingBook = cart.find((book) => book.id === bookId);
+	// If the book is not found in the cart, return
+	if (!existingBook) return;
+
+	existingBook.quantity += qtyToChange;
+	// If the quantity drops to 0 or below, remove the book from the cart
+	if (existingBook.quantity <= 0) {
+		removeFromCart(bookId);
+		return;
+	}
+	setCart(cart);
+};
+
+const clearCart = () => {
+	localStorage.removeItem("cart");
+};
+
+const findBookById = (id) => {
+	return BOOKS.find((book) => book.id === id);
+};
