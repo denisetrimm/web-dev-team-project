@@ -61,39 +61,57 @@ h4 {
 /* ===================================
    HEADER SECTION
 =================================== */
-header {
+header.site-header {
+   display: grid;
+   grid-template-columns: 1fr auto 1fr;
+   align-items: center;
+   padding: $space-md $space-lg;
    background-color: $light-highlight;
-   color: $color-text;
-   margin: 0;
-   padding: $space-sm;
-   text-align: center;
-
-   // flexbox layout for vertical stacking and centering of header content
-   display: flex;
-   flex-direction: column; // stack header elements vertically
-   align-items: center; // center header content horizontally
    border-bottom: 1px solid $color-border;
 
    @include dark-theme {
       background-color: $dark-cards;
-      color: $dark-text;
       border-bottom: 1px solid $dark-color-border;
    }
 }
 
-header img {
-   max-width: 165px;
+.header-left {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+}
+
+.header-left img {
+   max-width: 140px;
    height: auto;
-   margin-bottom: $space-sm;
 }
 
 .tagline {
    font-family: $font-body;
    font-size: $font-size-small;
    color: $color-text;
+
    @include dark-theme {
       color: $dark-secondary-text;
    }
+}
+
+.header-center {
+   text-align: center;
+}
+
+.header-center h1 {
+   margin: 0;
+   font-size: $font-size-h1;
+}
+
+#main-nav {
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+   gap: $space-sm;
+   border: none; // remove that line under nav
+   padding: 0;
 }
 
 /* ===================================
@@ -598,17 +616,90 @@ button {
 /* ===================================
    FOOTER
 =================================== */
-footer {
+footer.site-footer {
    background-color: $light-highlight;
    color: $color-text;
-   margin: 0;
-   padding: $space-xl;
-   text-align: center;
+   margin-top: $space-xl;
+   padding: $space-xl $space-lg $space-md;
    font-size: $font-size-small;
    border-top: 1px solid $color-border;
+
    @include dark-theme {
-      background-color: $dark-highlight;
+      background-color: $dark-cards;
       color: $dark-text;
-      border-top: 1px solid $dark-color-border;
+      border-top: 1px solid rgba(245, 243, 234, 0.12);
    }
+}
+
+.footer-grid {
+   display: grid;
+   grid-template-columns: 1fr;
+   gap: $space-xl;
+   align-items: start;
+}
+
+@media (min-width: 768px) {
+   .footer-grid {
+      grid-template-columns: repeat(2, 1fr);
+   }
+}
+
+@media (min-width: 1024px) {
+   .footer-grid {
+      grid-template-columns: repeat(4, 1fr);
+   }
+}
+
+.footer-column h3 {
+   margin-bottom: $space-sm;
+   font-size: $font-size-h4;
+   font-family: $font-heading;
+   color: $color-text;
+
+   @include dark-theme {
+      color: $dark-text;
+   }
+}
+
+.footer-column p {
+   margin: 0 0 $space-xs 0;
+}
+
+.footer-column a {
+   color: $color-text;
+   text-decoration: none;
+   transition: $transition-base;
+
+   &:hover,
+   &:focus {
+      text-decoration: underline;
+   }
+
+   @include dark-theme {
+      color: $dark-secondary-text;
+   }
+}
+
+.footer-links {
+   list-style: none;
+   padding: 0;
+   margin: 0;
+}
+
+.footer-links li {
+   margin-bottom: $space-xs;
+}
+
+.footer-bottom {
+   width: 100%;
+   margin-top: 0;
+   text-align: center;
+
+   @include dark-theme {
+      border-top: 1px solid rgba(245, 243, 234, 0.12);
+   }
+}
+
+.footer-bottom p {
+   margin: 0;
 }

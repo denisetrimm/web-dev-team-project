@@ -34,65 +34,34 @@
 		<a href="#main-content" class="skip-link">Skip to main content</a>
 
 		<!-- site header -->
-		<header id="top" role="banner">
-			<figure>
-				<a href="index.html">
-					<img
-						src="../images/chapter-one-logo.png"
-						alt="Chapter One bookstore logo"
-						title="Chapter One Logo"
-						width="275"
-						height="250"
-					/>
+		<header class="site-header"role="banner">
+			<div class="header-left">
+				<a href="#">
+					<!-- TODO - Update logo image (This is just a test) & figure out light vs dark mode -->
+					<!-- Remove the <a></a> tags so the lines disappear ? -->
+					<img src="../images/chapter-one-logo.png" alt="Chapter One Logo" />
+					<p class="tagline">⊹˚.‧⁺ A Journey Through Pages ⁺‧.˚⊹</p>
 				</a>
-				<figcaption>Welcome to Chapter One</figcaption>
-			</figure>
-			<h1>Chapter One</h1>
-			<p class="tagline">⊹˚.‧⁺ A Journey Through Pages ⁺‧.˚⊹</p>
-		</header>
+			</div>
 
-		<!-- primary navigation -->
-		<nav role="navigation" aria-label="Main Navigation">
-			<ul>
-				<!-- TODO Add active class to current page link for each page -->
+			<div class="header-center">
+				<h1>Chapter One</h1>
+			</div>
+	
+			<nav id="main-nav" role="navigation" aria-label="Main Navigation">
 				<!-- TODO finish styling nav-item, nav-link, and active classes-->
-				<li class="nav-item">
-					<a class="nav-link active" href="index.html">Home</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="books.html">Books</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="favourites.html">Favourites</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="about.html">About</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="contact.html">Contact</a>
-				</li>
-			</ul>
-
-			<div>
+				<a href="index.html"class="navButtons">Home</a>
+				<a href="books.html"class="navButtons">Books</a>
+				<a href="about.html"class="navButtons">About</a>
+				<a href="cart.html"class="navButtons">Cart</a>
+				<a href="contact.html"class="navButtons">Contact Us</a>
+			
 				<button id="theme-toggle" aria-label="Toggle Dark Mode">
 					<span id="theme-icon" title="Dark Mode">🌙</span>
+					<button id="lang-toggle">FR</button>
 				</button>
-				<button id="lang-toggle">FR</button>
-			</div>
-			<!-- possible code (?) -->
-			<!-- <nav id="main-nav" role="navigation" aria-label="Main Navigation">
-			<a class="navButtons active" href="index.html">Home</a>
-			<a class="navButtons" href="books.html">Books</a>
-			<a class="navButtons" href="favourites.html">Favourites</a>
-			<a class="navButtons" href="about.html">About</a>
-			<a class="navButtons" href="contact.html">Contact</a>
-			<a class="navButtons" href="../fr/index.html" lang="fr">FR</a>
-
-			<button id="theme-toggle" aria-label="Toggle Dark Mode">
-				<span id="theme-icon" title="Dark Mode">🌙</span>
-			</button>
-		</nav> -->
-		</nav>
+			</nav>
+		</header>
 
 		<!-- main content area -->
 		<main id="main-content" role="main" aria-labelledby="books-page-heading">
@@ -137,9 +106,44 @@
 				<div id="book-grid" class="book-grid"></div>
 			</section>
 		</main>
-		<footer role="contentinfo">
-			<!-- elaborate on footer content to match wireframe (?) -->
-			<p>&copy; 2026 Chapter One. All rights reserved.</p>
+		<footer class="site-footer"role="contentinfo">
+			<!-- AI suggestion - to create distinct columns in the footer, each section is assigned a class of "footer-column" and wrapped inside a 
+			    container to allow for a responsive grid layout -->
+			<div class="footer-grid">
+				<section class="footer-column">
+					<h3>Chapter One</h3>
+					<p>⊹˚.‧⁺ A Journey Through Pages ⁺‧.˚⊹</p>
+				</section>
+
+				<section class="footer-column">
+					<h3>Quick Links</h3>
+					<ul class="footer-links">
+						<li><a href="index.html">Home</a></li>
+						<li><a href="books.html">Books</a></li>
+						<li><a href="about.html">About</a></li>
+						<li><a href="cart.html">Cart</a></li>
+						<li><a href="contact.html">Contact Us</a></li>
+					</ul>
+				</section>
+
+				<section class="footer-column">
+					<h3>Contact Us</h3>
+					<p>123 Book Lane, Montreal, QC</p>
+					<p>514-555-1234</p>
+					<!-- AI suggestion - add a "mailto:" link so clicking the email address opens the default email client -->
+					<p><a href="mailto:info@chapterone.com">info@chapterone.com</a></p>
+				</section>
+
+				<section class="footer-column">
+					<h3>Business Hours</h3>
+					<p>Mon-Sat: 9AM - 8PM</p>
+					<p>Sun: 10AM - 6PM</p>
+				</section>
+			</div>
+
+			<div class="footer-bottom">
+				<p>&copy; 2026 Chapter One. All rights reserved.</p>
+			</div>
 		</footer>
 	</body>
 </html>
