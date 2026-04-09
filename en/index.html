@@ -23,11 +23,12 @@
 	<body>
 		<!-- TODO - Style skip link to hide it -->
 		<a href="#main-content" class="skip-link visually-hidden"
-			>Skip to main content</a>
+			>Skip to main content</a
+		>
 
-		<header class="site-header"role="banner">
+		<header class="site-header" role="banner">
 			<div class="header-left">
-				<a href="#">
+				<a class="logo-link" href="#">
 					<!-- TODO - Update logo image (This is just a test) & figure out light vs dark mode -->
 					<!-- Remove the <a></a> tags so the lines disappear ? -->
 					<img src="../images/chapter-one-logo.png" alt="Chapter One Logo" />
@@ -38,19 +39,19 @@
 			<div class="header-center">
 				<h1>Chapter One</h1>
 			</div>
-	
+
 			<nav id="main-nav" role="navigation" aria-label="Main Navigation">
 				<!-- TODO finish styling nav-item, nav-link, and active classes-->
-				<a href="index.html"class="navButtons">Home</a>
-				<a href="books.html"class="navButtons">Books</a>
-				<a href="about.html"class="navButtons">About</a>
-				<a href="cart.html"class="navButtons">Cart</a>
-				<a href="contact.html"class="navButtons">Contact Us</a>
-			
+				<a href="index.html" class="navButtons">Home</a>
+				<a href="books.html" class="navButtons">Books</a>
+				<a href="about.html" class="navButtons">About</a>
+				<a href="cart.html" class="navButtons">Cart</a>
+				<a href="contact.html" class="navButtons">Contact Us</a>
+
 				<button id="theme-toggle" aria-label="Toggle Dark Mode">
 					<span id="theme-icon" title="Dark Mode">🌙</span>
-					<button id="lang-toggle">FR</button>
 				</button>
+				<button id="lang-toggle">FR</button>
 			</nav>
 		</header>
 
@@ -91,7 +92,7 @@
 			</section>
 		</main>
 
-		<footer class="site-footer"role="contentinfo">
+		<footer class="site-footer" role="contentinfo">
 			<!-- AI suggestion - to create distinct columns in the footer, each section is assigned a class of "footer-column" and wrapped inside a 
 			    container to allow for a responsive grid layout -->
 			<div class="footer-grid">

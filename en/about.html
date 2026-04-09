@@ -23,11 +23,12 @@
 	<body>
 		<!-- TODO - Style skip link to hide it -->
 		<a href="#main-content" class="skip-link visually-hidden"
-			>Skip to main content</a>
+			>Skip to main content</a
+		>
 
-		<header class="site-header"role="banner">
+		<header class="site-header" role="banner">
 			<div class="header-left">
-				<a href="#">
+				<a class="logo-link" href="index.html">
 					<!-- TODO - Update logo image (This is just a test) & figure out light vs dark mode -->
 					<!-- Remove the <a></a> tags so the lines disappear ? -->
 					<img src="../images/chapter-one-logo.png" alt="Chapter One Logo" />
@@ -38,71 +39,88 @@
 			<div class="header-center">
 				<h1>Chapter One</h1>
 			</div>
-	
+
 			<nav id="main-nav" role="navigation" aria-label="Main Navigation">
 				<!-- TODO finish styling nav-item, nav-link, and active classes-->
-				<a href="index.html"class="navButtons">Home</a>
-				<a href="books.html"class="navButtons">Books</a>
-				<a href="about.html"class="navButtons">About</a>
-				<a href="cart.html"class="navButtons">Cart</a>
-				<a href="contact.html"class="navButtons">Contact Us</a>
-			
+				<a href="index.html" class="navButtons">Home</a>
+				<a href="books.html" class="navButtons">Books</a>
+				<a href="about.html" class="navButtons">About</a>
+				<a href="cart.html" class="navButtons">Cart</a>
+				<a href="contact.html" class="navButtons">Contact Us</a>
+
 				<button id="theme-toggle" aria-label="Toggle Dark Mode">
 					<span id="theme-icon" title="Dark Mode">🌙</span>
-					<button id="lang-toggle">FR</button>
 				</button>
+				<button id="lang-toggle">FR</button>
 			</nav>
 		</header>
 
 		<main id="main-content" role="main" class="about-page">
-            <section class="about-intro" aria-labelledby="about-heading">
-                <h2 id="about-heading">About Us</h2>
-                <p>Welcome to Chapter One, your local independent bookstore where stories come to life.</p>
-            </section>
+			<section class="about-intro" aria-labelledby="about-heading">
+				<h2 id="about-heading">About Us</h2>
+				<p>
+					Welcome to Chapter One, your local independent bookstore where stories
+					come to life.
+				</p>
+			</section>
 
-            <section class="about-grid" aria-label="About Chapter One highlights">
-                <article class="about-card">
-                    <h3>🕮 Our Mission</h3>
-                    <!-- AI used to generate the written content held within each card-->
-                    <p>
-                        At Chapter One, we aim to cultivate a love of reading while offering our community a thoughtfully curated selection of diverse literature. We proudly support local authors and celebrate the richness of literary culture.
-                    </p>
-                </article>
+			<section class="about-grid" aria-label="About Chapter One highlights">
+				<article class="about-card">
+					<h3>🕮 Our Mission</h3>
+					<!-- AI used to generate the written content held within each card-->
+					<p>
+						At Chapter One, we aim to cultivate a love of reading while offering
+						our community a thoughtfully curated selection of diverse
+						literature. We proudly support local authors and celebrate the
+						richness of literary culture.
+					</p>
+				</article>
 
-                <article class="about-card">
-                    <h3>♡ Our Values</h3>
-                    <p>
-                        We believe in the power of books to inspire, connect, and transform. Through storytelling, we bring communities together while honoring the timeless tradition of independent bookselling.
-                    </p>
-                </article>
+				<article class="about-card">
+					<h3>♡ Our Values</h3>
+					<p>
+						We believe in the power of books to inspire, connect, and transform.
+						Through storytelling, we bring communities together while honoring
+						the timeless tradition of independent bookselling.
+					</p>
+				</article>
 
-                <article class="about-card">
-                    <h3>𐦂𖨆𐀪𖠋 Our Team</h3>
-                    <p>
-                        Our passionate team of readers is dedicated to helping you discover your next great story through personalized recommendations and a genuine love for books.
-                    </p>
-                </article>
+				<article class="about-card">
+					<h3>𐦂𖨆𐀪𖠋 Our Team</h3>
+					<p>
+						Our passionate team of readers is dedicated to helping you discover
+						your next great story through personalized recommendations and a
+						genuine love for books.
+					</p>
+				</article>
 
-                <article class="about-card">
-                    <h3>🎖 Quality Selection</h3>
-                    <p>
-                        Every title at Chapter One is carefully curated to offer a refined selection across genres — from beloved bestsellers to hidden gems waiting to be discovered.
-                    </p>
-                </article>
-            </section>
+				<article class="about-card">
+					<h3>🎖 Quality Selection</h3>
+					<p>
+						Every title at Chapter One is carefully curated to offer a refined
+						selection across genres — from beloved bestsellers to hidden gems
+						waiting to be discovered.
+					</p>
+				</article>
+			</section>
 
-            <section class="story-card" aria-labelledby="story-heading">
-                <h3 id="story-heading">⊹ ࣪ ˖ Our Story</h3>
-                <p>
-                    Founded in YYYY, Chapter One began as a small neighborhood bookstore with a simple vision: to create a welcoming space for book lovers. Over time, we've grown into a beloved part of the community, while staying true to our commitment to thoughtful curation and personal service.
-                </p>
-                 <p>
-                    Whether you're a lifelong bookworm or just beginning your journey, we're here to help you discover stories that stay with you.
-                </p>
-            </section>
-        </main>
+			<section class="story-card" aria-labelledby="story-heading">
+				<h3 id="story-heading">⊹ ࣪ ˖ Our Story</h3>
+				<p>
+					Founded in YYYY, Chapter One began as a small neighborhood bookstore
+					with a simple vision: to create a welcoming space for book lovers.
+					Over time, we've grown into a beloved part of the community, while
+					staying true to our commitment to thoughtful curation and personal
+					service.
+				</p>
+				<p>
+					Whether you're a lifelong bookworm or just beginning your journey,
+					we're here to help you discover stories that stay with you.
+				</p>
+			</section>
+		</main>
 
-		<footer class="site-footer"role="contentinfo">
+		<footer class="site-footer" role="contentinfo">
 			<!-- AI suggestion - to create distinct columns in the footer, each section is assigned a class of "footer-column" and wrapped inside a 
 			    container to allow for a responsive grid layout -->
 			<div class="footer-grid">

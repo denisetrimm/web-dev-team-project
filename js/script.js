@@ -36,7 +36,6 @@ let renderBooks = (books) => {
                 <p class="book-meta">${book.description}</p>
                 <p class="book-meta"><strong>${TEXT.genre}:</strong> ${book.category}</p>
                 <p class="book-meta"><strong>${TEXT.price}:</strong> $${book.price.toFixed(2)}</p>
-                <button aria-label="${TEXT.viewDetails} ${book.title}">${TEXT.viewDetails}</button>
 				<button class="add-cart-btn" data-book-id="${book.id}" aria-label="${TEXT.addToCart} ${book.title}">
                         ${TEXT.addToCart}
                     </button>

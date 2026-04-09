@@ -57,18 +57,47 @@ h3 {
 h4 {
    font-size: $font-size-h4;
 }
+/* Base button styles
+   Reusable button foundation based on class pattern */
+%btn-base {
+   padding: $space-xs $space-md; // standard button padding
+   cursor: pointer; // indicates interactivity
+   font-family: $font-body;
+   font-weight: 500;
+   text-align: center;
+   display: inline-block;
+   text-decoration: none;
+   transition: $transition-base;
+}
+
+button {
+   @extend %btn-base; // inherit base button styles
+   background-color: $accent-sage;
+   color: $light-highlight;
+   border: 1px solid $accent-sage;
+   font-family: $font-body;
+
+   &:hover,
+   &:focus {
+      background-color: $accent-sage-hover;
+   }
+
+   // TODO: May need to move button styles higher up in the file so other styles can extend.
+}
 
 /* ===================================
    HEADER SECTION
 =================================== */
 header.site-header {
    display: grid;
-   grid-template-columns: 1fr auto 1fr;
+   
    align-items: center;
    padding: $space-md $space-lg;
    background-color: $light-highlight;
    border-bottom: 1px solid $color-border;
-
+   @include screen-size('tablet and up') {
+      grid-template-columns: 1fr auto 1fr;
+   }
    @include dark-theme {
       background-color: $dark-cards;
       border-bottom: 1px solid $dark-color-border;
@@ -78,7 +107,10 @@ header.site-header {
 .header-left {
    display: flex;
    flex-direction: column;
-   align-items: flex-start;
+   align-items: center;
+   @include screen-size('tablet and up') {
+         align-items: flex-start;
+   }
 }
 
 .header-left img {
@@ -105,14 +137,12 @@ header.site-header {
    font-size: $font-size-h1;
 }
 
-#main-nav {
-   display: flex;
-   justify-content: flex-end;
-   align-items: center;
-   gap: $space-sm;
-   border: none; // remove that line under nav
-   padding: 0;
+.logo-link {
+   text-decoration: none;
+   text-align: center;
 }
+
+
 
 /* ===================================
    MAIN CONTENT
@@ -129,33 +159,21 @@ main {
 #main-nav {
    background-color: $light-highlight;
    text-align: center;
-   padding: $space-sm;
+   padding: $space-xs;
 
    // Flexbox layout for horizontal navigation
    display: flex;
    justify-content: center; // center nav items horizontally
-   gap: $space-md; // space between nav items
+   // align-items: flex-end;
+   gap: $space-sm; // space between nav items
    flex-wrap: wrap; // allow nav items to wrap on smaller screens for responsiveness
-   border-bottom: 1px solid $color-border;
 
    @include dark-theme {
-      background-color: $dark-highlight;
-      border-bottom: 1px solid $dark-color-border;
+      background-color: $dark-cards;
    }
 }
 
-/* Base button styles
-   Reusable button foundation based on class pattern */
-%btn-base {
-   padding: $space-xs $space-md; // standard button padding
-   cursor: pointer; // indicates interactivity
-   font-family: $font-body;
-   font-weight: 500;
-   text-align: center;
-   display: inline-block;
-   text-decoration: none;
-   transition: $transition-base;
-}
+
 
 /* Navigation buttons */
 .navButtons {
@@ -168,6 +186,7 @@ main {
    padding: $space-xs $space-md;
    margin: $space-xs;
    display: inline-block;
+   border-radius: $radius-sm;
 
    &:hover,
    &:focus {
@@ -176,6 +195,7 @@ main {
 
    @include dark-theme {
       color: $dark-text;
+      background-color: $dark-highlight;
       border-color: $dark-color-border;
 
       &:hover,
@@ -241,16 +261,10 @@ main {
    display: grid;
    grid-template-columns: 1fr; // 1 column by default for mobile
    gap: $space-lg; // space between book cards
-}
-
-@media (min-width: 768px) {
-   .book-grid {
+   @include screen-size('tablet') {
       grid-template-columns: repeat(2, 1fr); // 2 columns for tablets and up
    }
-}
-
-@media (min-width: 1024px) {
-   .book-grid {
+   @include screen-size('desktop') {
       grid-template-columns: repeat(4, 1fr); // 4 columns for desktops and up
    }
 }
@@ -459,20 +473,7 @@ label {
    font-weight: 500;
 }
 
-button {
-   @extend %btn-base; // inherit base button styles
-   background-color: $accent-sage;
-   color: $light-highlight;
-   border: 1px solid $accent-sage;
-   font-family: $font-body;
 
-   &:hover,
-   &:focus {
-      background-color: $accent-sage-hover;
-   }
-
-   // TODO: May need to move button styles higher up in the file so other styles can extend.
-}
 
 /* ===================================
    BOOK DETAILS PAGE (specific styling)
@@ -501,12 +502,9 @@ button {
    display: grid;
    grid-template-columns: 1fr; // 1 column by default for mobile
    gap: $space-lg; // space between cards
-}
-
-@media (min-width: 1024px) {
-   .about-grid {
-      grid-template-columns: repeat(2, 1fr);
-   }
+   @include screen-size('desktop') {
+         grid-template-columns: repeat(2, 1fr); // 2 columns for desktops and up
+      }
 }
 
 .about-card {
@@ -550,10 +548,8 @@ button {
    gap: 5rem;
    align-items: stretch;
    margin: $space-xl auto;
-}
 
-@media (min-width: 768px) {
-   .contact-container {
+   @include screen-size('tablet and up') {
       grid-template-columns: 1fr 1fr;
    }
 }
@@ -665,16 +661,11 @@ footer.site-footer {
    grid-template-columns: 1fr;
    gap: $space-xl;
    align-items: start;
-}
 
-@media (min-width: 768px) {
-   .footer-grid {
+   @include screen-size('tablet') {
       grid-template-columns: repeat(2, 1fr);
    }
-}
-
-@media (min-width: 1024px) {
-   .footer-grid {
+   @include screen-size('desktop') {
       grid-template-columns: repeat(4, 1fr);
    }
 }
