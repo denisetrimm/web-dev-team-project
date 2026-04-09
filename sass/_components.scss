@@ -266,7 +266,6 @@ main {
    flex-direction: column;
    justify-content: flex-start; // keeps content starting at the top
    margin: 0;
-   box-shadow: 0 6px 18px $color-shadow;
    transition: transform $transition-base, box-shadow $transition-base; // AI suggestion -- creates hover effect
    @include dark-theme {
       background-color: $dark-cards;
@@ -496,20 +495,50 @@ button {
 }
 
 /* ===================================
-   FAVORITES PAGE (specific styling)
+   ABOUT US PAGE (specific styling)
 =================================== */
-.favorites-page .book-grid {
-   margin-top: $space-lg;
+.about-grid {
+   display: grid;
+   grid-template-columns: 1fr; // 1 column by default for mobile
+   gap: $space-lg; // space between cards
 }
 
-.empty-favorites {
-   text-align: center;
-   background-color: $light-cards;
-   padding: $space-xl;
-   border-radius: $radius-lg;
-   @include dark-theme {
-      background-color: $dark-cards;
+@media (min-width: 1024px) {
+   .about-grid {
+      grid-template-columns: repeat(2, 1fr);
    }
+}
+
+.about-card {
+   background-color: $light-cards;
+   padding: $space-md;
+   border-radius: $radius-lg;
+   border: 1px solid $color-border;
+
+    @include dark-theme {
+      background-color: $dark-cards;
+      border-color: $dark-color-border;
+   }
+}
+
+.about-card h3 {
+   margin-bottom: $space-sm;
+}
+
+.story-card {
+   background-color: $light-cards;
+   padding: $space-md;
+   border-radius: $radius-lg;
+   border: 1px solid $color-border;
+
+    @include dark-theme {
+      background-color: $dark-cards;
+      border-color: $dark-color-border;
+   }
+}
+
+.story-card h3 {
+   margin-bottom: $space-sm;
 }
 
 /* ===================================
