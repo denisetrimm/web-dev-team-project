@@ -219,13 +219,9 @@ const findBookById = (id) => {
 
 const refreshCartPage = () => {
 	const cartItemsSection = document.getElementById("cart-items");
-	const numberOfItems = document.getElementById("cart-item-no");
-	// const clearCartBtn = document.getElementById("clear-btn");
 	const cart = getCart();
 	// If the cart section doesn't exist, don't try the rest (wrong page).
 	if (!cartItemsSection) return;
-	//
-	// clearCartBtn && clearCartBtn.addEventListener("click", () => clearCart());
 
 	if (cart.length === 0) {
 		// If the cart is empty, show a message and CTA back to books
@@ -243,7 +239,8 @@ const refreshCartPage = () => {
 	const cartDetails = cart
 		.map((cartBook) => {
 			const book = findBookById(cartBook.id);
-			if (!book) return ""; // If the book is not found, skip it
+			// If the book is not found, skip it
+			if (!book) return "";
 
 			// calculate the total price for this book based on quantity
 			const totalBookPrice = book.price * cartBook.quantity;
@@ -262,14 +259,14 @@ const refreshCartPage = () => {
 				<td>$${book.price.toFixed(2)}</td>
 				<!-- AI suggestion - combine quantity controls into a single table cell for better UX and cleaner code + data change attributes to specify the change in quantity instead of separate increase/decrease buttons -->
 				<td>
-					<button class="quantity-btn" data-book-id="${book.id}" data-change="-1" aria-label="Decrease quantity of ${book.title}">-</button>
+					<button data-book-id="${book.id}" data-change="-1" aria-label="Decrease quantity of ${book.title}">-</button>
 					<span>${cartBook.quantity}</span>
-					<button class="quantity-btn" data-book-id="${book.id}" data-change="1" aria-label="Increase quantity of ${book.title}">+</button>
+					<button data-book-id="${book.id}" data-change="1" aria-label="Increase quantity of ${book.title}">+</button>
 				</td>
 				
 				<td>$${totalBookPrice.toFixed(2)}</td>
 				<td>
-					<button class="remove-btn" data-book-id="${book.id}" aria-label="${TEXT.remove} ${book.title}">${TEXT.remove}</button>
+					<button data-book-id="${book.id}" aria-label="${TEXT.remove} ${book.title}">${TEXT.remove}</button>
 				</td>
 			</tr>
 				
@@ -279,6 +276,7 @@ const refreshCartPage = () => {
 
 	// Add the cart details to the page
 	// Create the headers then add the cart details
+	// AI help to structure the table into two parts
 	cartItemsSection.innerHTML = `
 	<table>
 		<thead>
@@ -305,7 +303,6 @@ const refreshCartPage = () => {
 	<button id="checkout-btn" class="button-primary">${TEXT.checkout}</button>
 	`;
 	// Add event listeners for the buttons
-
 	// AI help to combine increase/decrease quantity buttons into one event listener using data attributes to specify the change in quantity
 	document.querySelectorAll(".quantity-btn").forEach((button) => {
 		button.addEventListener("click", () => {
@@ -315,6 +312,7 @@ const refreshCartPage = () => {
 			refreshCartPage(); // Refresh the cart page to show updated quantities and prices
 		});
 	});
+	// Event listener for remove buttons
 	document.querySelectorAll(".remove-btn").forEach((button) => {
 		button.addEventListener("click", () => {
 			const bookId = Number(button.getAttribute("data-book-id"));
@@ -322,10 +320,12 @@ const refreshCartPage = () => {
 			refreshCartPage();
 		});
 	});
+	// Event listener for clear cart button
 	document.getElementById("clear-btn").addEventListener("click", () => {
 		clearCart();
 		refreshCartPage();
 	});
 };
 
+// Initial call to prompt to render the cart page
 refreshCartPage();
