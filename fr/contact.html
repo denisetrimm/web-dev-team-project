@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- TODO - Update meta descriptions for each page -->
+		<meta
+			name="description"
+			content="Chapter One is an indie bookstore in Montreal, offering a curated selection of fiction books and supporting local authors."
+		/>
+		<meta
+			name="keywords"
+			content="indie bookstore Montreal, fiction books, local authors, books Canada"
+		/>
+		<meta name="author" content="Alessandra Spino, Denise Trimm" />
+		<title>Chapter One | Nous joindre</title>
+		<!-- add a favicon -->
+		<link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" href="../css/main.css" />
+		<script type="module" defer src="../js/script.js"></script>
+	</head>
+
+	<body>
+		<!-- TODO - Style skip link to hide it -->
+		<a href="#main-content" class="skip-link visually-hidden"
+			>Passer au contenu principal</a>
+
+		<header class="site-header"role="banner">
+			<div class="header-left">
+				<a href="#">
+					<!-- TODO - Update logo image (This is just a test) & figure out light vs dark mode -->
+					<!-- Remove the <a></a> tags so the lines disappear ? -->
+					<img src="../images/chapter-one-logo.png" alt="Chapter One Logo" />
+					<p class="tagline">⊹˚.‧⁺ Un voyage au fil des pages ⁺‧.˚⊹</p>
+				</a>
+			</div>
+
+			<div class="header-center">
+				<h1>Chapter One</h1>
+			</div>
+	
+			<nav id="main-nav" role="navigation" aria-label="Navigation principale">
+				<!-- TODO finish styling nav-item, nav-link, and active classes-->
+				<a href="index.html"class="navButtons">Accueil</a>
+				<a href="books.html"class="navButtons">Livres</a>
+				<a href="about.html"class="navButtons">À propos</a>
+				<a href="cart.html"class="navButtons">Panier</a>
+				<a href="contact.html"class="navButtons">Nous joindre</a>
+			
+				<button id="theme-toggle" aria-label="Activer le mode sombre">
+					<span id="theme-icon" title="Mode sombre">🌙</span>
+				    <button id="lang-toggle">EN</button>
+                </button>
+			</nav>
+		</header>
+
+        <main class="contact-page">
+            <section class="contact-container">
+                <!-- left = contact form -->
+                <div class="contact-left contact-card">
+                    <section aria-labelledby="contact-heading">
+                        <h2 id="contact-heading">Nous Joindre</h2>
+                        <p>Une question ou une demande particulière? N'hésitez pas à nous contacter — nous serons ravis de vous aider.</p>
+
+                        <form action="#" method="post" aria-labelledby="contact-heading" novalidate>
+                            <fieldset aria-labelledby="contactFormLegend">
+                                <label for="fullName">Nom complet</label>
+                                <input type="text" id="fullName" name="fullName" aria-required="true" autocomplete="name" placeholder="Jane Austen"
+                                    data-tooltip="Inscrivez votre nom complet">
+                                <label for="email">Addresse courriel</label>
+                                <input type="email" id="email" name="email" aria-required="true" autocomplete="email" placeholder="jane.austen@mail.com"
+                                    aria-describedby="emailHelp" data-tooltip="Inscrivez une addresse courriel valide à laquelle nous pouvons vous contacter">
+                                <small id="emailHelp">Nous communiquerons avec vous à cette addresse.</small>
+
+                                <label for="inquiryType">Suject</label>
+                                <select id="inquiryType" name="inquiryType" data-tooltip="Select the reason for your inquiry">
+                                    <option value="">Selectionnez une option</option>
+                                    <option value="general">Requête générale</option>
+                                    <option value="special">Demande de commande spéciale</option>
+                                    <option value="status">Statut de la commande</option>
+                                    <option value="feedback">Retour d'expérience</option>
+                                </select>
+
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" aria-required="true"></textarea>
+                            </fieldset>
+
+                            <div role="group" aria-label="Form actions">
+                                <button type="submit" data-tooltip="Cliquez pour soumettre">Soumettre</button>
+                                <button type="reset" data-tooltip="Cliquez pour effacer tous les champs du formulaire">Effacer tout</button>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+
+                <!-- right = visit us -->
+                <div class="contact-right">
+                    <section class="contact-info-box" aria-labelledby="visit-heading">
+                        <h2 id="visit-heading">Venez nous visiter</h2>
+                        <p>⟟ Addresse: 123 Book Lane, Montreal, QC</p>
+                        <p>✆ Téléphone: 514-555-1234</p>
+                        <p>✉︎ Courriel: info@chapterone.com</p>
+                        <p>◴ Heures d'ouverture: Lun-Sam 9h - 20h, Dim 10h - 18h</p>
+                    </section>
+                    <img src="../images/contact-us.jpg" alt="Photo de l'intérieur du magasin" height="350">
+                </div>
+            </section>
+        </main>
+
+		<footer class="site-footer"role="contentinfo">
+			<!-- AI suggestion - to create distinct columns in the footer, each section is assigned a class of "footer-column" and wrapped inside a 
+			    container to allow for a responsive grid layout -->
+			<div class="footer-grid">
+				<section class="footer-column">
+					<h3>Chapter One</h3>
+					<p>⊹˚.‧⁺ Un voyage au fil des pages ⁺‧.˚⊹</p>
+				</section>
+
+				<section class="footer-column">
+					<h3>Liens rapides</h3>
+					<ul class="footer-links">
+						<li><a href="index.html">Acceuil</a></li>
+						<li><a href="books.html">Livres</a></li>
+						<li><a href="about.html">À propos</a></li>
+						<li><a href="cart.html">Panier</a></li>
+						<li><a href="contact.html">Nous joindre</a></li>
+					</ul>
+				</section>
+
+				<section class="footer-column">
+					<h3>Nous joindre</h3>
+					<p>123 Book Lane, Montreal, QC</p>
+					<p>514-555-1234</p>
+					<!-- AI suggestion - add a "mailto:" link so clicking the email address opens the default email client -->
+					<p><a href="mailto:info@chapterone.com">info@chapterone.com</a></p>
+				</section>
+
+				<section class="footer-column">
+					<h3>Heures d'ouverture</h3>
+					<p>Lun-Sam: 9h - 20h</p>
+					<p>Dim: 10h - 18h</p>
+				</section>
+			</div>
+
+			<div class="footer-bottom">
+				<p>&copy; 2026 Chapter One. Tous droits réservés.</p>
+			</div>
+		</footer>
+	</body>
+</html>
