@@ -609,6 +609,15 @@ label {
    }
 }
 
+// to fix the link color when in dark mode (blue on black is not accessible)
+.contact-info-box a {
+   color: $color-text;
+   text-decoration: underline;
+   @include dark-theme {
+      color: $dark-secondary-text;
+   }
+}
+
 .contact-right img {
    width: 100%;
    height: 270px;
@@ -690,7 +699,7 @@ footer.site-footer {
 
 .footer-column a {
    color: $color-text;
-   text-decoration: none;
+   text-decoration: underline;
    transition: $transition-base;
 
    &:hover,
