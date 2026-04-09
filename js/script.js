@@ -259,14 +259,14 @@ const refreshCartPage = () => {
 				<td>$${book.price.toFixed(2)}</td>
 				<!-- AI suggestion - combine quantity controls into a single table cell for better UX and cleaner code + data change attributes to specify the change in quantity instead of separate increase/decrease buttons -->
 				<td>
-					<button data-book-id="${book.id}" data-change="-1" aria-label="Decrease quantity of ${book.title}">-</button>
+					<button class="quantity-btn" data-book-id="${book.id}" data-change="-1" aria-label="Decrease quantity of ${book.title}">-</button>
 					<span>${cartBook.quantity}</span>
-					<button data-book-id="${book.id}" data-change="1" aria-label="Increase quantity of ${book.title}">+</button>
+					<button class="quantity-btn" data-book-id="${book.id}" data-change="1" aria-label="Increase quantity of ${book.title}">+</button>
 				</td>
 				
 				<td>$${totalBookPrice.toFixed(2)}</td>
 				<td>
-					<button data-book-id="${book.id}" aria-label="${TEXT.remove} ${book.title}">${TEXT.remove}</button>
+					<button class="remove-btn" data-book-id="${book.id}" aria-label="${TEXT.remove} ${book.title}">${TEXT.remove}</button>
 				</td>
 			</tr>
 				
@@ -283,10 +283,10 @@ const refreshCartPage = () => {
 			<tr>
 				<th></th>
 				<th>${TEXT.items}</th>
-				<th>${TEXT.quantity}</th>
-				<th>${TEXT.remove}</th>
 				<th>${TEXT.price}</th>
+				<th>${TEXT.quantity}</th>
 				<th>${TEXT.subtotal}</th>
+				<th>${TEXT.remove}</th>
 			</tr>
 		</thead>
 		<tbody>
