@@ -143,7 +143,6 @@ header.site-header {
 }
 
 
-
 /* ===================================
    MAIN CONTENT
 =================================== */
@@ -172,8 +171,6 @@ main {
       background-color: $dark-cards;
    }
 }
-
-
 
 /* Navigation buttons */
 .navButtons {
@@ -279,7 +276,7 @@ main {
    display: flex;
    flex-direction: column;
    justify-content: flex-start; // keeps content starting at the top
-   margin: 0;
+   overflow: hidden; // AI suggestion - ensures content doesn't spill out of the card and maintains clean edges
    transition: transform $transition-base, box-shadow $transition-base; // AI suggestion -- creates hover effect
    @include dark-theme {
       background-color: $dark-cards;
@@ -287,22 +284,27 @@ main {
    }
 }
 
-// AI suggestion - new class for consistent image display across all book cards (lines 195-211)
-.book-image-wrapper {
-   width: 235px;
-   height: 355px;
-   margin: 0 auto $space-sm auto; // centers the image and adds space below it
-   display: flex;
-   align-items: center;
-   justify-content: center;
+/* Hover effect for book cards */
+.book-card:hover,
+.book-card:focus-within {
+   transform: translateY(-6px); // AI suggestion - makes the card lift slightly on hover for interactivity
+   box-shadow: 0 10px 20px $color-shadow;
 }
 
-.book-image-wrapper a {
+/* Book cover images */
+// AI suggestion - new class for consistent image display across all book cards (lines 296-304)
+.book-image-wrapper {
+   width: 100%;
+   height: 320px;
    display: flex;
    align-items: center;
    justify-content: center;
-   width: 100%;
-   height: 100%;
+   background-color: $light-cards;
+   padding-top: $space-md;
+   margin-bottom: $space-xs;
+   @include dark-theme {
+      background-color: $dark-cards;
+   }
 }
 
 .book-card img {
@@ -316,54 +318,35 @@ main {
    display: flex;
    flex-direction: column;
    flex-grow: 1; // AI suggestion - allows content area to expand and push the button to the bottom of the card
-   text-align: left;
+   padding: $space-md;
+   gap: 0.4rem;
 }
 
 .book-card-content h3 {
-   margin-top: $space-xs;
-   margin-bottom: $space-sm;
-   line-height: 1.15;
-   min-height: 3rem;
+   margin: 0;
+   line-height: 1.2;
+   min-height: 4rem;
 }
 
-.book-card:hover,
-.book-card:focus-within {
-   transform: translateY(-6px); // AI suggestion - makes the card lift slightly on hover for interactivity
-   box-shadow: 0 10px 20px $color-shadow;
+/* ALL text, to match with script.js */
+.book-meta {
+   margin: 0 0 0.65rem 0; // adds space below the meta info and separates it from the button;
+   font-size: $font-size-small;
+   line-height: 2;
 }
 
-.book-author {
-   font-size: $font-size-medium;
-   margin-bottom: $space-sm;
-   min-height: 1.5rem;
+.book-card-content p {
+   line-height: 1.45;
 }
 
-.book-description {
-   font-size: $font-size-medium;
-   margin-bottom: $space-sm;
-   min-height: 6rem;
-}
-
-.book-genre {
-   font-size: $font-size-medium;
-   margin-bottom: $space-sm;
-   min-height: 1rem;
-}
-
-.book-price {
-   font-size: $font-size-medium;
-   margin-bottom: $space-sm;
-   min-height: 1rem;
-}
-
-/* View Details button */
-.details-button-wrap {
+/* Add to Cart button */
+.add-cart-button-wrap {
    text-align: center; // centers the button within the card content area
    margin-top: auto; // AI suggestion - pushes the button to the bottom of the card content area
    padding-top: $space-sm; // AI suggestion - adds space between the book meta and the button
 }
 
-.details-link {
+.add-cart-link {
    display: inline-block;
    padding: 0.35rem 0.8rem;
    color: $color-text;
@@ -378,8 +361,8 @@ main {
    }
 }
 
-.details-link:hover,
-.details-link:focus {
+.add-cart-link:hover,
+.add-cart-link:focus {
    background-color: $accent-sage;
    color: $light-highlight;
    border-color: $accent-sage;
@@ -474,27 +457,6 @@ label {
 }
 
 
-
-/* ===================================
-   BOOK DETAILS PAGE (specific styling)
-=================================== */
-.book-details-page .book-card {
-   max-width: 900px; // limits width only on details page
-   width: 100%;
-   margin: $space-xl auto; // center the card
-}
-
-.book-details-page .book-card img {
-   display: block;
-   margin: 0 auto;
-   max-width: 100%;
-   height: auto;
-}
-
-.book-details-page .book-card h3 {
-   margin-bottom: $space-sm;
-}
-
 /* ===================================
    ABOUT US PAGE (specific styling)
 =================================== */
@@ -538,6 +500,47 @@ label {
 .story-card h3 {
    margin-bottom: $space-sm;
 }
+
+/* ===================================
+   CART PAGE (specific styling)
+=================================== */
+
+/* styling based on javascript code */
+// AI suggestion to go with #cart vs .cart since the script already provides a structure to the style
+#cart-section,
+#cart-items {
+   max-width: 100%;
+   margin: 0 auto;
+}
+
+#cart-items {
+   background-color: $light-cards;
+   border: 1px solid $color-border;
+   border-radius: $radius-lg;
+   padding: $space-lg;
+   margin-top: $space-md;
+   margin-bottom: $space-md;
+   align-items: center;
+
+   @include dark-theme {
+      background-color: $dark-cards;
+      border-color: $dark-color-border;
+   }
+}
+
+#cart-items table {
+   border-collapse: separate;
+   border-spacing: 4rem $space-md; // adds spacing between cart's table columns and rows for better readability
+}
+
+#cart-items img {
+   width: 100px;
+   height: 150px;
+   object-fit: contain;
+   display: block;
+   border-radius: $radius-sm;
+}
+
 
 /* ===================================
    CONTACT PAGE (specific styling)
@@ -716,7 +719,7 @@ footer.site-footer {
    text-align: center;
 
    @include dark-theme {
-      border-top: 1px solid rgba(245, 243, 234, 0.12);
+      border-top: none;
    }
 }
 
