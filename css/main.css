@@ -329,7 +329,6 @@ body.dark .button-secondary:hover, body.dark .button-secondary:focus {
   flex-direction: column;
   justify-content: flex-start;
   margin: 0;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 body.dark .book-card {
@@ -560,20 +559,47 @@ button:hover, button:focus {
 }
 
 /* ===================================
-   FAVORITES PAGE (specific styling)
+   ABOUT US PAGE (specific styling)
 =================================== */
-.favorites-page .book-grid {
-  margin-top: 1.5rem;
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
 }
 
-.empty-favorites {
-  text-align: center;
-  background-color: #ECE8D9;
-  padding: 2rem;
-  border-radius: 1.25rem;
+@media (min-width: 1024px) {
+  .about-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
-body.dark .empty-favorites {
+.about-card {
+  background-color: #ECE8D9;
+  padding: 1rem;
+  border-radius: 1.25rem;
+  border: 1px solid rgba(73, 73, 73, 0.16);
+}
+body.dark .about-card {
   background-color: #2A2A28;
+  border-color: #2F3A2D;
+}
+
+.about-card h3 {
+  margin-bottom: 0.5rem;
+}
+
+.story-card {
+  background-color: #ECE8D9;
+  padding: 1rem;
+  border-radius: 1.25rem;
+  border: 1px solid rgba(73, 73, 73, 0.16);
+}
+body.dark .story-card {
+  background-color: #2A2A28;
+  border-color: #2F3A2D;
+}
+
+.story-card h3 {
+  margin-bottom: 0.5rem;
 }
 
 /* ===================================
