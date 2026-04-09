@@ -33,60 +33,37 @@
 		<!-- lien d’évitement pour accessibilité -->
 		<a href="#main-content" class="skip-link">Passer au contenu principal</a>
 
-		<!-- en-tête du site -->
-		<header id="top" role="banner">
-			<figure>
-				<a href="index.html">
-					<img
-						src="../images/chapter-one-logo.png"
-						alt="Logo de la librairie Chapter One"
-						title="Logo Chapter One"
-						width="275"
-						height="250"
-					/>
+		<header class="site-header" role="banner">
+			<div class="header-left">
+				<a class="logo-link" href="index.html">
+					<!-- TODO - Update logo image (This is just a test) & figure out light vs dark mode -->
+					<!-- Remove the <a></a> tags so the lines disappear ? -->
+					<img src="../images/chapter-one-logo.png" alt="Chapter One Logo" />
+					<p class="tagline">⊹˚.‧⁺ Un voyage au fil des pages ⁺‧.˚⊹</p>
 				</a>
-				<figcaption>Bienvenue chez Chapter One</figcaption>
-			</figure>
-			<h1>Chapter One</h1>
-			<p class="tagline">⊹˚.‧⁺ Un voyage au fil des pages ⁺‧.˚⊹</p>
-		</header>
+			</div>
 
-		<!-- navigation principale -->
-		<nav role="navigation" aria-label="Navigation principale">
-			<ul>
-				<li class="nav-item">
-					<a class="nav-link active" href="index.html">Accueil</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="books.html">Livres</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="favourites.html">Favoris</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="about.html">À propos</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="contact.html">Contact</a>
-				</li>
-			</ul>
+			<div class="header-center">
+				<h1>Chapter One</h1>
+			</div>
 
-			<div>
+			<nav id="main-nav" role="navigation" aria-label="Navigation principale">
+				<!-- TODO finish styling nav-item, nav-link, and active classes-->
+				<a href="index.html" class="navButtons">Accueil</a>
+				<a href="books.html" class="navButtons">Livres</a>
+				<a href="about.html" class="navButtons">À propos</a>
+				<a href="cart.html" class="navButtons">Panier</a>
+				<a href="contact.html" class="navButtons">Nous joindre</a>
+
 				<button id="theme-toggle" aria-label="Activer le mode sombre">
 					<span id="theme-icon" title="Mode sombre">🌙</span>
 				</button>
 				<button id="lang-toggle">EN</button>
-			</div>
-		</nav>
+			</nav>
+		</header>
 
 		<!-- contenu principal -->
 		<main id="main-content" role="main" aria-labelledby="books-page-heading">
-			<!-- fil d’Ariane -->
-			<nav aria-label="Fil d’Ariane">
-				<a href="index.html">Accueil</a> &gt;
-				<a href="books.html">Livres</a>
-			</nav>
-
 			<!-- titre de la page -->
 			<section aria-labelledby="books-page-heading">
 				<h2 id="books-page-heading">Parcourir les livres</h2>
@@ -123,7 +100,7 @@
 			</section>
 		</main>
 
-		<footer class="site-footer"role="contentinfo">
+		<footer class="site-footer" role="contentinfo">
 			<!-- AI suggestion - to create distinct columns in the footer, each section is assigned a class of "footer-column" and wrapped inside a 
 			    container to allow for a responsive grid layout -->
 			<div class="footer-grid">

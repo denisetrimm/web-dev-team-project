@@ -21,10 +21,9 @@
 	</head>
 
 	<body>
-        
-		<header class="site-header"role="banner">
+		<header class="site-header" role="banner">
 			<div class="header-left">
-				<a href="#">
+				<a class="logo-link" href="index.html">
 					<!-- TODO - Update logo image (This is just a test) & figure out light vs dark mode -->
 					<!-- Remove the <a></a> tags so the lines disappear ? -->
 					<img src="../images/chapter-one-logo.png" alt="Chapter One Logo" />
@@ -35,76 +34,119 @@
 			<div class="header-center">
 				<h1>Chapter One</h1>
 			</div>
-	
+
 			<nav id="main-nav" role="navigation" aria-label="Main Navigation">
 				<!-- TODO finish styling nav-item, nav-link, and active classes-->
-				<a href="index.html"class="navButtons">Home</a>
-				<a href="books.html"class="navButtons">Books</a>
-				<a href="about.html"class="navButtons">About</a>
-				<a href="cart.html"class="navButtons">Cart</a>
-				<a href="contact.html"class="navButtons">Contact Us</a>
-			
+				<a href="index.html" class="navButtons">Home</a>
+				<a href="books.html" class="navButtons">Books</a>
+				<a href="about.html" class="navButtons">About</a>
+				<a href="cart.html" class="navButtons">Cart</a>
+				<a href="contact.html" class="navButtons">Contact Us</a>
+
 				<button id="theme-toggle" aria-label="Toggle Dark Mode">
 					<span id="theme-icon" title="Dark Mode">🌙</span>
-					<button id="lang-toggle">FR</button>
 				</button>
+				<button id="lang-toggle">FR</button>
 			</nav>
 		</header>
 
-        <main class="contact-page">
-            <section class="contact-container">
-                <!-- left = contact form -->
-                <div class="contact-left contact-card">
-                    <section aria-labelledby="contact-heading">
-                        <h2 id="contact-heading">Contact Us</h2>
-                        <p>We'd love to hear from you! Send us a message or request a book.</p>
+		<main class="contact-page">
+			<section class="contact-container">
+				<!-- left = contact form -->
+				<div class="contact-left contact-card">
+					<section aria-labelledby="contact-heading">
+						<h2 id="contact-heading">Contact Us</h2>
+						<p>
+							We'd love to hear from you! Send us a message or request a book.
+						</p>
 
-                        <form action="#" method="post" aria-labelledby="contact-heading" novalidate>
-                            <fieldset aria-labelledby="contactFormLegend">
-                                <label for="fullName">Full Name</label>
-                                <input type="text" id="fullName" name="fullName" aria-required="true" autocomplete="name" placeholder="Jane Austen"
-                                    data-tooltip="Enter your full name">
-                                <label for="email">Email Address</label>
-                                <input type="email" id="email" name="email" aria-required="true" autocomplete="email" placeholder="jane.austen@mail.com"
-                                    aria-describedby="emailHelp" data-tooltip="Enter a valid email address we can contact you at">
-                                <small id="emailHelp">We will send confirmation to this address.</small>
+						<form
+							action="#"
+							method="post"
+							aria-labelledby="contact-heading"
+							novalidate
+						>
+							<fieldset aria-labelledby="contactFormLegend">
+								<label for="fullName">Full Name</label>
+								<input
+									type="text"
+									id="fullName"
+									name="fullName"
+									aria-required="true"
+									autocomplete="name"
+									placeholder="Jane Austen"
+									data-tooltip="Enter your full name"
+								/>
+								<label for="email">Email Address</label>
+								<input
+									type="email"
+									id="email"
+									name="email"
+									aria-required="true"
+									autocomplete="email"
+									placeholder="jane.austen@mail.com"
+									aria-describedby="emailHelp"
+									data-tooltip="Enter a valid email address we can contact you at"
+								/>
+								<small id="emailHelp"
+									>We will send confirmation to this address.</small
+								>
 
-                                <label for="inquiryType">Subject</label>
-                                <select id="inquiryType" name="inquiryType" data-tooltip="Select the reason for your inquiry">
-                                    <option value="">Select an option</option>
-                                    <option value="general">General Inquiry</option>
-                                    <option value="special">Special Order Request</option>
-                                    <option value="status">Order Status</option>
-                                    <option value="feedback">Feedback</option>
-                                </select>
+								<label for="inquiryType">Subject</label>
+								<select
+									id="inquiryType"
+									name="inquiryType"
+									data-tooltip="Select the reason for your inquiry"
+								>
+									<option value="">Select an option</option>
+									<option value="general">General Inquiry</option>
+									<option value="special">Special Order Request</option>
+									<option value="status">Order Status</option>
+									<option value="feedback">Feedback</option>
+								</select>
 
-                                <label for="message">Message</label>
-                                <textarea id="message" name="message" aria-required="true"></textarea>
-                            </fieldset>
+								<label for="message">Message</label>
+								<textarea
+									id="message"
+									name="message"
+									aria-required="true"
+								></textarea>
+							</fieldset>
 
-                            <div role="group" aria-label="Form actions">
-                                <button type="submit" data-tooltip="Click to contact us">Submit Inquiry</button>
-                                <button type="reset" data-tooltip="Click to clear all fields in the form">Reset Form</button>
-                            </div>
-                        </form>
-                    </section>
-                </div>
+							<div role="group" aria-label="Form actions">
+								<button type="submit" data-tooltip="Click to contact us">
+									Submit Inquiry
+								</button>
+								<button
+									type="reset"
+									data-tooltip="Click to clear all fields in the form"
+								>
+									Reset Form
+								</button>
+							</div>
+						</form>
+					</section>
+				</div>
 
-                <!-- right = visit us -->
-                <div class="contact-right">
-                    <section class="contact-info-box" aria-labelledby="visit-heading">
-                        <h2 id="visit-heading">Visit Us</h2>
-                        <p>⟟ Address: 123 Book Lane, Montreal, QC</p>
-                        <p>✆ Phone: 514-555-1234</p>
-                        <p>✉︎ Email: info@chapterone.com</p>
-                        <p>◴ Hours: Mon-Sat 9AM-8PM, Sun 10AM-6PM</p>
-                    </section>
-                    <img src="../images/contact-us.jpg" alt="Photo of the interior of Chapter One bookstore" height="350">
-                </div>
-            </section>
-        </main>
+				<!-- right = visit us -->
+				<div class="contact-right">
+					<section class="contact-info-box" aria-labelledby="visit-heading">
+						<h2 id="visit-heading">Visit Us</h2>
+						<p>⟟ Address: 123 Book Lane, Montreal, QC</p>
+						<p>✆ Phone: 514-555-1234</p>
+						<p>✉︎ Email: info@chapterone.com</p>
+						<p>◴ Hours: Mon-Sat 9AM-8PM, Sun 10AM-6PM</p>
+					</section>
+					<img
+						src="../images/contact-us.jpg"
+						alt="Photo of the interior of Chapter One bookstore"
+						height="350"
+					/>
+				</div>
+			</section>
+		</main>
 
-		<footer class="site-footer"role="contentinfo">
+		<footer class="site-footer" role="contentinfo">
 			<!-- AI suggestion - to create distinct columns in the footer, each section is assigned a class of "footer-column" and wrapped inside a 
 			    container to allow for a responsive grid layout -->
 			<div class="footer-grid">
