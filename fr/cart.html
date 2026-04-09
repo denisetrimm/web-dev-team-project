@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- TODO - Update meta descriptions for each page -->
+		<meta
+			name="description"
+			content="Chapter One is an indie bookstore in Montreal, offering a curated selection of fiction books and supporting local authors."
+		/>
+		<meta
+			name="keywords"
+			content="indie bookstore Montreal, fiction books, local authors, books Canada"
+		/>
+		<meta name="author" content="Alessandra Spino, Denise Trimm" />
+		<title>Chapter One | Nous joindre</title>
+		<!-- add a favicon -->
+		<link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" href="../css/main.css" />
+		<script type="module" defer src="../js/script.js"></script>
+	</head>
+
+	<body>
+		<!-- TODO - Style skip link to hide it -->
+		<a href="#main-content" class="skip-link visually-hidden"
+			>Passer au contenu principal</a>
+
+		<header class="site-header"role="banner">
+			<div class="header-left">
+				<a href="#">
+					<!-- TODO - Update logo image (This is just a test) & figure out light vs dark mode -->
+					<!-- Remove the <a></a> tags so the lines disappear ? -->
+					<img src="../images/chapter-one-logo.png" alt="Chapter One Logo" />
+					<p class="tagline">⊹˚.‧⁺ Un voyage au fil des pages ⁺‧.˚⊹</p>
+				</a>
+			</div>
+
+			<div class="header-center">
+				<h1>Chapter One</h1>
+			</div>
+	
+			<nav id="main-nav" role="navigation" aria-label="Navigation principale">
+				<!-- TODO finish styling nav-item, nav-link, and active classes-->
+				<a href="index.html"class="navButtons">Accueil</a>
+				<a href="books.html"class="navButtons">Livres</a>
+				<a href="about.html"class="navButtons">À propos</a>
+				<a href="cart.html"class="navButtons">Panier</a>
+				<a href="contact.html"class="navButtons">Nous joindre</a>
+			
+				<button id="theme-toggle" aria-label="Activer le mode sombre">
+					<span id="theme-icon" title="Mode sombre">🌙</span>
+				    <button id="lang-toggle">EN</button>
+                </button>
+			</nav>
+		</header>
+
+        <!-- main content area -->
+		<main id="main-content" role="main" aria-labelledby="books-page-heading">
+			<!-- If there are no items in the cart (Default) -->
+			<h2>Panier</h2>
+			<section id="cart-section">
+				<!-- <p id="cart-item-no">0 item(s)</p> -->
+				<!-- <button id="clear-btn">Clear Cart</button> -->
+			</section>
+			<section id="cart-items"></section>
+		</main>
+
+		<footer class="site-footer"role="contentinfo">
+			<!-- AI suggestion - to create distinct columns in the footer, each section is assigned a class of "footer-column" and wrapped inside a 
+			    container to allow for a responsive grid layout -->
+			<div class="footer-grid">
+				<section class="footer-column">
+					<h3>Chapter One</h3>
+					<p>⊹˚.‧⁺ Un voyage au fil des pages ⁺‧.˚⊹</p>
+				</section>
+
+				<section class="footer-column">
+					<h3>Liens rapides</h3>
+					<ul class="footer-links">
+						<li><a href="index.html">Acceuil</a></li>
+						<li><a href="books.html">Livres</a></li>
+						<li><a href="about.html">À propos</a></li>
+						<li><a href="cart.html">Panier</a></li>
+						<li><a href="contact.html">Nous joindre</a></li>
+					</ul>
+				</section>
+
+				<section class="footer-column">
+					<h3>Nous joindre</h3>
+					<p>123 Book Lane, Montreal, QC</p>
+					<p>514-555-1234</p>
+					<!-- AI suggestion - add a "mailto:" link so clicking the email address opens the default email client -->
+					<p><a href="mailto:info@chapterone.com">info@chapterone.com</a></p>
+				</section>
+
+				<section class="footer-column">
+					<h3>Heures d'ouverture</h3>
+					<p>Lun-Sam: 9h - 20h</p>
+					<p>Dim: 10h - 18h</p>
+				</section>
+			</div>
+
+			<div class="footer-bottom">
+				<p>&copy; 2026 Chapter One. Tous droits réservés.</p>
+			</div>
+		</footer>
+	</body>
+</html>
