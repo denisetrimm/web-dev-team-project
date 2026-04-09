@@ -259,18 +259,18 @@ const refreshCartPage = () => {
 					<h3>${book.title}</h3>
 					<p>${book.author}</p>
 				</td>
+				<td>$${book.price.toFixed(2)}</td>
 				<!-- AI suggestion - combine quantity controls into a single table cell for better UX and cleaner code + data change attributes to specify the change in quantity instead of separate increase/decrease buttons -->
 				<td>
 					<button class="quantity-btn" data-book-id="${book.id}" data-change="-1" aria-label="Decrease quantity of ${book.title}">-</button>
 					<span>${cartBook.quantity}</span>
 					<button class="quantity-btn" data-book-id="${book.id}" data-change="1" aria-label="Increase quantity of ${book.title}">+</button>
 				</td>
+				
+				<td>$${totalBookPrice.toFixed(2)}</td>
 				<td>
 					<button class="remove-btn" data-book-id="${book.id}" aria-label="${TEXT.remove} ${book.title}">${TEXT.remove}</button>
 				</td>
-				<td>$${book.price.toFixed(2)}</td>
-				<td>${cartBook.quantity}</td>
-				<td>$${totalBookPrice.toFixed(2)}</td>
 			</tr>
 				
 			`;
@@ -278,6 +278,7 @@ const refreshCartPage = () => {
 		.join("");
 
 	// Add the cart details to the page
+	// Create the headers then add the cart details
 	cartItemsSection.innerHTML = `
 	<table>
 		<thead>
@@ -293,7 +294,38 @@ const refreshCartPage = () => {
 		<tbody>
 			${cartDetails}
 		</tbody>
-	</table>`;
+	</table>
+	<hr />
+	<h3>${TEXT.orderSummary}</h3>
+	<div>
+		<span>${TEXT.total}</span>
+		<span>$${finalPrice.toFixed(2)}</span>
+	</div>
+	<button id="clear-btn" class="button-secondary">${TEXT.clearCart}</button>
+	<button id="checkout-btn" class="button-primary">${TEXT.checkout}</button>
+	`;
+	// Add event listeners for the buttons
+
+	// AI help to combine increase/decrease quantity buttons into one event listener using data attributes to specify the change in quantity
+	document.querySelectorAll(".quantity-btn").forEach((button) => {
+		button.addEventListener("click", () => {
+			const bookId = Number(button.getAttribute("data-book-id"));
+			const change = Number(button.getAttribute("data-change"));
+			updateCartBookQuantity(bookId, change);
+			refreshCartPage(); // Refresh the cart page to show updated quantities and prices
+		});
+	});
+	document.querySelectorAll(".remove-btn").forEach((button) => {
+		button.addEventListener("click", () => {
+			const bookId = Number(button.getAttribute("data-book-id"));
+			removeFromCart(bookId);
+			refreshCartPage();
+		});
+	});
+	document.getElementById("clear-btn").addEventListener("click", () => {
+		clearCart();
+		refreshCartPage();
+	});
 };
 
 refreshCartPage();
