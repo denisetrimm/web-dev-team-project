@@ -1,10 +1,13 @@
 export const LABELS = {
 	en: {
 		addToCart: "Add to Cart",
+		addBookToCart: "added to cart!",
 		browseBooks: "Browse Books",
 		cartEmpty: "Your cart is empty.",
 		checkout: "Proceed to Checkout",
+		checkoutMessage: "Thank you for your purchase!",
 		clearCart: "Clear Cart",
+		contactMessage: "Thank you for your message. We'll be in touch soon!",
 		continueShopping: "Continue Shopping",
 		coverOf: "Cover of",
 		free: "Free",
@@ -22,10 +25,14 @@ export const LABELS = {
 	},
 	fr: {
 		addToCart: "Ajouter au panier",
+		addBookToCart: "ajouté au panier !",
 		browseBooks: "Parcourir les livres",
 		cartEmpty: "Votre panier est vide.",
 		checkout: "Passer à la caisse",
+		checkoutMessage: "Merci pour votre achat !",
 		clearCart: "Vider le panier",
+		contactMessage:
+			"Merci pour votre message. Nous vous contacterons bientôt !",
 		continueShopping: "Continuer vos achats",
 		coverOf: "Couverture de",
 		free: "Gratuite",

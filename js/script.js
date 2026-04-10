@@ -166,21 +166,6 @@ const getCart = () => {
 // Save the cart to localStorage
 const setCart = (cart) => localStorage.setItem("cart", JSON.stringify(cart));
 
-const addToCart = (bookId) => {
-	const cart = getCart();
-	// Check if the book is already in the cart
-	const itemExists = cart.find((book) => book.id === bookId);
-	if (itemExists) {
-		// If it exists, increase the quantity
-		itemExists.quantity += 1;
-	} else {
-		// If it doesn't exist, check if the book exists in the BOOKS array and add the book to the cart
-		const newBook = BOOKS.find((b) => b.id === bookId);
-		newBook && cart.push({ id: newBook.id, quantity: 1 });
-	}
-	setCart(cart);
-};
-
 const removeFromCart = (bookId) => {
 	let cart = getCart();
 	// Filter out the book with the given ID from the cart and save the updated cart
@@ -210,6 +195,33 @@ const clearCart = () => {
 
 const findBookById = (id) => {
 	return BOOKS.find((book) => book.id === id);
+};
+
+// const addToCartToast = (bookTitle) => {
+// 	const toast = document.getElementById("add-to-cart-toast");
+// 	if (!toast) return; // Ensure the toast element exists
+// 	toast.textContent = `${bookTitle} ${TEXT.addBookToCart}`;
+// 	toast.classList.add("show");
+// 	setTimeout(() => {
+// 		toast.classList.remove("show");
+// 	}, 3000);
+// };
+
+const addToCart = (bookId) => {
+	const cart = getCart();
+	// Check if the book is already in the cart
+	const itemExists = cart.find((book) => book.id === bookId);
+	if (itemExists) {
+		// If it exists, increase the quantity
+		itemExists.quantity += 1;
+	} else {
+		// If it doesn't exist, check if the book exists in the BOOKS array and add the book to the cart
+		const newBook = BOOKS.find((b) => b.id === bookId);
+		newBook && cart.push({ id: newBook.id, quantity: 1 });
+	}
+	setCart(cart);
+	// const bookName = findBookById(bookId);
+	// addToCartToast(bookName.title || "Book");
 };
 
 // ============================================================
@@ -328,3 +340,28 @@ const refreshCartPage = () => {
 
 // Initial call to prompt to render the cart page
 refreshCartPage();
+
+// ============================================================
+// CHECKOUT PAGE FUNCTIONALITY
+// ============================================================
+// Clear the cart when the checkout button is clicked and show a thank you message.
+// (In a real application, this navigate to the payment + checkout.)
+const checkoutBtn = document.getElementById("checkout-btn");
+checkoutBtn &&
+	checkoutBtn.addEventListener("click", () => {
+		alert(`${TEXT.checkoutMessage}`);
+		clearCart();
+		refreshCartPage();
+	});
+
+// ============================================================
+// CONTACT FORM FUNCTIONALITY
+// ============================================================
+// Prevent the default form behaviour and show a thank you message on submit.
+const contactForm = document.getElementById("contact-form-id");
+contactForm &&
+	contactForm.addEventListener("submit", function (event) {
+		event.preventDefault();
+		alert(`${TEXT.contactMessage}`);
+		this.reset();
+	});
