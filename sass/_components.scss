@@ -146,6 +146,13 @@ header.site-header {
    text-align: center;
 }
 
+.navButtons.active {
+   border-bottom: 2px solid $accent-sage;
+   @include dark-theme {
+      border-bottom: 2px solid $accent-sage-dark;
+   }
+}
+
 
 /* ===================================
    MAIN CONTENT
