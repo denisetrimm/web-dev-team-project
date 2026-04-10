@@ -399,7 +399,6 @@ main {
 /* Filter buttons */
 .filter-button {
    @extend %btn-base; // inherit base button styles
-   width: 100%;
    background-color: transparent;
    color: $color-text;
    border: 1px solid $color-border;
