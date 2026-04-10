@@ -15,6 +15,21 @@ All final code reflects our own implementation decisions, based on course materi
 
 ## Areas Where AI Was Used
 
+### Wireframing (Figma and Balsamiq)
+
+AI was used to:
+
+- Provide guidance on structuring wireframes for key pages (e.g., homepage, book catalogue, cart page)
+- Suggest general layout patterns and visual hierarchy for usability
+- Offer design ideas to help differentiate page layouts and improve user flow
+
+Initial low-fidelity wireframes were created in Balsamiq to quickly establish layout and structure. These were then refined into higher-fidelity designs in Figma, where spacing, alignment, and visual hierarchy were further developed.
+
+All wireframes were:
+- Iterated based on project requirements
+- Refined to ensure consistency with the final implemented layouts
+
+
 ### 1. HTML Structure and Semantic Markup
 
 AI was occasionally used to:
@@ -70,11 +85,17 @@ However, most styling adjustments (e.g., spacing, line-height, padding) were man
 ### 3. JavaScript Support
 
 AI was used to:
-- 
+- Troubleshoot page rendering bugs and calculation discrepancies
+- Refine the translation label object and language path logic through multiple iterations
+- Provide guidance on dynamically rendering content in a table-based structure
+- Suggest potential edge cases to improve code robustness
+The final implementation of the logic was written, evaluated, adjusted and tested manually and incrementally to ensure it aligned with project requirements.
 
 ---
 
 ### 4. Content Generation and Refinement
+
+#### a. Content Generation
 
 AI was used to:
 - Generate initial drafts of written content (e.g., descriptions, About page sections)  
@@ -85,6 +106,18 @@ All content was:
 - Edited manually  
 - Adjusted for tone and consistency  
 - Reviewed to ensure it matched the project’s branding  
+
+#### b. AI Usage Report (Documentation)
+
+AI was used to:
+
+- Suggest appropriate terminology and tone for academic documentation
+- Help refine wording for clarity and professionalism
+
+All content in this report was:
+
+- Reviewed and edited to accurately reflect how AI was used throughout the project
+- Adjusted to ensure it aligns with course expectations and academic integrity guidelines
 
 ---
 
