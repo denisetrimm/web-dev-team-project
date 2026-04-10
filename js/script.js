@@ -281,7 +281,7 @@ const refreshCartPage = () => {
 				<!-- AI suggestion - combine quantity controls into a single table cell for better UX and cleaner code + data change attributes to specify the change in quantity instead of separate increase/decrease buttons -->
 				<td>
 					<button class="quantity-btn" data-book-id="${book.id}" data-change="-1" aria-label="Decrease quantity of ${book.title}">-</button>
-					<span>${cartBook.quantity}</span>
+					<span class="quantity">${cartBook.quantity}</span>
 					<button class="quantity-btn" data-book-id="${book.id}" data-change="1" aria-label="Increase quantity of ${book.title}">+</button>
 				</td>
 				
@@ -315,13 +315,16 @@ const refreshCartPage = () => {
 		</tbody>
 	</table>
 	<hr />
-	<h3>${TEXT.orderSummary}</h3>
-	<div>
-		<span>${TEXT.total}</span>
-		<span>$${finalPrice.toFixed(2)}</span>
+	<div class="cart-summary">
+		<h3>${TEXT.orderSummary}</h3>
+
+			<p>${TEXT.total} $${finalPrice.toFixed(2)}</p>
+
+		<div class="cart-actions">
+			<button id="clear-btn" class="button-secondary">${TEXT.clearCart}</button>
+			<button id="checkout-btn" class="button-primary">${TEXT.checkout}</button>
+		</div>
 	</div>
-	<button id="clear-btn" class="button-secondary">${TEXT.clearCart}</button>
-	<button id="checkout-btn" class="button-primary">${TEXT.checkout}</button>
 	`;
 	// Add event listeners for the buttons
 	// AI help to combine increase/decrease quantity buttons into one event listener using data attributes to specify the change in quantity

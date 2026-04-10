@@ -5,6 +5,11 @@
    Contains page structure, spacing, wrappers, and responsive layout rules
    ====================================================== */
 
+*,
+*::before,
+*::after {
+   box-sizing: border-box;
+}
 /* ===================================
    MAIN PAGE LAYOUT
 =================================== */

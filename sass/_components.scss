@@ -563,6 +563,25 @@ label {
    border-radius: $radius-sm;
 }
 
+.quantity-btn {
+   padding: $space-xs $space-sm;
+}
+.quantity {
+   margin: $space-xs;
+}
+
+.cart-summary {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-end;
+   margin-top: $space-lg;
+}
+.cart-actions {
+   display: flex;
+   justify-content: flex-end;
+   gap: $space-md;
+}
+
 
 /* ===================================
    CONTACT PAGE (specific styling)
@@ -570,7 +589,7 @@ label {
 .contact-container {
    display: grid;
    grid-template-columns: 1fr;
-   gap: 5rem;
+   gap: $space-lg;
    align-items: stretch;
    margin: $space-xl auto;
 
