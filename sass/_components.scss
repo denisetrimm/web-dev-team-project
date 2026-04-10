@@ -563,6 +563,10 @@ label {
    border-radius: $radius-sm;
 }
 
+.empty-cart {
+   text-align: center;
+   padding: $space-lg;
+}
 .quantity-btn {
    padding: $space-xs $space-sm;
 }

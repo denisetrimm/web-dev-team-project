@@ -318,7 +318,7 @@ const refreshCartPage = () => {
 	<div class="cart-summary">
 		<h3>${TEXT.orderSummary}</h3>
 
-			<p>${TEXT.total} $${finalPrice.toFixed(2)}</p>
+		<p>${TEXT.total} $${finalPrice.toFixed(2)}</p>
 
 		<div class="cart-actions">
 			<button id="clear-btn" class="button-secondary">${TEXT.clearCart}</button>
@@ -349,25 +349,18 @@ const refreshCartPage = () => {
 		clearCart();
 		refreshCartPage();
 	});
-};
 
-// Initial call to prompt to render the cart page
-refreshCartPage();
-
-// ============================================================
-// CHECKOUT PAGE FUNCTIONALITY
-// ============================================================
-// Clear the cart when the checkout button is clicked and show a thank you message.
-// (In a real application, this navigate to the payment + checkout.)
-const checkoutBtn = document.getElementById("checkout-btn");
-checkoutBtn &&
-	checkoutBtn.addEventListener("click", () => {
+	// Event listener for checkout button
+	const checkoutBtn = document.getElementById("checkout-btn");
+	checkoutBtn?.addEventListener("click", () => {
 		alert(`${TEXT.checkoutMessage}`);
 		clearCart();
 		refreshCartPage();
 	});
+};
 
-// ============================================================
+// Initial call to prompt to render the cart page
+refreshCartPage();
 // CONTACT FORM FUNCTIONALITY
 // ============================================================
 // Prevent the default form behaviour and show a thank you message on submit.
