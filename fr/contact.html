@@ -77,6 +77,7 @@
 									autocomplete="name"
 									placeholder="Jane Austen"
 									data-tooltip="Inscrivez votre nom complet"
+									required
 								/>
 								<label for="email">Addresse courriel</label>
 								<input
@@ -88,6 +89,7 @@
 									placeholder="jane.austen@mail.com"
 									aria-describedby="emailHelp"
 									data-tooltip="Inscrivez une addresse courriel valide à laquelle nous pouvons vous contacter"
+									required
 								/>
 								<small id="emailHelp"
 									>Nous communiquerons avec vous à cette addresse.</small
@@ -98,6 +100,8 @@
 									id="inquiryType"
 									name="inquiryType"
 									data-tooltip="Select the reason for your inquiry"
+									aria-required="true"
+									required
 								>
 									<option value="">Selectionnez une option</option>
 									<option value="general">Requête générale</option>
@@ -111,6 +115,7 @@
 									id="message"
 									name="message"
 									aria-required="true"
+									required
 								></textarea>
 							</fieldset>
 
