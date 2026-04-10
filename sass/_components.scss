@@ -10,19 +10,23 @@
    BASE TYPOGRAPHY
 =================================== */
 body {
-    font-family: $font-body;
+   font-family: $font-body;
     font-size: $font-size-body; // relative size for accessibility
     line-height: $line-height-base; // improves readability by adding space between lines
-    background-color: $color-background;
-    color: $color-text;
-    margin: $space-xs;
-    padding: $space-xs;
+   background-color: $color-background;
+   color: $color-text;
+   margin: $space-xs;
+   padding: $space-xs;
+min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  margin: 0;
 }
 
 body.dark,
 html.dark body {
-  background-color: $dark-page-bg;
-  color: $dark-text;
+   background-color: $dark-page-bg;
+   color: $dark-text;
 }
 
 section {
