@@ -72,6 +72,7 @@ h4 {
    display: inline-block;
    text-decoration: none;
    transition: $transition-base;
+   border-radius: $radius-xs;
 }
 
 button {
@@ -79,14 +80,12 @@ button {
    background-color: $accent-sage;
    color: $light-highlight;
    border: 1px solid $accent-sage;
-   font-family: $font-body;
 
    &:hover,
    &:focus {
       background-color: $accent-sage-hover;
    }
 
-   // TODO: May need to move button styles higher up in the file so other styles can extend.
 }
 
 /* ===================================
@@ -350,6 +349,9 @@ main {
    line-height: 1.45;
 }
 
+.add-cart-btn {
+   border-radius: $radius-pill;
+}
 /* Add to Cart button */
 .add-cart-button-wrap {
    text-align: center; // centers the button within the card content area
@@ -357,31 +359,31 @@ main {
    padding-top: $space-sm; // AI suggestion - adds space between the book meta and the button
 }
 
-.add-cart-link {
-   display: inline-block;
-   padding: 0.35rem 0.8rem;
-   color: $color-text;
-   border: 1px solid $accent-sage;
-   font-family: $font-body;
-   font-size: $font-size-small;
-   font-weight: 600;
-   align-self: center; // AI suggestion; centers the link within the card content area
-   @include dark-theme {
-      color: $dark-text;
-      border-color: $dark-color-border;
-   }
-}
+// .add-cart-link {
+//    display: inline-block;
+//    padding: 0.35rem 0.8rem;
+//    color: $color-text;
+//    border: 1px solid $accent-sage;
+//    font-family: $font-body;
+//    font-size: $font-size-small;
+//    font-weight: 600;
+//    align-self: center; // AI suggestion; centers the link within the card content area
+//    @include dark-theme {
+//       color: $dark-text;
+//       border-color: $dark-color-border;
+//    }
+// }
 
-.add-cart-link:hover,
-.add-cart-link:focus {
-   background-color: $accent-sage;
-   color: $light-highlight;
-   border-color: $accent-sage;
-   @include dark-theme {
-      background-color: $accent-sage-dark;
-      border-color: $accent-sage-dark;
-   }
-}
+// .add-cart-link:hover,
+// .add-cart-link:focus {
+//    background-color: $accent-sage;
+//    color: $light-highlight;
+//    border-color: $accent-sage;
+//    @include dark-theme {
+//       background-color: $accent-sage-dark;
+//       border-color: $accent-sage-dark;
+//    }
+// }
 
 /* Genre tags */
 .genre-tag {
@@ -427,6 +429,8 @@ main {
 input,
 textarea,
 select {
+   display: block;
+   box-sizing: border-box;
    width: 100%;
    padding: $space-sm;
    margin-top: 6px;
@@ -575,6 +579,12 @@ label {
    }
 }
 
+fieldset {
+   border: 0;
+   margin: 0;
+   padding: 0;
+}
+
 .contact-page .contact-card {
    width: 100%;
    background-color: $light-cards;
@@ -597,7 +607,6 @@ label {
 .contact-page textarea,
 .contact-page select {
    width: 100%;
-   max-width: 500px;
    margin-bottom: $space-xs;
 }
 
@@ -638,11 +647,16 @@ label {
 
 .contact-right img {
    width: 100%;
-   height: 270px;
-   border-radius: $radius-lg;
    display: block;
    object-fit: contain;
    flex-grow: 1; // AI suggestion - allows the image to grow and fill the remaining space in the right column
+}
+
+.form-btn-wrap {
+   margin-top: $space-md;
+   display: flex;
+   justify-content: center;
+   gap: $space-sm;
 }
 
 /* ===================================
