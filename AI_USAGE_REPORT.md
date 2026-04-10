@@ -15,7 +15,7 @@ All final code reflects our own implementation decisions, based on course materi
 
 ## Areas Where AI Was Used
 
-### Wireframing (Figma and Balsamiq)
+### 1. Wireframing (Figma and Balsamiq)
 
 AI was used to:
 
@@ -29,8 +29,9 @@ All wireframes were:
 - Iterated based on project requirements
 - Refined to ensure consistency with the final implemented layouts
 
+---
 
-### 1. HTML Structure and Semantic Markup
+### 2. HTML Structure and Semantic Markup
 
 AI was occasionally used to:
 - Suggest semantic HTML structures (e.g., `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`)
@@ -42,7 +43,7 @@ These suggestions were used as reference points; HTML code was subsequentlly wri
 
 ---
 
-### 2. SCSS (Styling, Layout, and Theming)
+### 3. SCSS (Styling, Layout, and Theming)
 
 AI was used primarily to support styling decisions and troubleshoot layout issues, rather than generate full styling solutions.
 
@@ -82,7 +83,7 @@ However, most styling adjustments (e.g., spacing, line-height, padding) were man
 
 ---
 
-### 3. JavaScript Support
+### 4. JavaScript Support
 
 AI was used to:
 - Troubleshoot page rendering bugs and calculation discrepancies
@@ -93,7 +94,7 @@ The final implementation of the logic was written, evaluated, adjusted and teste
 
 ---
 
-### 4. Content Generation and Refinement
+### 5. Content Generation and Refinement
 
 #### a. Content Generation
 
