@@ -3,18 +3,16 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<!-- TODO - Update meta descriptions for each page -->
 		<meta
 			name="description"
-			content="Chapter One is an indie bookstore in Montreal, offering a curated selection of fiction books and supporting local authors."
+			content="Get in touch with Chapter One, your local independent bookstore in Montreal."
 		/>
 		<meta
 			name="keywords"
-			content="indie bookstore Montreal, fiction books, non-fiction books, sci-fi books, fantasy books, local authors, books Canada"
+			content="contact Chapter One, independent bookstore, Montreal, local authors, books"
 		/>
 		<meta name="author" content="Alessandra Spino, Denise Trimm" />
-		<title>Chapter One | Bookstore</title>
-		<!-- add a favicon -->
+		<title>Chapter One | Contact Us</title>
 		<link rel="icon" href="../images/site-favicon.ico" type="image/x-icon" />
 		<link rel="stylesheet" href="../css/main.css" />
 		<script type="module" defer src="../js/script.js"></script>
@@ -24,9 +22,11 @@
 		<header class="site-header" role="banner">
 			<div class="header-left">
 				<a class="logo-link" href="index.html">
-					<!-- TODO - Update logo image (This is just a test) & figure out light vs dark mode -->
-					<!-- Remove the <a></a> tags so the lines disappear ? -->
-					<img src="../images/chapter-one-logo.png" alt="Chapter One Logo" />
+					<img
+						id="logo-img"
+						src="../images/chapter-one-logo.png"
+						alt="Chapter One Logo"
+					/>
 					<p class="tagline">⊹˚.‧⁺ A Journey Through Pages ⁺‧.˚⊹</p>
 				</a>
 			</div>
@@ -39,9 +39,11 @@
 				<!-- TODO finish styling nav-item, nav-link, and active classes-->
 				<a href="index.html" class="navButtons">Home</a>
 				<a href="books.html" class="navButtons">Books</a>
-				<a href="about.html" class="navButtons">About</a>
 				<a href="cart.html" class="navButtons">Cart</a>
-				<a href="contact.html" class="navButtons">Contact Us</a>
+				<a href="about.html" class="navButtons">About</a>
+				<a href="contact.html" class="navButtons active" aria-current="page"
+					>Contact Us</a
+				>
 
 				<button id="theme-toggle" aria-label="Toggle Dark Mode">
 					<span id="theme-icon" title="Dark Mode">🌙</span>
@@ -71,6 +73,7 @@
 									autocomplete="name"
 									placeholder="Jane Austen"
 									data-tooltip="Enter your full name"
+									required
 								/>
 								<label for="email">Email Address</label>
 								<input
@@ -82,6 +85,7 @@
 									placeholder="jane.austen@mail.com"
 									aria-describedby="emailHelp"
 									data-tooltip="Enter a valid email address we can contact you at"
+									required
 								/>
 								<small id="emailHelp"
 									>We will send confirmation to this address.</small
@@ -92,6 +96,8 @@
 									id="inquiryType"
 									name="inquiryType"
 									data-tooltip="Select the reason for your inquiry"
+									aria-required="true"
+									required
 								>
 									<option value="">Select an option</option>
 									<option value="general">General Inquiry</option>
@@ -105,6 +111,7 @@
 									id="message"
 									name="message"
 									aria-required="true"
+									required
 								></textarea>
 							</fieldset>
 

@@ -1,27 +1,24 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<!-- TODO - Update meta descriptions for each page -->
 		<meta
 			name="description"
-			content="Chapter One is an indie bookstore in Montreal, offering a curated selection of fiction books and supporting local authors."
+			content="Votre panier de commandes chez Chapter One, la librairie indépendante à Montréal."
 		/>
 		<meta
 			name="keywords"
-			content="indie bookstore Montreal, fiction books, local authors, books Canada"
+			content="panier, commandes, librairie indépendante, Montréal, livres de fiction"
 		/>
 		<meta name="author" content="Alessandra Spino, Denise Trimm" />
-		<title>Chapter One | Nous joindre</title>
-		<!-- add a favicon -->
+		<title>Chapter One | Panier</title>
 		<link rel="icon" href="../images/site-favicon.ico" type="image/x-icon" />
 		<link rel="stylesheet" href="../css/main.css" />
 		<script type="module" defer src="../js/script.js"></script>
 	</head>
 
 	<body>
-		<!-- TODO - Style skip link to hide it -->
 		<a href="#main-content" class="skip-link visually-hidden"
 			>Passer au contenu principal</a
 		>
@@ -29,9 +26,11 @@
 		<header class="site-header" role="banner">
 			<div class="header-left">
 				<a class="logo-link" href="index.html">
-					<!-- TODO - Update logo image (This is just a test) & figure out light vs dark mode -->
-					<!-- Remove the <a></a> tags so the lines disappear ? -->
-					<img src="../images/chapter-one-logo.png" alt="Chapter One Logo" />
+					<img
+						id="logo-img"
+						src="../images/chapter-one-logo.png"
+						alt="Chapter One Logo"
+					/>
 					<p class="tagline">⊹˚.‧⁺ Un voyage au fil des pages ⁺‧.˚⊹</p>
 				</a>
 			</div>
@@ -41,11 +40,12 @@
 			</div>
 
 			<nav id="main-nav" role="navigation" aria-label="Navigation principale">
-				<!-- TODO finish styling nav-item, nav-link, and active classes-->
 				<a href="index.html" class="navButtons">Accueil</a>
 				<a href="books.html" class="navButtons">Livres</a>
+				<a href="cart.html" class="navButtons active" aria-current="page"
+					>Panier</a
+				>
 				<a href="about.html" class="navButtons">À propos</a>
-				<a href="cart.html" class="navButtons">Panier</a>
 				<a href="contact.html" class="navButtons">Nous joindre</a>
 
 				<button id="theme-toggle" aria-label="Activer le mode sombre">
@@ -59,10 +59,7 @@
 		<main id="main-content" role="main" aria-labelledby="books-page-heading">
 			<!-- If there are no items in the cart (Default) -->
 			<h2>Panier</h2>
-			<section id="cart-section">
-				<!-- <p id="cart-item-no">0 item(s)</p> -->
-				<!-- <button id="clear-btn">Clear Cart</button> -->
-			</section>
+			<section id="cart-section"></section>
 			<section id="cart-items"></section>
 		</main>
 

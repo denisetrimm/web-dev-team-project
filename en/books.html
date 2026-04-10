@@ -17,7 +17,7 @@
 		/>
 
 		<!-- page title -->
-		<title>Chapter One | Books</title>
+		<title>Chapter One | BrowseBooks</title>
 
 		<!-- favicon -->
 		<link rel="icon" href="../images/site-favicon.ico" type="image/x-icon" />
@@ -37,9 +37,11 @@
 		<header class="site-header" role="banner">
 			<div class="header-left">
 				<a class="logo-link" href="index.html">
-					<!-- TODO - Update logo image (This is just a test) & figure out light vs dark mode -->
-					<!-- Remove the <a></a> tags so the lines disappear ? -->
-					<img src="../images/chapter-one-logo.png" alt="Chapter One Logo" />
+					<img
+						id="logo-img"
+						src="../images/chapter-one-logo.png"
+						alt="Chapter One Logo"
+					/>
 					<p class="tagline">⊹˚.‧⁺ A Journey Through Pages ⁺‧.˚⊹</p>
 				</a>
 			</div>
@@ -49,11 +51,12 @@
 			</div>
 
 			<nav id="main-nav" role="navigation" aria-label="Main Navigation">
-				<!-- TODO finish styling nav-item, nav-link, and active classes-->
 				<a href="index.html" class="navButtons">Home</a>
-				<a href="books.html" class="navButtons">Books</a>
-				<a href="about.html" class="navButtons">About</a>
+				<a href="books.html" class="navButtons active" aria-current="page"
+					>Books</a
+				>
 				<a href="cart.html" class="navButtons">Cart</a>
+				<a href="about.html" class="navButtons">About</a>
 				<a href="contact.html" class="navButtons">Contact Us</a>
 
 				<button id="theme-toggle" aria-label="Toggle Dark Mode">

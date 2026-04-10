@@ -1,27 +1,24 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<!-- TODO - Update meta descriptions for each page -->
 		<meta
 			name="description"
-			content="Chapter One is an indie bookstore in Montreal, offering a curated selection of fiction books and supporting local authors."
+			content="Découvrez Chapter One, votre librairie indépendante locale à Montréal."
 		/>
 		<meta
 			name="keywords"
-			content="indie bookstore Montreal, fiction books, local authors, books Canada"
+			content="librairie indépendante Montreal, livres de fiction, auteurs locaux, livres Canada"
 		/>
 		<meta name="author" content="Alessandra Spino, Denise Trimm" />
 		<title>Chapter One | À propos</title>
-		<!-- add a favicon -->
 		<link rel="icon" href="../images/site-favicon.ico" type="image/x-icon" />
 		<link rel="stylesheet" href="../css/main.css" />
 		<script type="module" defer src="../js/script.js"></script>
 	</head>
 
 	<body>
-		<!-- TODO - Style skip link to hide it -->
 		<a href="#main-content" class="skip-link visually-hidden"
 			>Passer au contenu principal</a
 		>
@@ -29,9 +26,11 @@
 		<header class="site-header" role="banner">
 			<div class="header-left">
 				<a class="logo-link" href="index.html">
-					<!-- TODO - Update logo image (This is just a test) & figure out light vs dark mode -->
-					<!-- Remove the <a></a> tags so the lines disappear ? -->
-					<img src="../images/chapter-one-logo.png" alt="Chapter One Logo" />
+					<img
+						id="logo-img"
+						src="../images/chapter-one-logo.png"
+						alt="Chapter One Logo"
+					/>
 					<p class="tagline">⊹˚.‧⁺ Un voyage au fil des pages ⁺‧.˚⊹</p>
 				</a>
 			</div>
@@ -41,11 +40,12 @@
 			</div>
 
 			<nav id="main-nav" role="navigation" aria-label="Navigation principale">
-				<!-- TODO finish styling nav-item, nav-link, and active classes-->
 				<a href="index.html" class="navButtons">Accueil</a>
 				<a href="books.html" class="navButtons">Livres</a>
-				<a href="about.html" class="navButtons">À propos</a>
 				<a href="cart.html" class="navButtons">Panier</a>
+				<a href="about.html" class="navButtons active" aria-current="page"
+					>À propos</a
+				>
 				<a href="contact.html" class="navButtons">Nous joindre</a>
 
 				<button id="theme-toggle" aria-label="Activer le mode sombre">
@@ -88,19 +88,38 @@
 				<article class="about-card">
 					<h3>𐦂𖨆𐀪𖠋 Notre Équipe</h3>
 					<p>
-						Notre équipe passionnée de lecteurs est dédiée à vous aider à découvrir votre prochaine grande histoire grâce à des recommandations personnalisées et un véritable amour des livres. Chaque titre chez Chapter One est soigneusement sélectionné afin d'offrir une collection raffinée à travers les genres — des best-sellers incontournables aux trésors cachés qui n'attendent qu'à être découverts.
+						Notre équipe passionnée de lecteurs est dédiée à vous aider à
+						découvrir votre prochaine grande histoire grâce à des
+						recommandations personnalisées et un véritable amour des livres.
+						Chaque titre chez Chapter One est soigneusement sélectionné afin
+						d'offrir une collection raffinée à travers les genres — des
+						best-sellers incontournables aux trésors cachés qui n'attendent qu'à
+						être découverts.
 					</p>
 				</article>
 
 				<article class="about-card">
 					<h3>𐙚 Librairies partenaires</h3>
 					<p>
-						Nous avons à cœur de soutenir les librairies indépendantes. Voici quelques-uns de nos partenaires de confiance:
+						Nous avons à cœur de soutenir les librairies indépendantes. Voici
+						quelques-uns de nos partenaires de confiance:
 					</p>
 					<ol>
-						<li><a href="https://www.joiedelivres.ca" target="_blank">Joie de Livres</a></li>
-						<li><a href="https://www.drawnandquarterly.com" target="_blank">Drawn & Quarterly</a></li>
-						<li><a href="http://librairiebertrand.com" target="_blank">Librairie Bertrand</a></li>
+						<li>
+							<a href="https://www.joiedelivres.ca" target="_blank"
+								>Joie de Livres</a
+							>
+						</li>
+						<li>
+							<a href="https://www.drawnandquarterly.com" target="_blank"
+								>Drawn & Quarterly</a
+							>
+						</li>
+						<li>
+							<a href="http://librairiebertrand.com" target="_blank"
+								>Librairie Bertrand</a
+							>
+						</li>
 					</ol>
 				</article>
 			</section>

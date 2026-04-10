@@ -10,23 +10,27 @@
    BASE TYPOGRAPHY
 =================================== */
 body {
-    font-family: $font-body;
+   font-family: $font-body;
     font-size: $font-size-body; // relative size for accessibility
     line-height: $line-height-base; // improves readability by adding space between lines
-    background-color: $color-background;
-    color: $color-text;
-    margin: $space-xs;
-    padding: $space-xs;
+   background-color: $color-background;
+   color: $color-text;
+   margin: $space-xs;
+   padding: $space-xs;
+   min-height: 100vh;
+   display: grid;
+   grid-template-rows: auto 1fr auto;
+   margin: 0;
 }
 
 body.dark,
 html.dark body {
-  background-color: $dark-page-bg;
-  color: $dark-text;
+   background-color: $dark-page-bg;
+   color: $dark-text;
 }
 
 section {
-    margin-bottom: $space-xl; // space between sections for visual separation
+   margin-bottom: $space-xl; // space between sections for visual separation
 }
 
 h1,
@@ -140,6 +144,13 @@ header.site-header {
 .logo-link {
    text-decoration: none;
    text-align: center;
+}
+
+.navButtons.active {
+   border-bottom: 2px solid $accent-sage;
+   @include dark-theme {
+      border-bottom: 2px solid $accent-sage-dark;
+   }
 }
 
 
@@ -483,7 +494,7 @@ label {
       }
    }
 
-    @include dark-theme {
+   @include dark-theme {
       background-color: $dark-cards;
       border-color: $dark-color-border;
       }
@@ -499,7 +510,7 @@ label {
    border-radius: $radius-lg;
    border: 1px solid $color-border;
 
-    @include dark-theme {
+   @include dark-theme {
       background-color: $dark-cards;
       border-color: $dark-color-border;
    }
