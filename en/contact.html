@@ -3,7 +3,6 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<!-- TODO - Update meta descriptions for each page -->
 		<meta
 			name="description"
 			content="Chapter One is an indie bookstore in Montreal, offering a curated selection of fiction books and supporting local authors."
@@ -14,7 +13,6 @@
 		/>
 		<meta name="author" content="Alessandra Spino, Denise Trimm" />
 		<title>Chapter One | Bookstore</title>
-		<!-- add a favicon -->
 		<link rel="icon" href="../images/site-favicon.ico" type="image/x-icon" />
 		<link rel="stylesheet" href="../css/main.css" />
 		<script type="module" defer src="../js/script.js"></script>
@@ -24,9 +22,11 @@
 		<header class="site-header" role="banner">
 			<div class="header-left">
 				<a class="logo-link" href="index.html">
-					<!-- TODO - Update logo image (This is just a test) & figure out light vs dark mode -->
-					<!-- Remove the <a></a> tags so the lines disappear ? -->
-					<img src="../images/chapter-one-logo.png" alt="Chapter One Logo" />
+					<img
+						id="logo-img"
+						src="../images/chapter-one-logo.png"
+						alt="Chapter One Logo"
+					/>
 					<p class="tagline">⊹˚.‧⁺ A Journey Through Pages ⁺‧.˚⊹</p>
 				</a>
 			</div>
@@ -41,7 +41,7 @@
 				<a href="books.html" class="navButtons">Books</a>
 				<a href="about.html" class="navButtons">About</a>
 				<a href="cart.html" class="navButtons">Cart</a>
-				<a href="contact.html" class="navButtons">Contact Us</a>
+				<a href="#" class="navButtons">Contact Us</a>
 
 				<button id="theme-toggle" aria-label="Toggle Dark Mode">
 					<span id="theme-icon" title="Dark Mode">🌙</span>

@@ -1,11 +1,9 @@
 <!doctype html>
 <html lang="fr">
 	<head>
-		<!-- métadonnées de base -->
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-		<!-- métadonnées SEO -->
 		<meta
 			name="description"
 			content="Parcourez des romans, essais, science-fiction et fantasy, ainsi que des auteurs locaux chez Chapter One, une librairie indépendante à Montréal."
@@ -16,7 +14,6 @@
 			content="librairie Montréal, romans, essais, science-fiction, fantasy, auteurs locaux, Chapter One"
 		/>
 
-		<!-- titre de la page -->
 		<title>Chapter One | Livres</title>
 
 		<!-- favicon -->
@@ -30,15 +27,16 @@
 	</head>
 
 	<body>
-		<!-- lien d’évitement pour accessibilité -->
 		<a href="#main-content" class="skip-link">Passer au contenu principal</a>
 
 		<header class="site-header" role="banner">
 			<div class="header-left">
 				<a class="logo-link" href="index.html">
-					<!-- TODO - Update logo image (This is just a test) & figure out light vs dark mode -->
-					<!-- Remove the <a></a> tags so the lines disappear ? -->
-					<img src="../images/chapter-one-logo.png" alt="Chapter One Logo" />
+					<img
+						id="logo-img"
+						src="../images/chapter-one-logo.png"
+						alt="Chapter One Logo"
+					/>
 					<p class="tagline">⊹˚.‧⁺ Un voyage au fil des pages ⁺‧.˚⊹</p>
 				</a>
 			</div>
@@ -48,7 +46,6 @@
 			</div>
 
 			<nav id="main-nav" role="navigation" aria-label="Navigation principale">
-				<!-- TODO finish styling nav-item, nav-link, and active classes-->
 				<a href="index.html" class="navButtons">Accueil</a>
 				<a href="books.html" class="navButtons">Livres</a>
 				<a href="about.html" class="navButtons">À propos</a>
@@ -62,9 +59,7 @@
 			</nav>
 		</header>
 
-		<!-- contenu principal -->
 		<main id="main-content" role="main" aria-labelledby="books-page-heading">
-			<!-- titre de la page -->
 			<section aria-labelledby="books-page-heading">
 				<h2 id="books-page-heading">Parcourir les livres</h2>
 				<p>
@@ -73,7 +68,6 @@
 				</p>
 			</section>
 
-			<!-- filtres -->
 			<section aria-labelledby="filter-heading">
 				<h2 id="filter-heading">Filtrer par genre</h2>
 
@@ -92,7 +86,6 @@
 				</div>
 			</section>
 
-			<!-- catalogue -->
 			<section aria-labelledby="catalogue-heading">
 				<h2 id="catalogue-heading">Catalogue de livres</h2>
 

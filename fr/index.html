@@ -3,7 +3,6 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<!-- TODO - Update meta descriptions for each page -->
 		<meta
 			name="description"
 			content="Chapter One est une librairie indépendante à Montréal, offrant une sélection soignée de romans et soutenant les auteurs locaux."
@@ -14,14 +13,12 @@
 		/>
 		<meta name="author" content="Alessandra Spino, Denise Trimm" />
 		<title>Chapter One | Bookstore</title>
-		<!-- add a favicon -->
 		<link rel="icon" href="../images/site-favicon.ico" type="image/x-icon" />
 		<link rel="stylesheet" href="../css/main.css" />
 		<script type="module" defer src="../js/script.js"></script>
 	</head>
 
 	<body>
-		<!-- TODO - Style skip link to hide it -->
 		<a href="#main-content" class="skip-link visually-hidden"
 			>Aller au contenu principal</a
 		>
@@ -29,9 +26,11 @@
 		<header class="site-header" role="banner">
 			<div class="header-left">
 				<a class="logo-link" href="#">
-					<!-- TODO - Update logo image (This is just a test) & figure out light vs dark mode -->
-					<!-- Remove the <a></a> tags so the lines disappear ? -->
-					<img src="../images/chapter-one-logo.png" alt="Chapter One Logo" />
+					<img
+						id="logo-img"
+						src="../images/chapter-one-logo.png"
+						alt="Chapter One Logo"
+					/>
 					<p class="tagline">⊹˚.‧⁺ Un voyage au fil des pages ⁺‧.˚⊹</p>
 				</a>
 			</div>
@@ -41,7 +40,6 @@
 			</div>
 
 			<nav id="main-nav" role="navigation" aria-label="Main Navigation">
-				<!-- TODO finish styling nav-item, nav-link, and active classes-->
 				<a href="index.html" class="navButtons">Accueil</a>
 				<a href="books.html" class="navButtons">Livres</a>
 				<a href="about.html" class="navButtons">À propos</a>
@@ -61,7 +59,7 @@
 				<h2>Découvrez votre prochain livre préféré</h2>
 				<p>
 					Sélections soignées d'auteurs locaux et de classiques appréciés.
-                    Encouragez les librairies indépendantes.
+					Encouragez les librairies indépendantes.
 				</p>
 				<a href="books.html" class="button-primary">Parcourir les livres</a>
 			</section>
@@ -69,21 +67,24 @@
 			<section class="featured-books">
 				<h2>Livres en vedette</h2>
 				<p>Notre sélection coup de coeur du mois</p>
-				<!-- book cards to be inserted here (?) -->
 			</section>
 
 			<section class="about-preview">
 				<h2>À propos de Chapter One</h2>
 				<!-- tweak text if needed-->
 				<p>
-					Nous sommes une librairie indépendante locale dédiée à partager la joie de la lecture avec notre communauté.
+					Nous sommes une librairie indépendante locale dédiée à partager la
+					joie de la lecture avec notre communauté.
 				</p>
 				<p>
-					Depuis 1995, nous sommes une destination pour les amoureux des livres à la recherche de sélections soigneusement choisies et de recommandations personnalisées.
+					Depuis 1995, nous sommes une destination pour les amoureux des livres
+					à la recherche de sélections soigneusement choisies et de
+					recommandations personnalisées.
 				</p>
 				<p>
-					Des meilleurs vendeurs aux trésors méconnus, des trouvailles rares aux classiques pour enfants, nos rayons sont remplis d'histoires qui n'attendent qu'à être découvertes.
-
+					Des meilleurs vendeurs aux trésors méconnus, des trouvailles rares aux
+					classiques pour enfants, nos rayons sont remplis d'histoires qui
+					n'attendent qu'à être découvertes.
 				</p>
 				<a href="about.html" class="button-secondary">En savoir plus</a>
 			</section>

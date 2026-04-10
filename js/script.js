@@ -136,6 +136,7 @@ if (themeToggleBtn && themeIcon) {
 		changeToLightMode();
 	}
 	updateThemeIcon();
+	updateThemeLogo();
 }
 
 // ============================================================
