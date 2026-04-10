@@ -475,10 +475,18 @@ label {
    border-radius: $radius-lg;
    border: 1px solid $color-border;
 
+   a {
+      color: $color-text;
+      text-decoration: underline;
+      @include dark-theme {
+         color: $dark-secondary-text;
+      }
+   }
+
     @include dark-theme {
       background-color: $dark-cards;
       border-color: $dark-color-border;
-   }
+      }
 }
 
 .about-card h3 {
