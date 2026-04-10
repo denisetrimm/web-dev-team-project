@@ -90,6 +90,7 @@ if (document.getElementById("book-grid")) {
 
 const themeToggleBtn = document.getElementById("theme-toggle");
 const themeIcon = document.getElementById("theme-icon");
+const themeLogo = document.getElementById("logo-img");
 
 // Check if theme toggle and icon exist on page
 if (themeToggleBtn && themeIcon) {
@@ -111,12 +112,20 @@ if (themeToggleBtn && themeIcon) {
 			: "🌙";
 	};
 
+	const updateThemeLogo = () => {
+		if (!themeLogo) return;
+		themeLogo.src = document.body.classList.contains("dark")
+			? "../images/chapter-one-logo-dark.png"
+			: "../images/chapter-one-logo.png";
+	};
+
 	// Event listener for theme toggle button
 	themeToggleBtn.addEventListener("click", () => {
 		document.body.classList.contains("dark")
 			? changeToLightMode()
 			: changeToDarkMode();
 		updateThemeIcon(); // Update the theme icon after toggling
+		updateThemeLogo(); // Update the logo after toggling
 	});
 
 	// On page load, check for saved theme preference and apply it
