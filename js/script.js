@@ -1,88 +1,14 @@
 import { BOOKS_EN, BOOKS_FR } from "./data.js"; // Import the book data from the data module
 import { LABELS } from "./labels.js"; // Import the language labels from the labels module
+
 // ============================================================
 // GLOBAL VARIABLES
 // ============================================================
+
 // NOTE: AI suggestion to use window.pathname to determine which book data to load
 const isFR = window.location.pathname.includes("/fr/");
 const BOOKS = isFR ? BOOKS_FR : BOOKS_EN;
 const TEXT = isFR ? LABELS.fr : LABELS.en; // Use the appropriate language labels based on the current language
-
-// ============================================================
-// BOOK FILTERING FUNCTIONALITY
-// ============================================================
-
-// Function to render books in the catalogue
-let renderBooks = (books) => {
-	// Get the book grid container and clear any existing content
-	const bookGrid = document.getElementById("book-grid");
-	bookGrid.innerHTML = ""; // Clear existing books
-
-	// Loop through the books and create a card for each one
-	books.forEach((book) => {
-		const bookCard = document.createElement("article");
-		// Add appropriate classes and attributes for styling and filtering
-		bookCard.classList.add("book-card");
-		bookCard.setAttribute("data-filter", book.category.toLowerCase());
-		// Set the inner HTML of the book card with the book's details
-		// AI suggestion - image wrapper to ensure all cover images are displayed consistently
-		bookCard.innerHTML = `
-            <div class="book-image-wrapper">
-                <img src="${book.image}" alt="${TEXT.coverOf} ${book.title}">
-            </div>
-            <div class="book-card-content">
-                <h3>${book.title}</h3>
-                <p class="book-meta">${book.author}</p>
-                <p class="book-meta">${book.description}</p>
-                <p class="book-meta"><strong>${TEXT.genre}:</strong> ${book.category}</p>
-                <p class="book-meta"><strong>${TEXT.price}:</strong> $${book.price.toFixed(2)}</p>
-				<button class="add-cart-btn" data-book-id="${book.id}" aria-label="${TEXT.addToCart} ${book.title}">
-                        ${TEXT.addToCart}
-                    </button>
-            </div>
-        `;
-		// Append the book card to the book grid container
-		bookGrid.appendChild(bookCard);
-	});
-	// Add event listener to the "Add to Cart" button for each book card
-	document.querySelectorAll(".add-cart-btn").forEach((button) => {
-		button.addEventListener("click", () => {
-			const bookId = Number(button.getAttribute("data-book-id"));
-			addToCart(bookId);
-		});
-	});
-};
-
-// Check if book grid exists
-if (document.getElementById("book-grid")) {
-	// Initial render of books in the catalogue
-	renderBooks(BOOKS);
-
-	/* Add Genre Filtering Functionality */
-	// Select all filter buttons
-	const filterButtons = document.querySelectorAll(".filter-button");
-	// Add click event listeners to each filter button
-	filterButtons.forEach((button) => {
-		button.addEventListener("click", () => {
-			// Remove "active" class from all buttons and add it to the clicked button for visual feedback
-			filterButtons.forEach((btn) => btn.classList.remove("active"));
-			button.classList.add("active");
-			// Get the genre to filter by from the button's data attribute
-			const genre = button.getAttribute("data-filter");
-			// Render all books if "All" is selected
-			if (genre === "all") {
-				renderBooks(BOOKS);
-				// Otherwise, filter the books by the selected genre
-			} else {
-				const filteredBooks = BOOKS.filter(
-					(book) => book.category.toLowerCase() === genre,
-				);
-				// Render the filtered list
-				renderBooks(filteredBooks);
-			}
-		});
-	});
-}
 
 // ============================================================
 // THEME TOGGLE FUNCTIONALITY
@@ -161,6 +87,129 @@ if (langToggleBtn) {
 	});
 }
 // TODO - Potentially save language in LocalStorage.
+
+// ============================================================
+// FEATURED BOOK FUNCTIONALITY
+// ============================================================
+// Function to render books in the catalogue. Note, this is the same logic as the book grid (Render books). A future iteration would refactor it to be able to apply to both.
+let renderFeaturedBooks = (books) => {
+	// Get the featured book grid container and clear any existing content
+	const bookGrid = document.getElementById("featured-books-grid");
+	bookGrid.innerHTML = ""; // Clear existing books
+
+	// Loop through the books and create a card for each one
+	books.forEach((book) => {
+		const bookCard = document.createElement("article");
+		// Add appropriate classes and attributes for styling and filtering
+		bookCard.classList.add("book-card");
+		bookCard.setAttribute("data-filter", book.category.toLowerCase());
+		// Set the inner HTML of the book card with the book's details
+		// AI suggestion - image wrapper to ensure all cover images are displayed consistently
+		bookCard.innerHTML = `
+            <div class="book-image-wrapper">
+                <img src="${book.image}" alt="${TEXT.coverOf} ${book.title}">
+            </div>
+            <div class="book-card-content">
+                <h3>${book.title}</h3>
+                <p class="book-meta">${book.author}</p>
+                <p class="book-meta">${book.description}</p>
+                <p class="book-meta"><strong>${TEXT.genre}:</strong> ${book.category}</p>
+                <p class="book-meta"><strong>${TEXT.price}:</strong> $${book.price.toFixed(2)}</p>
+				<button class="add-cart-btn" data-book-id="${book.id}" aria-label="${TEXT.addToCart} ${book.title}">
+                        ${TEXT.addToCart}
+                    </button>
+            </div>
+        `;
+		// Append the book card to the book grid container
+		bookGrid.appendChild(bookCard);
+	});
+	// Add event listener to the "Add to Cart" button for each book card
+	document.querySelectorAll(".add-cart-btn").forEach((button) => {
+		button.addEventListener("click", () => {
+			const bookId = Number(button.getAttribute("data-book-id"));
+			addToCart(bookId);
+		});
+	});
+};
+
+document.getElementById("featured-books-grid") &&
+	renderFeaturedBooks(BOOKS.slice(9, 12));
+
+// ============================================================
+// BOOK FILTERING FUNCTIONALITY
+// ============================================================
+
+// Function to render books in the catalogue
+let renderBooks = (books) => {
+	// Get the book grid container and clear any existing content
+	const bookGrid = document.getElementById("book-grid");
+	bookGrid.innerHTML = ""; // Clear existing books
+
+	// Loop through the books and create a card for each one
+	books.forEach((book) => {
+		const bookCard = document.createElement("article");
+		// Add appropriate classes and attributes for styling and filtering
+		bookCard.classList.add("book-card");
+		bookCard.setAttribute("data-filter", book.category.toLowerCase());
+		// Set the inner HTML of the book card with the book's details
+		// AI suggestion - image wrapper to ensure all cover images are displayed consistently
+		bookCard.innerHTML = `
+            <div class="book-image-wrapper">
+                <img src="${book.image}" alt="${TEXT.coverOf} ${book.title}">
+            </div>
+            <div class="book-card-content">
+                <h3>${book.title}</h3>
+                <p class="book-meta">${book.author}</p>
+                <p class="book-meta">${book.description}</p>
+                <p class="book-meta"><strong>${TEXT.genre}:</strong> ${book.category}</p>
+                <p class="book-meta"><strong>${TEXT.price}:</strong> $${book.price.toFixed(2)}</p>
+				<button class="add-cart-btn" data-book-id="${book.id}" aria-label="${TEXT.addToCart} ${book.title}">
+                        ${TEXT.addToCart}
+                    </button>
+            </div>
+        `;
+		// Append the book card to the book grid container
+		bookGrid.appendChild(bookCard);
+	});
+	// Add event listener to the "Add to Cart" button for each book card
+	document.querySelectorAll(".add-cart-btn").forEach((button) => {
+		button.addEventListener("click", () => {
+			const bookId = Number(button.getAttribute("data-book-id"));
+			addToCart(bookId);
+		});
+	});
+};
+
+// Check if book grid exists
+if (document.getElementById("book-grid")) {
+	// Initial render of books in the catalogue
+	renderBooks(BOOKS);
+
+	/* Add Genre Filtering Functionality */
+	// Select all filter buttons
+	const filterButtons = document.querySelectorAll(".filter-button");
+	// Add click event listeners to each filter button
+	filterButtons.forEach((button) => {
+		button.addEventListener("click", () => {
+			// Remove "active" class from all buttons and add it to the clicked button for visual feedback
+			filterButtons.forEach((btn) => btn.classList.remove("active"));
+			button.classList.add("active");
+			// Get the genre to filter by from the button's data attribute
+			const genre = button.getAttribute("data-filter");
+			// Render all books if "All" is selected
+			if (genre === "all") {
+				renderBooks(BOOKS);
+				// Otherwise, filter the books by the selected genre
+			} else {
+				const filteredBooks = BOOKS.filter(
+					(book) => book.category.toLowerCase() === genre,
+				);
+				// Render the filtered list
+				renderBooks(filteredBooks);
+			}
+		});
+	});
+}
 
 // ============================================================
 // CART MANAGEMENT FUNCTIONALITY
@@ -361,6 +410,8 @@ const refreshCartPage = () => {
 
 // Initial call to prompt to render the cart page
 refreshCartPage();
+
+// ============================================================
 // CONTACT FORM FUNCTIONALITY
 // ============================================================
 // Prevent the default form behaviour and show a thank you message on submit.
