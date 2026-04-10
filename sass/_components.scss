@@ -262,7 +262,23 @@ main {
       }
    }
 }
-
+.main-home-layout, .hero, .featured-books, .about-preview {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+.feature-book-grid {
+   display: grid;
+   grid-template-columns: 1fr; // 1 column by default for mobile
+   gap: $space-lg; // space between book cards
+   @include screen-size('tablet') {
+      grid-template-columns: repeat(2, 1fr); // 2 columns for tablets and up
+   }
+   @include screen-size('desktop') {
+      grid-template-columns: repeat(3, 1fr); // 3 columns for desktops and up
+   }
+}
 /* Book grids and cards */
 .book-grid {
    display: grid;
@@ -563,6 +579,10 @@ label {
    border-radius: $radius-sm;
 }
 
+.empty-cart {
+   text-align: center;
+   padding: $space-lg;
+}
 .quantity-btn {
    padding: $space-xs $space-sm;
 }
