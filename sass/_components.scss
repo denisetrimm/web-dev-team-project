@@ -11,8 +11,8 @@
 =================================== */
 body {
    font-family: $font-body;
-    font-size: $font-size-body; // relative size for accessibility
-    line-height: $line-height-base; // improves readability by adding space between lines
+   font-size: $font-size-body; // relative size for accessibility
+   line-height: $line-height-base; // improves readability by adding space between lines
    background-color: $color-background;
    color: $color-text;
    margin: $space-xs;
@@ -86,6 +86,17 @@ button {
       background-color: $accent-sage-hover;
    }
 
+   @include dark-theme {
+      background-color: $accent-sage-dark;
+      border-color: $accent-sage-dark;
+      color: $light-highlight;;
+
+      &:hover,
+      &:focus {
+         background-color: $accent-sage-hover-dark;
+         border-color: $accent-sage-hover-dark;
+      }
+   }
 }
 
 /* ===================================
@@ -225,10 +236,11 @@ main {
    &:focus {
       background-color: $accent-sage-hover;
    }
+
    @include dark-theme {
       background-color: $accent-sage-dark;
       border-color: $accent-sage-dark;
-      color: $accent-sage-soft-dark;
+      color: $light-highlight;
 
       &:hover,
       &:focus {
@@ -251,6 +263,7 @@ main {
       background-color: $accent-sage-soft;
       border-color: $accent-sage;
    }
+
    @include dark-theme {
       color: $dark-text;
       border-color: $dark-color-border;
@@ -262,12 +275,14 @@ main {
       }
    }
 }
+
 .main-home-layout, .hero, .featured-books, .about-preview {
    display: flex;
    flex-direction: column;
    justify-content: center;
    align-items: center;
 }
+
 .feature-book-grid {
    display: grid;
    grid-template-columns: 1fr; // 1 column by default for mobile
@@ -279,6 +294,7 @@ main {
       grid-template-columns: repeat(3, 1fr); // 3 columns for desktops and up
    }
 }
+
 /* Book grids and cards */
 .book-grid {
    display: grid;
@@ -351,14 +367,20 @@ main {
 .book-card-content h3 {
    margin: 0;
    line-height: 1.2;
-   min-height: 4rem;
+   min-height: 4.25rem;
 }
 
 /* ALL text, to match with script.js */
 .book-meta {
-   margin: 0 0 0.65rem 0; // adds space below the meta info and separates it from the button;
+   margin: 0 0 0.9rem 0; // adds space below the meta info and separates it from the button;
    font-size: $font-size-small;
-   line-height: 2;
+   line-height: 2.5;
+}
+
+/* AI suggestion - to ensure enough space is allocated to the book synopsis and prevent layout issues when descriptions are longer
+   This also helps maintain consistent card heights across the grid, improving visual balance */
+.book-card-content .book-meta:nth-of-type(2) {
+   min-height: 5rem;
 }
 
 .book-card-content p {
@@ -424,6 +446,7 @@ main {
    margin-bottom: $space-sm;
    border-radius: $radius-md;
    @include dark-theme {
+      background-color: transparent;
       color: $dark-text;
       border-color: $dark-color-border;
    }
@@ -583,9 +606,11 @@ label {
    text-align: center;
    padding: $space-lg;
 }
+
 .quantity-btn {
    padding: $space-xs $space-sm;
 }
+
 .quantity {
    margin: $space-xs;
 }
@@ -596,6 +621,7 @@ label {
    align-items: flex-end;
    margin-top: $space-lg;
 }
+
 .cart-actions {
    display: flex;
    justify-content: flex-end;
