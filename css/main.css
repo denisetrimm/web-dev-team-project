@@ -170,12 +170,21 @@ h4 {
 }
 
 button {
-  background-color: #A8B5A2;
+  background-color: #6a7566;
   color: #FFFDF6;
-  border: 1px solid #A8B5A2;
+  border: 1px solid #6a7566;
 }
 button:hover, button:focus {
-  background-color: #8FA18A;
+  background-color: #4f5f4a;
+}
+body.dark button {
+  background-color: #768571;
+  border-color: #768571;
+  color: #FFFDF6;
+}
+body.dark button:hover, body.dark button:focus {
+  background-color: #4f5f4a;
+  border-color: #4f5f4a;
 }
 
 /* ===================================
@@ -238,10 +247,10 @@ body.dark .tagline {
 }
 
 .navButtons.active {
-  border-bottom: 2px solid #A8B5A2;
+  border-bottom: 2px solid #6a7566;
 }
 body.dark .navButtons.active {
-  border-bottom: 2px solid #8FA18A;
+  border-bottom: 2px solid #768571;
 }
 
 /* ===================================
@@ -291,27 +300,27 @@ body.dark .navButtons {
 }
 body.dark .navButtons:hover, body.dark .navButtons:focus {
   background-color: #2F3A2D;
-  border-color: #8FA18A;
+  border-color: #768571;
 }
 
 /* Primary action buttons */
 .button-primary {
-  background-color: #A8B5A2;
+  background-color: #6a7566;
   color: #FFFDF6;
-  border: 1px solid #A8B5A2;
+  border: 1px solid #6a7566;
   font-size: 0.95rem;
 }
 .button-primary:hover, .button-primary:focus {
-  background-color: #8FA18A;
+  background-color: #4f5f4a;
 }
 body.dark .button-primary {
-  background-color: #8FA18A;
-  border-color: #8FA18A;
-  color: #2F3A2D;
+  background-color: #768571;
+  border-color: #768571;
+  color: #FFFDF6;
 }
 body.dark .button-primary:hover, body.dark .button-primary:focus {
-  background-color: #A8B5A2;
-  border-color: #A8B5A2;
+  background-color: #4f5f4a;
+  border-color: #4f5f4a;
 }
 
 /* Secondary action buttons */
@@ -323,7 +332,7 @@ body.dark .button-primary:hover, body.dark .button-primary:focus {
 }
 .button-secondary:hover, .button-secondary:focus {
   background-color: #E4EBE1;
-  border-color: #A8B5A2;
+  border-color: #6a7566;
 }
 body.dark .button-secondary {
   color: #F5F3EA;
@@ -331,7 +340,7 @@ body.dark .button-secondary {
 }
 body.dark .button-secondary:hover, body.dark .button-secondary:focus {
   background-color: #2F3A2D;
-  border-color: #8FA18A;
+  border-color: #768571;
 }
 
 .main-home-layout, .hero, .featured-books, .about-preview {
@@ -432,14 +441,20 @@ body.dark .book-image-wrapper {
 .book-card-content h3 {
   margin: 0;
   line-height: 1.2;
-  min-height: 4rem;
+  min-height: 4.25rem;
 }
 
 /* ALL text, to match with script.js */
 .book-meta {
-  margin: 0 0 0.65rem 0;
+  margin: 0 0 0.9rem 0;
   font-size: 0.875rem;
-  line-height: 2;
+  line-height: 2.5;
+}
+
+/* AI suggestion - to ensure enough space is allocated to the book synopsis and prevent layout issues when descriptions are longer
+   This also helps maintain consistent card heights across the grid, improving visual balance */
+.book-card-content .book-meta:nth-of-type(2) {
+  min-height: 5rem;
 }
 
 .book-card-content p {
@@ -480,6 +495,7 @@ body.dark .genre-tag {
   border-radius: 0.85rem;
 }
 body.dark .filter-button {
+  background-color: transparent;
   color: #F5F3EA;
   border-color: #2F3A2D;
 }
@@ -487,15 +503,15 @@ body.dark .filter-button {
 .filter-button.active,
 .filter-button:hover,
 .filter-button:focus {
-  background-color: #A8B5A2;
+  background-color: #6a7566;
   color: #FFFDF6;
-  border-color: #A8B5A2;
+  border-color: #6a7566;
 }
 body.dark .filter-button.active,
 body.dark .filter-button:hover,
 body.dark .filter-button:focus {
-  background-color: #8FA18A;
-  border-color: #8FA18A;
+  background-color: #768571;
+  border-color: #768571;
 }
 
 /* Forms */
@@ -527,13 +543,13 @@ input:focus,
 textarea:focus,
 select:focus {
   outline: none;
-  border-color: #A8B5A2;
+  border-color: #6a7566;
   box-shadow: 0 0 0 3px rgba(168, 181, 162, 0.2);
 }
 body.dark input:focus,
 body.dark textarea:focus,
 body.dark select:focus {
-  border-color: #8FA18A;
+  border-color: #768571;
 }
 
 textarea {
@@ -772,13 +788,13 @@ body.dark .contact-info-box a {
   left: 1rem;
   top: 1rem;
   z-index: 9999;
-  background-color: #A8B5A2;
+  background-color: #6a7566;
   color: #FFFDF6;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
 }
 body.dark .skip-link:focus {
-  background-color: #8FA18A;
+  background-color: #768571;
   color: #F5F3EA;
 }
 
