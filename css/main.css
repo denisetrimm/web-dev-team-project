@@ -26,6 +26,12 @@
    LAYOUT STYLES
    Contains page structure, spacing, wrappers, and responsive layout rules
    ====================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 /* ===================================
    MAIN PAGE LAYOUT
 =================================== */
@@ -101,6 +107,10 @@ body {
   color: #494949;
   margin: 0.25rem;
   padding: 0.25rem;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  margin: 0;
 }
 
 body.dark,
@@ -156,13 +166,13 @@ h4 {
   display: inline-block;
   text-decoration: none;
   transition: 0.25s ease;
+  border-radius: 0.25rem;
 }
 
 button {
   background-color: #A8B5A2;
   color: #FFFDF6;
   border: 1px solid #A8B5A2;
-  font-family: "Montserrat", sans-serif;
 }
 button:hover, button:focus {
   background-color: #8FA18A;
@@ -225,6 +235,13 @@ body.dark .tagline {
 .logo-link {
   text-decoration: none;
   text-align: center;
+}
+
+.navButtons.active {
+  border-bottom: 2px solid #A8B5A2;
+}
+body.dark .navButtons.active {
+  border-bottom: 2px solid #8FA18A;
 }
 
 /* ===================================
@@ -317,6 +334,29 @@ body.dark .button-secondary:hover, body.dark .button-secondary:focus {
   border-color: #8FA18A;
 }
 
+.main-home-layout, .hero, .featured-books, .about-preview {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.feature-book-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .feature-book-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .feature-book-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 /* Book grids and cards */
 .book-grid {
   display: grid;
@@ -406,38 +446,15 @@ body.dark .book-image-wrapper {
   line-height: 1.45;
 }
 
+.add-cart-btn {
+  border-radius: 999px;
+}
+
 /* Add to Cart button */
 .add-cart-button-wrap {
   text-align: center;
   margin-top: auto;
   padding-top: 0.5rem;
-}
-
-.add-cart-link {
-  display: inline-block;
-  padding: 0.35rem 0.8rem;
-  color: #494949;
-  border: 1px solid #A8B5A2;
-  font-family: "Montserrat", sans-serif;
-  font-size: 0.875rem;
-  font-weight: 600;
-  align-self: center;
-}
-body.dark .add-cart-link {
-  color: #F5F3EA;
-  border-color: #2F3A2D;
-}
-
-.add-cart-link:hover,
-.add-cart-link:focus {
-  background-color: #A8B5A2;
-  color: #FFFDF6;
-  border-color: #A8B5A2;
-}
-body.dark .add-cart-link:hover,
-body.dark .add-cart-link:focus {
-  background-color: #8FA18A;
-  border-color: #8FA18A;
 }
 
 /* Genre tags */
@@ -455,7 +472,6 @@ body.dark .genre-tag {
 
 /* Filter buttons */
 .filter-button {
-  width: 100%;
   background-color: transparent;
   color: #494949;
   border: 1px solid rgba(73, 73, 73, 0.16);
@@ -486,6 +502,8 @@ body.dark .filter-button:focus {
 input,
 textarea,
 select {
+  display: block;
+  box-sizing: border-box;
   width: 100%;
   padding: 0.5rem;
   margin-top: 6px;
@@ -618,13 +636,39 @@ body.dark #cart-items {
   border-radius: 0.5rem;
 }
 
+.empty-cart {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.quantity-btn {
+  padding: 0.25rem 0.5rem;
+}
+
+.quantity {
+  margin: 0.25rem;
+}
+
+.cart-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 1.5rem;
+}
+
+.cart-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
 /* ===================================
    CONTACT PAGE (specific styling)
 =================================== */
 .contact-container {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 5rem;
+  gap: 1.5rem;
   align-items: stretch;
   margin: 2rem auto;
 }
@@ -632,6 +676,12 @@ body.dark #cart-items {
   .contact-container {
     grid-template-columns: 1fr 1fr;
   }
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .contact-page .contact-card {
@@ -656,7 +706,6 @@ body.dark .contact-page .contact-card {
 .contact-page textarea,
 .contact-page select {
   width: 100%;
-  max-width: 500px;
   margin-bottom: 0.25rem;
 }
 
@@ -697,12 +746,17 @@ body.dark .contact-info-box a {
 
 .contact-right img {
   width: 100%;
-  height: 270px;
-  border-radius: 1.25rem;
   display: block;
   -o-object-fit: contain;
      object-fit: contain;
   flex-grow: 1;
+}
+
+.form-btn-wrap {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 /* ===================================

@@ -15,11 +15,11 @@
 		<title>Chapter One | Contact Us</title>
 		<link rel="icon" href="../images/site-favicon.ico" type="image/x-icon" />
 		<link rel="stylesheet" href="../css/main.css" />
-		<script type="module" defer src="../js/script.js"></script>
+		<script type="module" src="../js/script.js"></script>
 	</head>
 
 	<body>
-		<header class="site-header" role="banner">
+		<header class="site-header">
 			<div class="header-left">
 				<a class="logo-link" href="index.html">
 					<img
@@ -35,7 +35,7 @@
 				<h1>Chapter One</h1>
 			</div>
 
-			<nav id="main-nav" role="navigation" aria-label="Main Navigation">
+			<nav id="main-nav" aria-label="Main Navigation">
 				<!-- TODO finish styling nav-item, nav-link, and active classes-->
 				<a href="index.html" class="navButtons">Home</a>
 				<a href="books.html" class="navButtons">Books</a>
@@ -63,13 +63,12 @@
 						</p>
 
 						<form aria-labelledby="contact-heading" id="contact-form-id">
-							<fieldset aria-labelledby="contactFormLegend">
+							<fieldset>
 								<label for="fullName">Full Name</label>
 								<input
 									type="text"
 									id="fullName"
 									name="fullName"
-									aria-required="true"
 									autocomplete="name"
 									placeholder="Jane Austen"
 									data-tooltip="Enter your full name"
@@ -80,7 +79,6 @@
 									type="email"
 									id="email"
 									name="email"
-									aria-required="true"
 									autocomplete="email"
 									placeholder="jane.austen@mail.com"
 									aria-describedby="emailHelp"
@@ -96,7 +94,6 @@
 									id="inquiryType"
 									name="inquiryType"
 									data-tooltip="Select the reason for your inquiry"
-									aria-required="true"
 									required
 								>
 									<option value="">Select an option</option>
@@ -110,7 +107,6 @@
 								<textarea
 									id="message"
 									name="message"
-									aria-required="true"
 									required
 								></textarea>
 							</fieldset>
@@ -146,14 +142,14 @@
 					</section>
 					<img
 						src="../images/contact-us.jpg"
-						alt="Photo of the interior of Chapter One bookstore"
+						alt="Interior of Chapter One bookstore in Montreal"
 						height="350"
 					/>
 				</div>
 			</section>
 		</main>
 
-		<footer class="site-footer" role="contentinfo">
+		<footer class="site-footer">
 			<!-- AI suggestion - to create distinct columns in the footer, each section is assigned a class of "footer-column" and wrapped inside a 
 			    container to allow for a responsive grid layout -->
 			<div class="footer-grid">
