@@ -678,40 +678,6 @@ body.dark #cart-items {
   gap: 1rem;
 }
 
-/* Responsive adjustments for cart page on mobile and tablet */
-@media (min-width: 0px) and (max-width: 1023px) {
-  #cart-items {
-    padding: 1rem;
-  }
-  #cart-items table,
-  #cart-items thead,
-  #cart-items tbody,
-  #cart-items tr,
-  #cart-items th,
-  #cart-items td {
-    display: block;
-    width: 100%;
-  }
-  #cart-items thead {
-    display: none;
-  }
-  #cart-items tr {
-    margin-bottom: 1.5rem;
-  }
-  #cart-items td {
-    padding-bottom: 0.5rem;
-  }
-  .cart-actions {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.5rem;
-  }
-  .cart-actions button,
-  #clear-btn,
-  #checkout-btn {
-    width: 100%;
-  }
-}
 /* ===================================
    CONTACT PAGE (specific styling)
 =================================== */
