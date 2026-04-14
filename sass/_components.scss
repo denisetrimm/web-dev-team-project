@@ -628,6 +628,43 @@ label {
    gap: $space-md;
 }
 
+/* cart responsiveness */
+@include screen-size('mobile and tablet') {
+   #cart-items {
+      padding: $space-md;
+   }
+
+   #cart-items table, 
+   #cart-items thead, 
+   #cart-items tbody, 
+   #cart-items tr, 
+   #cart-items th, 
+   #cart-items td { 
+      display: block; 
+      width: 100%; 
+   } 
+   
+   #cart-items thead { // removes table headers on mobile since they won't align with the new block layout 
+      display: none; 
+   } 
+
+   #cart-items tr {
+   padding-bottom: $space-md; // adds space between items in the cart for better readability
+   }
+   
+   .cart-actions { 
+      flex-direction: column; 
+      align-items: stretch; 
+      gap: $space-sm; 
+   } 
+   
+   .cart-actions button, 
+   #clear-btn, 
+   #checkout-btn { 
+      width: 100%; 
+   }
+}
+
 
 /* ===================================
    CONTACT PAGE (specific styling)
