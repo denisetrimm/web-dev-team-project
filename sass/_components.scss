@@ -324,13 +324,18 @@ main {
       background-color: $dark-cards;
       border-color: $dark-color-border;
    }
-}
-
-/* Hover effect for book cards */
-.book-card:hover,
-.book-card:focus-within {
-   transform: translateY(-6px); // AI suggestion - makes the card lift slightly on hover for interactivity
-   box-shadow: 0 10px 20px $color-shadow;
+   /* Hover effect for book cards */
+   &:hover{
+      transform: translateY(-6px); // AI suggestion - makes the card lift slightly on hover for interactivity
+      box-shadow: 0 8px 16px $color-shadow;
+   }
+   &:focus-within {
+      transform: translateY(-6px); // AI suggestion - makes the card lift slightly on hover for interactivity
+      box-shadow: 0 10px 20px $color-shadow;
+   }
+   &:not(:hover){
+      transform: translate(0);
+   }
 }
 
 /* Book cover images */
@@ -387,41 +392,23 @@ main {
    line-height: 1.45;
 }
 
+/* Add to Cart button */
 .add-cart-btn {
    border-radius: $radius-pill;
+   margin-top: auto;
+   &:active {
+      transform: scale(.96);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+   }
+   &:not(:hover){
+      background-color: $accent-sage;
+   }
+   @include dark-theme {
+      &:not(:hover){
+         background-color: $accent-sage-dark;
+      }
+   }
 }
-/* Add to Cart button */
-.add-cart-button-wrap {
-   text-align: center; // centers the button within the card content area
-   margin-top: auto; // AI suggestion - pushes the button to the bottom of the card content area
-   padding-top: $space-sm; // AI suggestion - adds space between the book meta and the button
-}
-
-// .add-cart-link {
-//    display: inline-block;
-//    padding: 0.35rem 0.8rem;
-//    color: $color-text;
-//    border: 1px solid $accent-sage;
-//    font-family: $font-body;
-//    font-size: $font-size-small;
-//    font-weight: 600;
-//    align-self: center; // AI suggestion; centers the link within the card content area
-//    @include dark-theme {
-//       color: $dark-text;
-//       border-color: $dark-color-border;
-//    }
-// }
-
-// .add-cart-link:hover,
-// .add-cart-link:focus {
-//    background-color: $accent-sage;
-//    color: $light-highlight;
-//    border-color: $accent-sage;
-//    @include dark-theme {
-//       background-color: $accent-sage-dark;
-//       border-color: $accent-sage-dark;
-//    }
-// }
 
 /* Genre tags */
 .genre-tag {
