@@ -256,16 +256,6 @@ const findBookById = (id) => {
 	return BOOKS.find((book) => book.id === id);
 };
 
-// const addToCartToast = (bookTitle) => {
-// 	const toast = document.getElementById("add-to-cart-toast");
-// 	if (!toast) return; // Ensure the toast element exists
-// 	toast.textContent = `${bookTitle} ${TEXT.addBookToCart}`;
-// 	toast.classList.add("show");
-// 	setTimeout(() => {
-// 		toast.classList.remove("show");
-// 	}, 3000);
-// };
-
 const addToCart = (bookId) => {
 	const cart = getCart();
 	// Check if the book is already in the cart
@@ -279,8 +269,6 @@ const addToCart = (bookId) => {
 		newBook && cart.push({ id: newBook.id, quantity: 1 });
 	}
 	setCart(cart);
-	// const bookName = findBookById(bookId);
-	// addToCartToast(bookName.title || "Book");
 };
 
 // ============================================================
