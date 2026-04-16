@@ -316,7 +316,7 @@ const refreshCartPage = () => {
 				</td>
 				<td>$${book.price.toFixed(2)}</td>
 				<!-- AI suggestion - combine quantity controls into a single table cell for better UX and cleaner code + data change attributes to specify the change in quantity instead of separate increase/decrease buttons -->
-				<td>
+				<td class="cart-quantity">
 					<button class="quantity-btn" data-book-id="${book.id}" data-change="-1" aria-label="Decrease quantity of ${book.title}">-</button>
 					<span class="quantity">${cartBook.quantity}</span>
 					<button class="quantity-btn" data-book-id="${book.id}" data-change="1" aria-label="Increase quantity of ${book.title}">+</button>
