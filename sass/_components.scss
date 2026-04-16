@@ -266,7 +266,8 @@ main {
 
    @include dark-theme {
       color: $dark-text;
-      border-color: $dark-color-border;
+      border: 2px solid $dark-color-border;
+      background-color: $dark-cards;
 
       &:hover,
       &:focus {
@@ -617,26 +618,40 @@ label {
 
 /* cart responsiveness */
 @include screen-size('mobile and tablet') {
-   #cart-items {
-      padding: $space-md;
-   }
-
-   #cart-items table, 
-   #cart-items thead, 
-   #cart-items tbody, 
-   #cart-items tr, 
-   #cart-items th, 
-   #cart-items td { 
-      display: block; 
-      width: 100%; 
+   table, 
+   thead, 
+   tbody, 
+   tr, 
+   th, 
+   td { 
+      display: flex;
+      flex-direction: column;
+      align-items: center;     
    } 
    
-   #cart-items thead { // removes table headers on mobile since they won't align with the new block layout 
+   thead { 
+      // removes table headers on mobile since they won't align with the new block layout 
       display: none; 
    } 
 
-   #cart-items tr {
-   padding-bottom: $space-md; // adds space between items in the cart for better readability
+   tr { 
+      // adds space between items in the cart for better readability
+      padding: $space-md 0;
+   }
+
+   tr:not(:last-child) {
+      // Add a separator on mobile between book details
+      border-bottom: 2px solid $color-border;
+   }
+
+   tr p {
+      margin-top: 0;
+   }
+
+   .cart-quantity {
+      display: flex; 
+      flex-direction: row;
+      gap: 0.5rem;
    }
    
    .cart-actions { 
@@ -646,7 +661,7 @@ label {
    } 
    
    .cart-actions button, 
-   #clear-btn, 
+   #clear-btn,
    #checkout-btn { 
       width: 100%; 
    }
