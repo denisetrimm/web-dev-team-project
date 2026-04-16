@@ -266,7 +266,8 @@ main {
 
    @include dark-theme {
       color: $dark-text;
-      border-color: $dark-color-border;
+      border: 2px solid $dark-color-border;
+      background-color: $dark-cards;
 
       &:hover,
       &:focus {
@@ -617,7 +618,6 @@ label {
 
 /* cart responsiveness */
 @include screen-size('mobile and tablet') {
-
    table, 
    thead, 
    tbody, 
@@ -626,8 +626,7 @@ label {
    td { 
       display: flex;
       flex-direction: column;
-      align-items: center;
-            
+      align-items: center;     
    } 
    
    thead { 
@@ -662,12 +661,10 @@ label {
    } 
    
    .cart-actions button, 
-   #clear-btn, 
+   #clear-btn,
    #checkout-btn { 
       width: 100%; 
    }
-
-
 }
 
 
