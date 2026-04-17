@@ -1,8 +1,11 @@
 # Chapter One | Online Bookstore
 
 ## About
+
 Project: Chapter One – Independent Bookstore Website
+
 Course: Web Development
+
 Students: Alessandra Spino, Denise Trimm
 
 ## Project Scope & Vision
@@ -77,9 +80,19 @@ web-dev-team-project/
 └── media/
 
 ```
-<!-- TODO - Maybe remove media folder as it is unused -->
-## Wireframes
-Basic balsamiq wireframes can be found [here](wireframes.pdf).
+### Wireframes
+
+View the [initial wireframes](wireframes.pdf).
+
+### Github repo
+
+View the [Github repo for this project](https://github.com/denisetrimm/web-dev-team-project).
+
+### SASS installation for development
+
+1. Ensure SASS is installed `npm install -g sass`
+2. Compile SASS to CSS and watch for changes `sass sass/main.scss css/main.css --watch`
+
 ---
 
 ## Collaboration Summary
@@ -93,11 +106,8 @@ Version control (GitHub) was used throughout the project to manage updates, trac
 
 Overall, the collaboration was cooperative, with both members contributing to the final result while focusing on different aspects of the project, such as functionality, layout, styling, and accessibility.
 
----
 
-## SASS installation for development
-1. Ensure SASS is installed `npm install -g sass`
-2. Compile SASS to CSS and watch for changes `sass sass/main.scss css/main.css --watch`
+
 
 
 
